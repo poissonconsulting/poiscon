@@ -1,0 +1,58 @@
+Package: poiscon
+Type: Package
+Title: Poisson Consulting's Utility Function
+Version: 0.2.5
+Date: 2013-08-21
+Author: Joe Thorley <joe@poissonconsulting.ca>
+Maintainer: Joe Thorley <joe@poissonconsulting.ca>
+Description: This is a package of utility functions to simplify data loading
+    and saving, data manipulation, JAGS analyses and plotting. It is so named
+    because it was developed for use by the employees of Poisson Consulting
+    Ltd.
+Imports:
+    RODBC,
+    stringr,
+    lubridate,
+    reshape2,
+    grid,
+    plyr,
+    ggplot2,
+    scales,
+    stringr
+License: MIT
+Collate:
+    'load.r'
+    'save.r'
+    'get-folders.r'
+    'reset-folders.r'
+    'set-folders.r'
+    'save-plots.r'
+    'save-tables.r'
+    'datetime.r'
+    'gwindow.r'
+    'do-plot-analyses.r'
+    'combine-date-time.r'
+    'dayte.r'
+    'doy.r'
+    'export_plots.r'
+    'theme-Poisson.r'
+    'utils.r'
+    'hdata.r'
+    'read-square-data.r'
+    'write-hdata.r'
+    'dayte-time.r'
+    'standard-time.r'
+    'do-analysis.r'
+    'input-hobo-csvs.r'
+    'is-predictive.r'
+    'theme-Golder.r'
+    'plot-residuals.r'
+    'read-zrxp.r'
+    'download_bch_data.r'
+    'plot_bch_data.r'
+    'read_bch_data.r'
+    'upload_bch_data.r'
+    'write_bch_data.r'
+    'read-cpc-data.r'
+    'read-hobo-data.r'
+    'spawn_year.r'
