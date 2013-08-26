@@ -1,4 +1,5 @@
 
+#' @export
 theme_Poisson<-function (base_size = 10, base_family = 'Arial') {           
   theme(
     line = element_line(
@@ -49,6 +50,7 @@ theme_Poisson<-function (base_size = 10, base_family = 'Arial') {
     complete = TRUE)
 }
 
+#' @export
 palette_Poisson <- function () {
   return (c("black","red","blue","darkgreen"))
 }
