@@ -1,5 +1,4 @@
 
-#' @export
 get_rdata_folder<-function () {
   dir.create(paste0(getOption ("folders.rdata_directory"),'/',getOption ("folders.rdata_folder")),recursive=T,showWarnings=F)
   
@@ -8,7 +7,6 @@ get_rdata_folder<-function () {
   return (paste0(getOption ("folders.rdata_directory"),'/',getOption ("folders.rdata_folder")))
 }
 
-#' @export
 get_analyses_folder<-function () {
   dir.create(paste0(getOption ("folders.analyses_directory"),'/',getOption ("folders.analyses_folder")),recursive=T,showWarnings=F)
   
@@ -17,7 +15,6 @@ get_analyses_folder<-function () {
   return (paste0(getOption ("folders.analyses_directory"),'/',getOption ("folders.analyses_folder")))
 }
 
-#' @export
 get_plots_folder<-function (type='figures')
 {    
   stopifnot(type %in% c('data','analyses','figures','slides'))
@@ -29,7 +26,6 @@ get_plots_folder<-function (type='figures')
   return (paste0(getOption ("folders.plots_directory"),'/',type,'/',getOption ("folders.plots_folder")))
 }
 
-#' @export
 get_tables_folder<-function (type='results')
 {
   stopifnot(type %in% c('data','analyses','results'))
