@@ -48,40 +48,6 @@ save_plot<-function (name='plot', type='figures', dwidth=NULL, dheight=NULL, sli
 }
 
 #' @export
-resave_plots <- function () {
-  dir <- '../plots/figures'
-  folders <- list.files(dir)
-  
-  if (.Platform$OS.type == "unix") {
-    windows <- function (width = 7, height = 7,...) {
-      quartz (width=width, height=height, ...)
-    }
-  }
-  
-  for (folder in folders) {
-    d <- paste0(dir,'/',folder)
-    fs <- list.dirs(d,recursive = FALSE)
-    
-    for (f in fs) {
-      filename <- paste0(f)
-      gp <- readRDS(file=paste0(filename,'/gp','.rds'))
-      width <- gp$width
-      height <- gp$height
-      dpi <- gp$dpi
-      gp <- gp$ggplot
-      
-      windows (width = width, height = height)
-      print(gp)
-      
-      ggsave(paste0(filename, '.png'), width = width, height = height, dpi = dpi)
-      
-      graphics.off()     
-    }
-  }
-  invisible (folders)
-}
-
-#' @export
 save_table<-function (object, name='table', type='results', row.names = FALSE) {
   object <- as.data.frame(object)
   filename <- paste0(get_tables_folder(type=type), '/', name,'.csv')
