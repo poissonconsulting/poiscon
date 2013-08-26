@@ -26,7 +26,7 @@ reset_dirs <- function (share = FALSE) {
   if(length(share) != 1)
     stop("share must be a logical vector of length one")
   
-  if(is.na(share) != 1)
+  if(is.na(share))
     stop("share must be TRUE or FALSE")
   
   if(share) {
