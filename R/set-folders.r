@@ -1,5 +1,4 @@
 
-#' @export
 set_rdata_folder <- function (..., dir = getOption ("folders.rdata_directory")) {
   folder <- paste(..., sep = '/')
   if (!length(folder))
@@ -10,7 +9,6 @@ set_rdata_folder <- function (..., dir = getOption ("folders.rdata_directory")) 
   invisible ()
 }
 
-#' @export
 set_analyses_folder<-function (..., dir = getOption ("folders.analyses_directory")) {
   folder <- paste(..., sep = '/')
   if (!length(folder))
@@ -21,7 +19,6 @@ set_analyses_folder<-function (..., dir = getOption ("folders.analyses_directory
   invisible ()
 }
 
-#' @export
 set_plots_folder<-function (..., dir = getOption ("folders.plots_directory")) {
   folder <- paste(..., sep = '/')
   if (!length(folder))
@@ -32,7 +29,6 @@ set_plots_folder<-function (..., dir = getOption ("folders.plots_directory")) {
   invisible ()
 }
 
-#' @export
 set_tables_folder<-function (..., dir = getOption ("folders.tables_directory")) {
   folder <- paste(..., sep = '/')
   if (!length(folder))
