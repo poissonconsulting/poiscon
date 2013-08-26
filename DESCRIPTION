@@ -1,8 +1,8 @@
 Package: poiscon
 Type: Package
 Title: Poisson Consulting's Utility Function
-Version: 0.2.5
-Date: 2013-08-21
+Version: 0.2.6
+Date: 2013-08-26	
 Author: Joe Thorley <joe@poissonconsulting.ca>
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
 Description: This is a package of utility functions to simplify data loading
@@ -33,7 +33,6 @@ Collate:
     'combine-date-time.r'
     'dayte.r'
     'doy.r'
-    'export_plots.r'
     'theme-Poisson.r'
     'utils.r'
     'hdata.r'
@@ -56,3 +55,4 @@ Collate:
     'read-hobo-data.r'
     'spawn_year.r'
     'reset-dirs.r'
+    'resave-plots.r'
