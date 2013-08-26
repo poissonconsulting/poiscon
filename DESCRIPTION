@@ -24,7 +24,6 @@ Collate:
     'load.r'
     'save.r'
     'get-folders.r'
-    'reset-folders.r'
     'set-folders.r'
     'save-plots.r'
     'save-tables.r'
@@ -56,3 +55,4 @@ Collate:
     'read-cpc-data.r'
     'read-hobo-data.r'
     'spawn_year.r'
+    'reset-dirs.r'
