@@ -1,7 +1,6 @@
 
-
 #' @export
-upload_bch_data <- function (data, access_file = "../../../bchydro_data_12/data/based/ColDuncEnv.accdb")
+upload_bch_data <- function (data, access_file = "../../../bchydro_data_12/data/based/upload/ColDuncEnv.accdb")
 {
   if (!inherits(data,"data.frame"))
     stop("data must be class data.frame")
