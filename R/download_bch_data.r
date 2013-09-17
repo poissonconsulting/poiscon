@@ -2,7 +2,7 @@
 #' @export
 download_bch_data <- function (code = "DDM", period = "hourly", 
       startDate = as.Date("2013-01-01"), endDate = Sys.Date(), status = "questionable", surrogate = "questionable", add_spaces = TRUE,
-      access_file = "../../data/based/ColDuncEnv.accdb")
+      access_file = "../../../bchydro_data_12/data/based/download/ColDuncEnv.accdb")
 { 
   if(.Platform$OS.type != "windows")
     stop("only available for windows")
