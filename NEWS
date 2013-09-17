@@ -1,4 +1,8 @@
 
+poiscon 0.2.10
+
+* upload_bch_data and download_bch_data now got to different databases by default
+
 poiscon initial
 ===========
 
