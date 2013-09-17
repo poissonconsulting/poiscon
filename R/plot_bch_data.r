@@ -19,6 +19,9 @@ plot_bch_data <- function (data, file = NULL)
   if(is.null(file))
     file <- format(min(data$Timing), format = "%Y-%m-%d")
   
+  if(substr(file,nchar(file)-3,nchar(file)) == ".pdf")
+    file <- substr(file,1,nchar(file)-4)
+  
   pdf(paste0(file,".pdf"))
   on.exit(dev.off())
   
