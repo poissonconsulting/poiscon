@@ -1,7 +1,7 @@
 Package: poiscon
 Type: Package
 Title: Poisson Consulting's Utility Function
-Version: 0.2.10
+Version: 0.2.11
 Date: 2013-09-16
 Author: Joe Thorley <joe@poissonconsulting.ca>
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
