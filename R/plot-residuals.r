@@ -1,9 +1,7 @@
 
 #' @export
 plot_residuals <- function (object, model_number = 1, parm_residual = "residual", parm_fitted = "prediction",  name = "residuals", derived_code = NULL, random_effects = NULL, level = "current", ...) {
-  
-  stopifnot(is.jags_analysis(object))
-  
+    
   data <- residuals (object, model_number = model_number, parm = parm_residual,
                     derived_code = derived_code, random_effects = random_effects,
                     level = level, ...)
