@@ -1,17 +1,18 @@
 
 #' @export
-plot_residuals <- function (object, model_number = 1, parm_residual = "residual", parm_fitted = "prediction",  name = "residuals", derived_code = NULL, random_effects = NULL, level = "current", ...) {
-    
-  data <- residuals (object, model_number = model_number, parm = parm_residual,
+plot_residuals <- function (object, model_number = 1, parm_residual = "residual", parm_fitted = "prediction",  name = "residuals", derived_code = NULL, random_effects = NULL, level = "current", data = NULL, ...) {
+      
+  res <- residuals (object, model_number = model_number, parm = parm_residual,
                     derived_code = derived_code, random_effects = random_effects,
-                    level = level, ...)
+                    level = level, data = data, ...)
+  
   fit <- fitted (object, model_number = model_number, parm = parm_fitted,
                  derived_code = derived_code, random_effects = random_effects,
-                 level = level, ...)
+                 level = level, data = data, ...)
   
-  data$fitted <- fit$estimate
+  res$fitted <- fit$estimate
     
-  names <- colnames(data)
+  names <- colnames(res)
   names <- names[!names %in% c("fitted","estimate","lower","upper","error","significance")]
   
   names <- c("fitted", names)
@@ -19,9 +20,9 @@ plot_residuals <- function (object, model_number = 1, parm_residual = "residual"
   file <- paste0(get_plots_folder(type = 'analyses'),'/',name,'.pdf')
   pdf(file=file,width=6,height=6)
   
-  range <- max(data$estimate,na.rm = T) - min(data$estimate,na.rm = T)
+  range <- max(res$estimate,na.rm = T) - min(res$estimate,na.rm = T)
   
-  gp <- ggplot(data = data, aes(x = estimate))
+  gp <- ggplot(data = res, aes(x = estimate))
   gp <- gp + geom_histogram(binwidth = range/30, color = "white")
   gp <- gp + geom_vline(xintercept = 0, color="grey50")
   gp <- gp + xlab("residual")
@@ -31,14 +32,14 @@ plot_residuals <- function (object, model_number = 1, parm_residual = "residual"
   print(gp)
   
   for (name in names) {
-    data$x <- data[[name]]
+    res$x <- res[[name]]
     
     width <- 0
-    if (is.factor(data$x)) {
+    if (is.factor(res$x)) {
       width <- 0.1
     } 
     
-    gp <- ggplot(data = data, aes(x = x, y = estimate))
+    gp <- ggplot(data = res, aes(x = x, y = estimate))
     gp <- gp + geom_hline(yintercept = 0,color="grey50")
     gp <- gp + geom_pointrange(aes(ymin = lower, 
                                    ymax = upper),
