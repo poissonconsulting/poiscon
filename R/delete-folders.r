@@ -15,16 +15,19 @@ delete_folders <- function () {
   
   reset_dirs()
   
-  folders <- c(get_rdata_folder(),
-               get_analyses_folder(),
-               get_plots_folder(),
-               get_tables_folder())
+  folders <- c(getOption ("folders.rdata_directory"),
+               getOption ("folders.analyses_directory"),
+               getOption ("folders.plots_directory"),
+               getOption ("folders.tables_directory"))
     
   folders <- paste(getwd(),folders,sep="/")
 
   folders <- str_replace(folders,"/R/..","")
   
+  dirs <- list.dirs(folders,full.names = TRUE, recursive = TRUE)
   files <- list.files(folders,full.names = TRUE, recursive = TRUE)
+  
+  files <- c(dirs, files)
   
   if(length(files) == 0) {
     cat("There are no files to delete")
@@ -33,8 +36,8 @@ delete_folders <- function () {
   
   cat(files)
   
-  if (yesno("Are you sure you want to delete all of the above files?"))
+  if (yesno("\n\nAre you sure you want to delete all of the above files?"))
     return (invisible(1))
 
-  return (unlink(files))
+  return (unlink(files, recursive = TRUE))
 }
