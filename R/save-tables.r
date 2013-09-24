@@ -8,7 +8,7 @@ save_tables<- function (object, ...) {
 #' @export
 save_tables.jags_analysis <- function (object) {
   
-  save_table(convergence(object),
+  save_table(rhat(object, combine = FALSE),
              'convergence',type='analyses', row.names = T
              )
   
