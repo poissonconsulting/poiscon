@@ -17,8 +17,7 @@ Imports:
     grid,
     plyr,
     ggplot2,
-    scales,
-    stringr
+    scales
 License: GPL-2
 Collate:
     'load.r'
