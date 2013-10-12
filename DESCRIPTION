@@ -55,3 +55,4 @@ Collate:
     'spawn_year.r'
     'reset-dirs.r'
     'resave-plots.r'
+    'delete-folders.r'
