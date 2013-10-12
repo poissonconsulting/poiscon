@@ -27,12 +27,13 @@ read_hobo_file <- function (file)
   colnames(dat)<-c("Timing","Level")
 
   dat$Level <- as.numeric(as.character(dat$Level))
-  dat$Timing <- as.POSIXct(as.character(dat$Timing))
+  dat$Timing <- as.POSIXct(as.character(dat$Timing),tz = "UTC")
+    
   dat$Timing <- dat$Timing - (8 + offset) * 3600
   
   dat$Variable <- variable
   dat$Logger <- logger
-
+  
   dat <- dat[order(dat$Timing, dat$Variable),]
   dat <- na.omit(dat)
   
