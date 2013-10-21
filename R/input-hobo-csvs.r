@@ -30,7 +30,7 @@ input_hobo_temperature_csv<-function (file, utc_offset = -8)
   
   data$File <- file
 
-  data <- na.omit(data)
+#  data <- na.omit(data)
      
   return (data)
 }
