@@ -40,3 +40,21 @@ load_plot <- function (name = "plot", type = "figures", ext = "rds") {
   warning (paste0("file ",file," does not exist"))
   return (invisible (NULL))
 }
+
+#' @title Load table
+#'
+#' @description 
+#' Reads in table.csv file from current table folder.
+#' 
+#' @param name the name of the table (without extension).
+#' @param type the table type i.e. results (default) or analysis etc.
+#' @return a data.frame object
+#' @export
+load_table <- function (name = "table", type = "results") {
+  
+  file <- paste0(get_tables_folder(type = type), "/", name, ".csv")
+  if (file.exists (file))
+    return (read.csv(file))
+  warning (paste0("file ",file," does not exist"))
+  return (invisible (NULL))
+}
