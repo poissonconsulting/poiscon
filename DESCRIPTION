@@ -10,18 +10,19 @@ Description: This is a package of utility functions to simplify data loading
     because it was developed for use by the employees of Poisson Consulting
     Ltd.
 Depends:
-    R (>= 3.0.0)
-Imports:
+    R (>= 3.0.0),
     RODBC,
     stringr,
     lubridate,
     reshape2,
-    grid,
     plyr,
     ggplot2,
     scales
+Imports:
+    grid
 Suggests:
-    testthat
+    testthat,
+    jaggernaut
 License: GPL-2
 Collate:
     'load.r'
@@ -62,3 +63,4 @@ Collate:
     'delete-folders.r'
     'sun-calc.r'
     'diel-period.r'
+    'expand-unique.r'
