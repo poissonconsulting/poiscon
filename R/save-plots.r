@@ -6,10 +6,10 @@ save_plots<- function (object, ...) {
 #' @S3method save_plots jags_analysis
 #' @method save_plots jags_analysis
 #' @export
-save_plots.jags_analysis <- function (object) {
+save_plots.jags_analysis <- function (object, model_number = 1) {
   file <- paste0(get_plots_folder(type = 'analyses'), '/trace.pdf')
   pdf(file=file,width=8.5,height=11)
-  plot(object)
+  plot(object, model_number = model_number)
   dev.off()
 }
 
