@@ -1,10 +1,19 @@
 
+#' @title Reset poiscon folders
+#'
+#' @description
+#' Resets poiscon folders to the default values. The folders are 
+#' used for saving plots, tables, rdata and analyses.
+#' 
+#' @return NULL
 #' @export
-reset_folders <- function (share = FALSE) {
-  
-  warning("reset_folders deprecated by reset_dirs")
+reset_folders <- function (dir = "output") {
+  set_rdata_folder (dir = paste0(dir,"/rdata"))
+  set_analyses_folder (dir = paste0(dir,"/analyses"))
+  set_plots_folder (dir = paste0(dir,"/plots"))
+  set_tables_folder (dir = paste0(dir,"/tables"))
 
-  return (reset_dirs(share = share))
+  invisible (NULL)
 }
 
 #' @title Reset poiscon directories
