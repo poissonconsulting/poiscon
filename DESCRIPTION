@@ -17,7 +17,9 @@ Depends:
     reshape2,
     plyr,
     ggplot2,
-    scales
+    scales,
+    devtools (>= 1.4),
+    packrat (>= 0.1.0)
 Imports:
     grid
 Suggests:
