@@ -4,7 +4,7 @@ delete_folders <- function () {
   
   yesno <- function(question) {
     yeses <- c("Yes", "Definitely", "For sure", "Yup", "Yeah")
-    nos <- c("No way", "Not yet", "I forgot", "No", "Nope")
+    nos <- c("No way", "Not yet", "Nah", "No", "Nope")
     
     cat(question)
     qs <- c(sample(yeses, 1), sample(nos, 2))
@@ -13,7 +13,7 @@ delete_folders <- function () {
     menu(qs[rand]) != which(rand == 1)
   }
   
-  reset_dirs()
+  set_folders()
   
   folders <- c(getOption ("folders.rdata_directory"),
                getOption ("folders.analyses_directory"),
@@ -21,8 +21,6 @@ delete_folders <- function () {
                getOption ("folders.tables_directory"))
     
   folders <- paste(getwd(),folders,sep="/")
-
-  folders <- str_replace(folders,"/R/..","")
   
   dirs <- list.dirs(folders,full.names = TRUE, recursive = TRUE)
   files <- list.files(folders,full.names = TRUE, recursive = TRUE)
