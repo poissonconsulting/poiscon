@@ -55,12 +55,14 @@ download_bch_data <- function (code = "DDM", period = "hourly",
   if(!surrogate %in% c("none","missing","erroneous","questionable","reasonable","duplicate"))
     stop("status must be none, missing, erroneous, questionable, reasonable or duplicate")
   
+  if(endDate > Sys.Date()) {
+    message("endDate set to current date")
+    endDate <- Sys.Date()
+  }
+  
   if(startDate >= endDate)
     stop("startDate must be less than endDate")
 
-  if(endDate > Sys.Date())
-    stop("endDate must be less than current date")
-  
   years <- lubridate::year(startDate):lubridate::year(endDate)
   
   status_arg <- status
