@@ -68,3 +68,4 @@ Collate:
     'sun-calc.r'
     'diel-period.r'
     'expand-unique.r'
+    'parallel.r'
