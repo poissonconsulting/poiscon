@@ -1,7 +1,7 @@
 Package: poiscon
 Type: Package
 Title: Poisson Consulting's Utility Function
-Version: 0.2.16
+Version: 0.2.17
 Date: 2013-11-22
 Author: Joe Thorley <joe@poissonconsulting.ca>
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
@@ -11,18 +11,19 @@ Description: This is a package of utility functions to simplify data loading
     Ltd.
 Depends:
     R (>= 3.0.0),
-    RODBC,
     stringr,
     lubridate,
     reshape2,
     plyr,
     ggplot2,
-    scales
+    scales,
+    jaggernaut,
+    packrat,
+    RODBC
 Imports:
     grid
 Suggests:
-    testthat,
-    jaggernaut
+    testthat
 License: GPL-2
 Collate:
     'load.r'
