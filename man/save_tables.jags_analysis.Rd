@@ -1,0 +1,22 @@
+\name{save_tables.jags_analysis}
+\alias{save_tables.jags_analysis}
+\title{Save tables}
+\usage{
+  \method{save_tables}{jags_analysis} (object,
+    model_number = 1, ...)
+}
+\arguments{
+  \item{object}{jags_analysis object to tables}
+
+  \item{model_number}{a integer scalar of the model number}
+
+  \item{...}{further arguments passed to or from other
+  methods.}
+}
+\value{
+  Save object as a tables.
+}
+\description{
+  Saves jags_analysis to tables
+}
+

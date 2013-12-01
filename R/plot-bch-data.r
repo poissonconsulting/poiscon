@@ -1,4 +1,12 @@
 
+#' @title Plotting BCH data
+#'
+#' @description
+#' Plots environmental data
+#'
+#' @param data a data.frame of the BCH data to plot.
+#' @param file a character scalar or NULL of the file name for the plot.
+#' @return The data is written to a pdf file.
 #' @export
 plot_bch_data <- function (data, file = NULL)
 {
@@ -28,8 +36,10 @@ plot_bch_data <- function (data, file = NULL)
   on.exit(dev.off())
   
   for (i in 1:length(variable)) {
-    dat <-  subset(data,Variable == variable[i])
-    gp <- ggplot2::ggplot(data = dat, ggplot2::aes(x = Timing, y = Level, color = Status))
+    dat <-  data[data$Variable == variable[i],]
+    gp <- ggplot2::ggplot(data = dat, ggplot2::aes_string(x = "Timing", 
+                                                          y = "Level", 
+                                                          color = "Status"))
     gp <- gp + ggplot2::geom_line()
     gp <- gp + ggplot2::scale_x_datetime(name = "Date",labels = scales::date_format("%Y-%m-%d"))  
     gp <- gp + ggplot2::scale_color_manual(values=c("black","grey50","red","blue","white"))  

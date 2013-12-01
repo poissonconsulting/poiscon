@@ -1,4 +1,22 @@
 
+#' @title Download BCH data
+#'
+#' @description
+#' Download data from environmental database
+#' 
+#' @param code a character vector of the station codes.
+#' @param period a character element of the period by default "hourly" but can also be
+#' "raw" and "daily".
+#' @param startDate a Date element of the beginning of the time series.
+#' @param endDate a Date element of the end of the time series. 
+#' By default the current date.
+#' @param status a character scalar indicating which type of values should be included.
+#' @param surrogate a character scalar indicating which type of values should be repalced by a surrogate if available.
+#' @param add_spaces a logical scalar indicating whether missing values should be 
+#' filled in with NAs. 
+#' @param access_file an character scalar indicating the path to the database.
+#' @return A data.frame object.
+#' @seealso \code{\link{dayte}}.
 #' @export
 download_bch_data <- function (code = "DDM", period = "hourly", 
       startDate = as.Date("2013-01-01"), endDate = Sys.Date(), status = "questionable", surrogate = "questionable", add_spaces = TRUE,
@@ -91,30 +109,30 @@ download_bch_data <- function (code = "DDM", period = "hourly",
   
   sql <- paste("SELECT * FROM",table_name,where)
   
-  db <- odbcConnectAccess2007(access_file)
+  db <- RODBC::odbcConnectAccess2007(access_file)
   
-  on.exit(odbcCloseAll())
+  on.exit(RODBC::odbcCloseAll())
   
-  if(!nrow(sqlTables(db, tableName = "Location")))
+  if(!nrow(RODBC::sqlTables(db, tableName = "Location")))
     stop("Location table is not defined")
   
-  location <- sqlFetch(db, sqtable = "Location", colnames = FALSE, rownames = TRUE)
+  location <- RODBC::sqlFetch(db, sqtable = "Location", colnames = FALSE, rownames = TRUE)
     
   unrec <- unique(code[!code %in% location$Code])
   
   if(length(unrec))
     stop(c("the following codes are unrecognized:",unrec))
   
-  location <- subset(location,Code %in% code)
+  location <- location[location$Code %in% code,]
   
-  if(!nrow(sqlTables(db, tableName = "Status")))
+  if(!nrow(RODBC::sqlTables(db, tableName = "Status")))
     stop("Status table is not defined")
   
-  status <- sqlFetch(db, sqtable = "Status", colnames = FALSE, rownames = TRUE)
+  status <- RODBC::sqlFetch(db, sqtable = "Status", colnames = FALSE, rownames = TRUE)
   
   status$Status_Description <- status$Description
   
-  data <- sqlQuery(db,sql)
+  data <- RODBC::sqlQuery(db,sql)
   
   if(is.null(data$Mon))
     data$Mon <- 1
@@ -159,8 +177,8 @@ download_bch_data <- function (code = "DDM", period = "hourly",
     is.na(data$Max[bol]) <- T
   }
   
-  surrogate_data <- subset(data,Surrogate != "no")
-  data <- subset(data, Surrogate == "no")
+  surrogate_data <- data[data$Surrogate != "no",]
+  data <- data[data$Surrogate == "no",]
   if(nrow(data) == 0)
     stop("all the data is surrogate")
   
@@ -201,12 +219,13 @@ download_bch_data <- function (code = "DDM", period = "hourly",
           
           return(d[1,,drop=FALSE])
         }
+        Code <- Timing <- NULL
         surrogate_data <- ddply(surrogate_data,.(Code,Timing), get_sur)
       }
 
       mer <- merge(subset(data,select=c("Code","Timing","Status")),
                    subset(surrogate_data,select=c("Code","Timing")))
-            
+      Status <- NULL      
       if (surrogate == "questionable") {
         mer <- subset(mer,Status %in% c("Questionable","Erroneous","Missing"))
       } else if (surrogate == "erroneous") {

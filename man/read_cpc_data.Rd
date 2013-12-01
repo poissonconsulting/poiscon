@@ -1,9 +1,8 @@
-\name{read_zrxp_data}
-\alias{read_zrxp}
-\alias{read_zrxp_data}
-\title{Read zrxp data into R}
+\name{read_cpc_data}
+\alias{read_cpc_data}
+\title{Read CPC data}
 \usage{
-  read_zrxp_data(file, recursive = FALSE, quiet = TRUE)
+  read_cpc_data(file, recursive = TRUE, quiet = TRUE)
 }
 \arguments{
   \item{file}{the location of the zxrp file or folder with
@@ -19,6 +18,6 @@
   the data in the form of a data.frame
 }
 \description{
-  Reads zrxp data into R
+  Reads CPC data into R
 }
 

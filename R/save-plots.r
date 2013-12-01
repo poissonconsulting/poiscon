@@ -1,22 +1,47 @@
+
+#' @title Save plots
+#'
+#' @description
+#' Plots object to a pdf file
+#' 
+#' @param object object to plot
+#' @param ... further arguments passed to or from other methods.
+#' @return Save plot as a pdf file.
 #' @export
 save_plots<- function (object, ...) {
   UseMethod("save_plots", object)
 }
 
-#' @S3method save_plots jags_analysis
+#' @title Save plots
+#'
+#' @description
+#' Plots jags_analysis object to a pdf file
+#' 
+#' @param object jags_analysis object to plot
+#' @param model_number a integer scalar of the model to plot
+#' @param ... further arguments passed to or from other methods.
+#' @return Saves jags_analysis as a pdf file.
 #' @method save_plots jags_analysis
 #' @export
-save_plots.jags_analysis <- function (object, model_number = 1) {
+save_plots.jags_analysis <- function (object, model_number = 1, ...) {
   file <- paste0(get_plots_folder(type = 'analyses'), '/trace.pdf')
   pdf(file=file,width=8.5,height=11)
   plot(object, model_number = model_number)
   dev.off()
 }
 
-#' @S3method save_plots data.frame
+#' @title Save plots
+#'
+#' @description
+#' Plots data.frame object to a pdf file
+#' 
+#' @param object data.frame object to plot
+#' @param name a character scalar of the file name.
+#' @param ... further arguments passed to or from other methods.
+#' @return Saves data.frame as a pdf file.
 #' @method save_plots data.frame
 #' @export
-save_plots.data.frame <- function (object, name = "data") {
+save_plots.data.frame <- function (object, name = "data", ...) {
   file <- paste0(get_plots_folder(type = 'data'),'/',name,'.pdf')
   pdf(file=file,width=6,height=6)
   
@@ -36,7 +61,7 @@ save_plots.data.frame <- function (object, name = "data") {
         height <- 0.1
       }        
 
-      gp <- ggplot(data = object, aes(x = x, y = y))
+      gp <- ggplot(data = object, aes_string(x = "x", y = "y"))
       gp <- gp + geom_point(alpha=1/2,
                             position=position_jitter(width=width, height=height))      
       gp <- gp + xlab(names[i])

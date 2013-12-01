@@ -1,45 +1,14 @@
 
-read_hobo_file <- function (file) 
-{
-  dat <- read.csv (file, header = FALSE)
-  
-  variable <- strsplit(file,split="/")[[1]]
-  variable <- variable[length(variable)-1]
-  
-  if(!variable %in% c("Lar23_GerrardViewingPlatform","Lar27_OtterRock","Lar50_Hwy50Sign"))
-      stop(paste("variable",variable,"not recognised"))
-
-  dat<-dat[,1:3]
-  
-  if(substr(dat[1,1],2,12) == "Plot Title:") {
-    logger <- substr(dat[1,1],14,nchar(as.character(dat[1,1])))
-    logger <- strsplit(logger,split="-")[[1]][2]
-    dat<-dat[-1,]	
-  } else {
-    if(dat[1,1]!='#') {
-      dat<-dat[-1,]	
-    }
-    logger<-as.numeric(strsplit(strsplit(as.character(dat[1,3]),":")[[1]][2],")")[[1]][1])
-  }
-  offset<-as.numeric(strsplit(strsplit(as.character(dat[1,2]),"GMT")[[1]][2],":")[[1]][1])
-  
-  dat<-dat[-1,2:3]
-  colnames(dat)<-c("Timing","Level")
-
-  dat$Level <- as.numeric(as.character(dat$Level))
-  dat$Timing <- as.POSIXct(as.character(dat$Timing),tz = "UTC")
-    
-  dat$Timing <- dat$Timing - (8 + offset) * 3600
-  
-  dat$Variable <- variable
-  dat$Logger <- logger
-  
-  dat <- dat[order(dat$Timing, dat$Variable),]
-  dat <- na.omit(dat)
-  
-  return (dat)
-}
-
+#' @title Read hobo data
+#'
+#' @description 
+#' Reads hobo data into R
+#' 
+#' @param file the location of the hobo file or folder with hobo files
+#' @param recursive a logical scalar indicating whether to read data from 
+#' subdirectories
+#' @param quiet a logical scalar indicating whether to provide messages 
+#' @return the data in the form of a data.frame
 #' @export
 read_hobo_data <- function (file, recursive = TRUE, quiet = TRUE)
 {

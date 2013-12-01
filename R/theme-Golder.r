@@ -1,4 +1,12 @@
 
+#' @title Theme Golder
+#'
+#' @description 
+#' A ggplot2 theme for Golder plots
+#' 
+#' @param base_size an integer scalar indicating the base font size.
+#' @param base_family a character scalar indicating the base font family.
+#' @return A ggplot2 theme.
 #' @export
 theme_Golder<-function (base_size = 10, base_family = 'Arial') {           
   theme(
@@ -50,6 +58,12 @@ theme_Golder<-function (base_size = 10, base_family = 'Arial') {
     complete = TRUE)
 }
 
+#' @title Palette Golder
+#'
+#' @description 
+#' A color palette for Golder plots
+#' 
+#' @return A vector of colors.
 #' @export
 palette_Golder <- function () {
   return (c("black","red","blue","yellow"))

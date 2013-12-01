@@ -14,6 +14,16 @@ read_cpc_file <- function (file)
   return (dat)
 }
 
+#' @title Read CPC data
+#'
+#' @description 
+#' Reads CPC data into R
+#' 
+#' @param file the location of the zxrp file or folder with zxrp files
+#' @param recursive a logical scalar indicating whether to read data from 
+#' subdirectories
+#' @param quiet a logical scalar indicating whether to provide messages 
+#' @return the data in the form of a data.frame
 #' @export
 read_cpc_data <- function (file, recursive = TRUE, quiet = TRUE)
 {

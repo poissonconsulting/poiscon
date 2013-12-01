@@ -4,6 +4,10 @@
 \usage{
   reset_folders(dir = "output")
 }
+\arguments{
+  \item{dir}{a character scalar indicating the name of the
+  folders}
+}
 \value{
   NULL
 }

@@ -1,13 +1,24 @@
 
+#' @export
+read_zrxp <- function (file, recursive = FALSE, quiet = TRUE)
+{
+  warning("read_zrxp function is deprecated - use read_zrxp_data function instead")
+  return (read_zrxp_data(file = file, recursive = recursive, quiet = quiet))
+}
+
 #' @title Read zrxp data into R
 #'
 #' @description 
 #' Reads zrxp data into R
 #' 
 #' @param file the location of the zxrp file or folder with zxrp files
+#' @param recursive a logical scalar indicating whether to read data from 
+#' subdirectories
+#' @param quiet a logical scalar indicating whether to provide messages 
 #' @return the data in the form of a data.frame
+#' @aliases read_zrxp
 #' @export
-read_zrxp <- function (file, recursive = FALSE, quiet = TRUE)
+read_zrxp_data <- function (file, recursive = FALSE, quiet = TRUE)
 {
   if (!is.character(file)) 
     stop ("file must be class character")

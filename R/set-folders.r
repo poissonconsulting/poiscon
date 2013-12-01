@@ -39,7 +39,6 @@ set_tables_folder<-function (..., dir = getOption ("folders.tables_directory")) 
   invisible ()
 }
 
-#' @export
 set_folders <- function (...) {
   set_rdata_folder (...)
   set_analyses_folder (...)

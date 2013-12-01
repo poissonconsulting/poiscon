@@ -1,0 +1,18 @@
+\name{save_analysis}
+\alias{save_analysis}
+\title{Save analysis}
+\usage{
+  save_analysis(object, name = "analysis")
+}
+\arguments{
+  \item{object}{the object to save.}
+
+  \item{name}{a character scalar of the name of the file.}
+}
+\value{
+  Saves object as .rdata files in current analysis folder.
+}
+\description{
+  Saves object as .rdata files in current analysis folder.
+}
+

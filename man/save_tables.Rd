@@ -1,0 +1,19 @@
+\name{save_tables}
+\alias{save_tables}
+\title{Save tables}
+\usage{
+  save_tables(object, ...)
+}
+\arguments{
+  \item{object}{object to save tables}
+
+  \item{...}{further arguments passed to or from other
+  methods.}
+}
+\value{
+  Save object as a tables.
+}
+\description{
+  Saves object to a tables file
+}
+

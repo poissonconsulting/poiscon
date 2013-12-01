@@ -5,6 +5,7 @@
 #' Resets poiscon folders to the default values. The folders are 
 #' used for saving plots, tables, rdata and analyses.
 #' 
+#' @param dir a character scalar indicating the name of the folders
 #' @return NULL
 #' @export
 reset_folders <- function (dir = "output") {

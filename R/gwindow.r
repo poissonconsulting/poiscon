@@ -1,11 +1,13 @@
 
-#' Create new plotting window
+#' @title Plotting window
 #'
-#' Creates a new window for plotting
+#' @description
+#' Creates a new platform-independent window for plotting
 #'
-#' @param dwidth the proportion of the page width
-#' @param dheight the proprotion of the page height
-#' @param slide whether or not powerpoint slide (TRUE) versus plot
+#' @param dwidth a numeric scalar indicating the proportion of the page width
+#' @param dheight a numeric scalar indicating the proprotion of the page height
+#' @param slide a logical scalar indicating whether plot (the default) versus powerpoint slide.
+#' @return Creates a new window for plotting
 #' @export
 gwindow <- function (dwidth = 1, dheight = 1, slide = FALSE) {  
   

@@ -1,4 +1,12 @@
 
+#' @title Theme Poisson
+#'
+#' @description 
+#' A ggplot2 theme for Poisson plots
+#' 
+#' @param base_size an integer scalar indicating the base font size.
+#' @param base_family a character scalar indicating the base font family.
+#' @return A ggplot2 theme.
 #' @export
 theme_Poisson<-function (base_size = 10, base_family = 'Arial') {           
   theme(
@@ -50,6 +58,12 @@ theme_Poisson<-function (base_size = 10, base_family = 'Arial') {
     complete = TRUE)
 }
 
+#' @title Palette Poisson
+#'
+#' @description 
+#' A color palette for Poisson plots
+#' 
+#' @return A vector of colors.
 #' @export
 palette_Poisson <- function () {
   return (c("black","red","blue","darkgreen"))

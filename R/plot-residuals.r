@@ -1,4 +1,26 @@
 
+#' @title Plot residuals
+#'
+#' @description 
+#'Save residual plots from a jaggernaut jags_analysis object to a pdf file.
+#' 
+#' @param object a jags_analysis object.
+#' @param model_number an integer vector specifying the model to select. 
+#' If model_number = 0 then it selects the model with the lowest DIC.
+#' @param parm_residual a character element naming the residuals parameter.
+#' @param parm_fitted a character element naming the fitted parameter.
+#' @param name a character scalar naming the file.
+#' @param derived_code a character element defining a block in the JAGS dialect of 
+#' the BUGS language that defines one or more derived parameters for each row of data. 
+#' If NULL derived_code is as defined by the JAGS model for which the JAGS analysis was performed. 
+#' @param random_effects a named list which specifies which parameters to treat 
+#' as random variables. If NULL random is as defined by the JAGS model for which the JAGS analysis was performed. 
+#' @param level a numeric scalar specifying the significance level or a character
+#' scalar specifying which mode the level should be taken from. By default the
+#' level is as currently specified by \code{opts_jagr} in the global options.
+#' @param data the dataset for which to calculate the residuals. By default data is NULL as the residuals are typically calculated on the original dataset.
+#' @param ... further arguments passed to or from other methods.
+#' @return Save plots to a pdf file.
 #' @export
 plot_residuals <- function (object, model_number = 1, parm_residual = "residual", parm_fitted = "prediction",  name = "residuals", derived_code = NULL, random_effects = NULL, level = "current", data = NULL, ...) {
       
@@ -22,7 +44,7 @@ plot_residuals <- function (object, model_number = 1, parm_residual = "residual"
   
   range <- max(res$estimate,na.rm = T) - min(res$estimate,na.rm = T)
   
-  gp <- ggplot(data = res, aes(x = estimate))
+  gp <- ggplot(data = res, aes_string(x = "estimate"))
   gp <- gp + geom_histogram(binwidth = range/30, color = "white")
   gp <- gp + geom_vline(xintercept = 0, color="grey50")
   gp <- gp + xlab("residual")
@@ -39,10 +61,10 @@ plot_residuals <- function (object, model_number = 1, parm_residual = "residual"
       width <- 0.1
     } 
     
-    gp <- ggplot(data = res, aes(x = x, y = estimate))
+    gp <- ggplot(data = res, aes_string(x = "x", y = "estimate"))
     gp <- gp + geom_hline(yintercept = 0,color="grey50")
-    gp <- gp + geom_pointrange(aes(ymin = lower, 
-                                   ymax = upper),
+    gp <- gp + geom_pointrange(aes_string(ymin = "lower", 
+                                   ymax = "upper"),
                                     alpha=1/3,
                             position=position_jitter(width=width, height=0))
     gp <- gp + xlab(name)

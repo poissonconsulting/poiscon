@@ -1,4 +1,12 @@
 
+#' @title Upload BCH data
+#'
+#' @description
+#' Uploads BCH data to database.
+#' 
+#' @param data the data.frame to upload
+#' @param access_file an character scalar indicating the path to the database.
+#' @return Uploads data to the uplopad table of the database.
 #' @export
 upload_bch_data <- function (data, access_file = "../../../bchydro_data_12/data/based/upload/ColDuncEnv.accdb")
 {
@@ -36,16 +44,16 @@ upload_bch_data <- function (data, access_file = "../../../bchydro_data_12/data/
   data$Comments[!is.na(data$Status_BCH) & data$Status_BCH == 55] <- "Estimated"  
   data$Comments[!is.na(data$Status_BCH) & data$Status_BCH == 200] <- "Raw"  
   
-  data <- subset(data,select = c(Variable,Yr,Mon,Dy,Hr,Min,Level,Surrogate,Status,Comments))
+  data <- subset(data,select = c("Variable","Yr","Mon","Dy","Hr","Min","Level","Surrogate","Status","Comments"))
   
-  db <- odbcConnectAccess2007(access_file)
+  db <- RODBC::odbcConnectAccess2007(access_file)
 
-  on.exit(odbcCloseAll())
+  on.exit(RODBC::odbcCloseAll())
     
-  if(!nrow(sqlTables(db, tableName = "Location")))
+  if(!nrow(RODBC::sqlTables(db, tableName = "Location")))
     stop("Location table is not defined")
   
-  location <- sqlFetch(db, sqtable = "Location", colnames = FALSE, rownames = TRUE)
+  location <- RODBC::sqlFetch(db, sqtable = "Location", colnames = FALSE, rownames = TRUE)
     
   location$Variable <- as.character(location$Variable)
   
@@ -56,16 +64,16 @@ upload_bch_data <- function (data, access_file = "../../../bchydro_data_12/data/
   
   data <- merge(location,data,by="Variable")
   
-  data <- subset(data,select = c(Code,Yr,Mon,Dy,Hr,Min,Level,Surrogate,Status,Comments))
+  data <- subset(data,select = c("Code","Yr","Mon","Dy","Hr","Min","Level","Surrogate","Status","Comments"))
 
   if (nrow(data)) {
-    if (nrow(sqlTables(db, tableName = "Uploaded"))) {
-      table <- sqlFetch(db, sqtable = "Uploaded", colnames = FALSE, rownames = TRUE)
+    if (nrow(RODBC::sqlTables(db, tableName = "Uploaded"))) {
+      table <- RODBC::sqlFetch(db, sqtable = "Uploaded", colnames = FALSE, rownames = TRUE)
       
       if(!identical(colnames(table),c("Code","Yr","Mon","Dy","Hr","Min","Level","Surrogate","Status","Comments")))
         stop("incompatible upload table")
     }  
-    sqlSave(db, dat = data, tablename = "Upload", append = TRUE, rownames = FALSE)
+    RODBC::sqlSave(db, dat = data, tablename = "Upload", append = TRUE, rownames = FALSE)
   }
   message(paste0(nrow(data)," rows imported"))
   invisible(1)

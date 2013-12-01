@@ -1,0 +1,57 @@
+\name{plot_residuals}
+\alias{plot_residuals}
+\title{Plot residuals}
+\usage{
+  plot_residuals(object, model_number = 1,
+    parm_residual = "residual", parm_fitted = "prediction",
+    name = "residuals", derived_code = NULL,
+    random_effects = NULL, level = "current", data = NULL,
+    ...)
+}
+\arguments{
+  \item{object}{a jags_analysis object.}
+
+  \item{model_number}{an integer vector specifying the
+  model to select. If model_number = 0 then it selects the
+  model with the lowest DIC.}
+
+  \item{parm_residual}{a character element naming the
+  residuals parameter.}
+
+  \item{parm_fitted}{a character element naming the fitted
+  parameter.}
+
+  \item{name}{a character scalar naming the file.}
+
+  \item{derived_code}{a character element defining a block
+  in the JAGS dialect of the BUGS language that defines one
+  or more derived parameters for each row of data. If NULL
+  derived_code is as defined by the JAGS model for which
+  the JAGS analysis was performed.}
+
+  \item{random_effects}{a named list which specifies which
+  parameters to treat as random variables. If NULL random
+  is as defined by the JAGS model for which the JAGS
+  analysis was performed.}
+
+  \item{level}{a numeric scalar specifying the significance
+  level or a character scalar specifying which mode the
+  level should be taken from. By default the level is as
+  currently specified by \code{opts_jagr} in the global
+  options.}
+
+  \item{data}{the dataset for which to calculate the
+  residuals. By default data is NULL as the residuals are
+  typically calculated on the original dataset.}
+
+  \item{...}{further arguments passed to or from other
+  methods.}
+}
+\value{
+  Save plots to a pdf file.
+}
+\description{
+  Save residual plots from a jaggernaut jags_analysis
+  object to a pdf file.
+}
+

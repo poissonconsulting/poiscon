@@ -1,18 +1,17 @@
 Package: poiscon
 Type: Package
 Title: Poisson Consulting's Utility Function
-Version: 0.2.20
-Date: 2013-11-23
+Version: 0.3.0
+Date: 2013-12-01
 Author: Joe Thorley <joe@poissonconsulting.ca>
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
-Description: This is a package of utility functions to simplify data loading
-    and saving, data manipulation, JAGS analyses and plotting. It is so named
+Description: This is a package of utility functions to simplify
+    data and plot saving and loading and date time manipulations. It is so named
     because it was developed for use by the employees of Poisson Consulting
     Ltd.
 Depends:
     R (>= 3.0.2),
     devtools,
-    packrat,
     stringr,
     lubridate,
     reshape2,
@@ -20,7 +19,8 @@ Depends:
     grid,
     ggplot2,
     scales,
-    jaggernaut,
+    jaggernaut
+Imports:
     RODBC
 Suggests:
     testthat,
@@ -34,35 +34,24 @@ Collate:
     'set-folders.r'
     'save-plots.r'
     'save-tables.r'
-    'datetime.r'
     'gwindow.r'
-    'do-plot-analyses.r'
     'combine-date-time.r'
     'dayte.r'
     'doy.r'
     'theme-Poisson.r'
     'utils.r'
-    'hdata.r'
-    'read-square-data.r'
-    'write-hdata.r'
     'dayte-time.r'
-    'standard-time.r'
-    'do-analysis.r'
-    'input-hobo-csvs.r'
-    'is-predictive.r'
     'theme-Golder.r'
     'plot-residuals.r'
-    'read-zrxp.r'
-    'download_bch_data.r'
-    'plot_bch_data.r'
-    'read_bch_data.r'
-    'upload_bch_data.r'
-    'write_bch_data.r'
     'read-cpc-data.r'
     'read-hobo-data.r'
-    'spawn_year.r'
     'reset-dirs.r'
     'resave-plots.r'
     'sun-calc.r'
     'diel-period.r'
-    'expand-unique.r'
+    'download-bch-data.r'
+    'offset.r'
+    'plot-bch-data.r'
+    'read-zrxp-data.r'
+    'upload-bch-data.r'
+    'old.r'
