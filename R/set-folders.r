@@ -45,7 +45,6 @@ set_tables_folder<-function (..., dir = getOption ("folders.tables_directory")) 
 #' Sets folders for rdata, plots, tables, and analyses
 #' 
 #' @param ... multiple character scalars
-#' @return 
 #' @export
 set_folders <- function (...) {
   set_rdata_folder (...)
