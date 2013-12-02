@@ -29,6 +29,8 @@ reset_folders <- function (dir = "output") {
 #' @return NULL
 #' @export
 reset_dirs <- function (share = FALSE) {
+  
+  warning("deprecated - use reset folders")
 
   if(!inherits(share, "logical"))
     stop("share must be class logical")
