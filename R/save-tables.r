@@ -24,9 +24,9 @@ save_tables<- function (object, ...) {
 #' @export
 save_tables.jags_analysis <- function (object, model_number = 1, ...) {
   
-  save_table(rhat(subset_jags(object, model_number = model_number), combine = FALSE),
+  save_table(jaggernaut::rhat(subset_jags(object, model_number = model_number), combine = FALSE),
              'convergence',type='analyses', row.names = T)
 
-  save_table(coef(subset_jags(object, model_number = model_number)),'estimates', 
+  save_table(coef(jaggernaut::subset_jags(object, model_number = model_number)),'estimates', 
              row.names = T)
 }
