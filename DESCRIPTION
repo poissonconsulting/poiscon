@@ -18,7 +18,8 @@ Depends:
     plyr,
     grid,
     ggplot2,
-    scales
+    scales,
+    jaggernaut
 Imports:
     RODBC
 Suggests:
@@ -49,8 +50,10 @@ Collate:
     'sun-calc.r'
     'diel-period.r'
     'download-bch-data.r'
-    'offset.r'
     'plot-bch-data.r'
     'read-zrxp-data.r'
     'upload-bch-data.r'
     'old.r'
+    'utc-offset.r'
+    'is.r'
+    'standardised-date-time.r'
