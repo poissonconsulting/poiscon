@@ -13,12 +13,12 @@ combine_date_time<-function (date, time) {
   time <- as.POSIXct(time)
   
   datetime<- ISOdate(
-    year = lubridate::year(date), 
-    month = lubridate::month(date), 
-    day = lubridate::day(date), 
-    hour = lubridate::hour(time), 
-    min = lubridate::minute(time), 
-    sec = lubridate::second(time),
+    year = year(date), 
+    month = month(date), 
+    day = day(date), 
+    hour = hour(time), 
+    min = minute(time), 
+    sec = second(time),
     tz = "GMT"
   )
   return (datetime)

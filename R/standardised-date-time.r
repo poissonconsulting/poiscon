@@ -24,7 +24,7 @@ standardised_date_time <- function (x, standardised_offset = -8) {
     stop("standardised_offset must be an integer scalar between -12 and +12")
   
   offset <- utc_offset(x)
-  x <- lubridate::force_tz(x, tzone = "UTC")
-  x <- x - lubridate::new_period(hour = offset - standardised_offset)
+  x <- force_tz(x, tzone = "UTC")
+  x <- x - new_period(hour = offset - standardised_offset)
   return (x)
 }

@@ -10,7 +10,7 @@
 #' @seealso \code{\link{s}}, \code{\link{h}}, \code{\link{ht}}.
 #' @export
 p <- function (x, ... ) {
-  return (base::print (x, ...))
+  return (print (x, ...))
 }
 
 #' @title Summary
@@ -24,7 +24,7 @@ p <- function (x, ... ) {
 #' @seealso \code{\link{p}}, \code{\link{h}}, \code{\link{ht}}.
 #' @export
 s <- function (object, ... ) {
-  return (base::summary (object, ...))
+  return (summary (object, ...))
 }
 
 #' @title Head
@@ -38,7 +38,7 @@ s <- function (object, ... ) {
 #' @seealso \code{\link{p}}, \code{\link{s}}, \code{\link{ht}}.
 #' @export
 h <- function (x, ... ) {
-  return (utils::head (x, ...))
+  return (head (x, ...))
 }
 
 #' @title Head-tail

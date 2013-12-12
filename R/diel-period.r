@@ -13,7 +13,7 @@
 #' @export
 diel_period <- function(x, Lat = 49.49, Long=-117.3) {
     
-  hours <- lubridate::hour(x) + lubridate::minute(x)/60 + lubridate::second(x)/ (60 * 60)
+  hours <- hour(x) + minute(x)/60 + second(x)/ (60 * 60)
     
   suntimes <- sun_calc(d = yday(x), Lat = Lat, Long = Long)
   

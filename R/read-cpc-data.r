@@ -62,7 +62,7 @@ read_cpc_data <- function (file, recursive = TRUE, quiet = TRUE)
   
   data$TIME <- NULL
   
-  data <- reshape2::melt(data,id.vars = c("Timing"), variable.name = "Variable", value.name = "Level")
+  data <- melt(data,id.vars = c("Timing"), variable.name = "Variable", value.name = "Level")
   
   data$Level <- data$Level * 0.028316847
   

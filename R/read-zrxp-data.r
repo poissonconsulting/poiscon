@@ -123,7 +123,7 @@ read_zrxp_file <- function (file)
 
     x <- ele$data
     
-    x <- stringr::str_split(x," ")
+    x <- str_split(x," ")
   
     ncol <- length(x[[1]])
     nrow <- length(x)
@@ -139,7 +139,7 @@ read_zrxp_file <- function (file)
   
     colnames(x) <- c("Timing","Level","Status_BCH")
   
-    x$Timing <- lubridate::ymd_hms(as.character(x$Timing),quiet = TRUE)
+    x$Timing <- ymd_hms(as.character(x$Timing),quiet = TRUE)
     x$Level <- as.double(as.character(x$Level))
     x$Status_BCH <- as.integer(as.character(x$Status_BCH))
     
@@ -158,7 +158,7 @@ read_zrxp_file <- function (file)
   ls <- lapply(ls,process_data)
   ls <- lapply(ls,merge_meta_data)
   
-  data <- plyr::rbind.fill(ls)
+  data <- rbind.fill(ls)
   
   data <- subset(data,select = c("Timing","Variable","Level","Status_BCH"))
   

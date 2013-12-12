@@ -8,9 +8,9 @@
 #' @return The offsets as an numeric vector.
 #' @export
 utc_offset <- function (x) {
-  difftime <- lubridate::force_tz(x, "UTC") - x
-  period <- suppressMessages(lubridate::as.period(difftime))
-  hour <- lubridate::hour(period)
+  difftime <- force_tz(x, "UTC") - x
+  period <- suppressMessages(as.period(difftime))
+  hour <- hour(period)
   return (hour)
 }
 

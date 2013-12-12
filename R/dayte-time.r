@@ -30,8 +30,8 @@ dayte_time.integer <- function(dt, year = 2000, month = 1) {
   if (month == 1)
     return (x)
   
-  yr <- lubridate::year(x)
-  bol <- lubridate::month(x) >= month
+  yr <- year(x)
+  bol <- month(x) >= month
   yr[bol] <- yr[bol] - 1
   
   return (as.POSIXct(as.Date(paste(yr, format(x, format='%m-%d'), sep = '-')),tz="UTC"))
@@ -52,8 +52,8 @@ dayte_time.numeric <- function(dt, year = 2000, month = 1) {
   if (month == 1)
     return (x)
   
-  yr <- lubridate::year(x)
-  bol <- lubridate::month(x) >= month
+  yr <- year(x)
+  bol <- month(x) >= month
   yr[bol] <- yr[bol] - 1
   
   return (as.POSIXct(as.Date(paste(yr, format(x, format='%m-%d'), sep = '-')),tz="UTC"))
@@ -72,8 +72,8 @@ dayte_time.Date <- function(dt, year = 2000, month = 1) {
   if (month == 1)
     return (x)
   
-  yr <- lubridate::year(x)
-  bol <- lubridate::month(x) >= month
+  yr <- year(x)
+  bol <- month(x) >= month
   yr[bol] <- yr[bol] - 1
   
   return (as.POSIXct(as.Date(paste(yr, format(dt, format='%m-%d'), sep = '-')),tz="UTC"))
@@ -92,8 +92,8 @@ dayte_time.POSIXct <- function (dt, year = 2000, month = 1) {
   if (month == 1)
     return (x)
   
-  yr <- lubridate::year(x)
-  bol <- lubridate::month(x) >= month
+  yr <- year(x)
+  bol <- month(x) >= month
   yr[bol] <- yr[bol] - 1
   
   return (as.POSIXct(paste(yr,format(dt, format = "%m-%d %H:%M:%S"), sep = '-'),format = "%Y-%m-%d %H:%M:%S",tz="UTC"))
@@ -112,8 +112,8 @@ dayte_time.POSIXlt <- function (dt, year = 2000, month = 1) {
   if (month == 1)
     return (x)
   
-  yr <- lubridate::year(x)
-  bol <- lubridate::month(x) >= month
+  yr <- year(x)
+  bol <- month(x) >= month
   yr[bol] <- yr[bol] - 1
   
   return (as.POSIXct(paste(yr,format(dt, format = "%m-%d %H:%M:%S"), sep = '-'),format = "%Y-%m-%d %H:%M:%S",tz="UTC"))  

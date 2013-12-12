@@ -167,7 +167,7 @@ hdata <- function (data, offset = -8, unit = NULL, sname = NULL) {
   
   stopifnot(colnames(data) == c("DateTime","value"))
   
-  stopifnot(lubridate::is.POSIXt(data$DateTime))
+  stopifnot(is.POSIXt(data$DateTime))
   stopifnot(is.numeric(data$value))
   
   object <- structure(data,
@@ -218,15 +218,15 @@ read_square_data <- function (file="data.csv")
     data$DateTime <- seq(ISOdate(2000,1,1,0),by="hour", length.out = nrow)  
   }
   
-  data <- reshape2::melt(data, id.vars = "DateTime", variable.name = "Year")
+  data <- melt(data, id.vars = "DateTime", variable.name = "Year")
   
   data$Year <- as.integer(substr(data$Year,2,5))
   
   data$DateTime <- ISOdate(
     data$Year, 
-    lubridate::month(data$DateTime), 
-    lubridate::day(data$DateTime), 
-    lubridate::hour(data$DateTime)
+    month(data$DateTime), 
+    day(data$DateTime), 
+    hour(data$DateTime)
   )
   
   data <- na.omit(data)
@@ -360,8 +360,8 @@ spawn_year.Date <- function(dt, month = 6, ...) {
   if (!month %in% 2:12)
     stop("month must be an integer between 2 and 12")
   
-  yr <- lubridate::year(dt)
-  bol <- lubridate::month(dt) >= month
+  yr <- year(dt)
+  bol <- month(dt) >= month
   yr[bol] <- yr[bol] - 1
   
   return (yr)
@@ -373,8 +373,8 @@ spawn_year.POSIXct <- function (dt, month = 1, ...) {
   if (!month %in% 2:12)
     stop("month must be an integer between 2 and 12")
   
-  yr <- lubridate::year(dt)
-  bol <- lubridate::month(dt) >= month
+  yr <- year(dt)
+  bol <- month(dt) >= month
   yr[bol] <- yr[bol] - 1
   
   return (yr)
@@ -386,8 +386,8 @@ spawn_year.POSIXlt <- function (dt, month = 1, ...) {
   if (!month %in% 2:12)
     stop("month must be an integer between 2 and 12")
   
-  yr <- lubridate::year(dt)
-  bol <- lubridate::month(dt) >= month
+  yr <- year(dt)
+  bol <- month(dt) >= month
   yr[bol] <- yr[bol] - 1
   
   return (yr)

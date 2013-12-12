@@ -37,13 +37,13 @@ plot_bch_data <- function (data, file = NULL)
   
   for (i in 1:length(variable)) {
     dat <-  data[data$Variable == variable[i],]
-    gp <- ggplot2::ggplot(data = dat, ggplot2::aes_string(x = "Timing", 
+    gp <- ggplot(data = dat, aes_string(x = "Timing", 
                                                           y = "Level", 
                                                           color = "Status"))
-    gp <- gp + ggplot2::geom_line()
-    gp <- gp + ggplot2::scale_x_datetime(name = "Date",labels = scales::date_format("%Y-%m-%d"))  
-    gp <- gp + ggplot2::scale_color_manual(values=c("black","grey50","red","blue","white"))  
-    gp <- gp + ggplot2::ylab(paste(dat$Variable[1]))
+    gp <- gp + geom_line()
+    gp <- gp + scale_x_datetime(name = "Date",labels = date_format("%Y-%m-%d"))  
+    gp <- gp + scale_color_manual(values=c("black","grey50","red","blue","white"))  
+    gp <- gp + ylab(paste(dat$Variable[1]))
     
     print(gp)
     

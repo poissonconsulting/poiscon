@@ -81,7 +81,7 @@ download_bch_data <- function (code = "DDM", period = "hourly",
   if(startDate >= endDate)
     stop("startDate must be less than endDate")
 
-  years <- lubridate::year(startDate):lubridate::year(endDate)
+  years <- year(startDate):year(endDate)
   
   status_arg <- status
   
@@ -109,14 +109,14 @@ download_bch_data <- function (code = "DDM", period = "hourly",
   
   sql <- paste("SELECT * FROM",table_name,where)
   
-  db <- RODBC::odbcConnectAccess2007(access_file)
+  db <- odbcConnectAccess2007(access_file)
   
-  on.exit(RODBC::odbcCloseAll())
+  on.exit(odbcCloseAll())
   
-  if(!nrow(RODBC::sqlTables(db, tableName = "Location")))
+  if(!nrow(sqlTables(db, tableName = "Location")))
     stop("Location table is not defined")
   
-  location <- RODBC::sqlFetch(db, sqtable = "Location", colnames = FALSE, rownames = TRUE)
+  location <- sqlFetch(db, sqtable = "Location", colnames = FALSE, rownames = TRUE)
     
   unrec <- unique(code[!code %in% location$Code])
   
@@ -125,14 +125,14 @@ download_bch_data <- function (code = "DDM", period = "hourly",
   
   location <- location[location$Code %in% code,]
   
-  if(!nrow(RODBC::sqlTables(db, tableName = "Status")))
+  if(!nrow(sqlTables(db, tableName = "Status")))
     stop("Status table is not defined")
   
-  status <- RODBC::sqlFetch(db, sqtable = "Status", colnames = FALSE, rownames = TRUE)
+  status <- sqlFetch(db, sqtable = "Status", colnames = FALSE, rownames = TRUE)
   
   status$Status_Description <- status$Description
   
-  data <- RODBC::sqlQuery(db,sql)
+  data <- sqlQuery(db,sql)
   
   if(is.null(data$Mon))
     data$Mon <- 1
