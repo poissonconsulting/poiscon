@@ -1,8 +1,8 @@
 Package: poiscon
 Type: Package
 Title: Poisson Consulting's Utility Function
-Version: 0.3.2
-Date: 2013-12-02
+Version: 0.4
+Date: 2013-12-12
 Author: Joe Thorley [aut, cre]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
 Description: This is a package of utility functions to simplify
@@ -18,7 +18,7 @@ Depends:
     grid,
     ggplot2,
     scales,
-    jaggernaut (>= 1.4)
+    jaggernaut (>= 1.5)
 Imports:
     assertthat,
     RODBC
