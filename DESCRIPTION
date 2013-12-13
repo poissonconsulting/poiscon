@@ -1,7 +1,7 @@
 Package: poiscon
 Type: Package
 Title: Poisson Consulting's Utility Function
-Version: 0.4
+Version: 0.4.1
 Date: 2013-12-12
 Author: Joe Thorley [aut, cre]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
@@ -18,10 +18,10 @@ Depends:
     grid,
     ggplot2,
     scales,
-    jaggernaut (>= 1.5)
-Imports:
-    assertthat,
+    jaggernaut (>= 1.5),
     RODBC
+Imports:
+    assertthat
 Suggests:
     testthat
 License: GPL-2
