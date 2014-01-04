@@ -2,7 +2,7 @@
 \alias{read_cpc_data}
 \title{Read CPC data}
 \usage{
-  read_cpc_data(file, recursive = TRUE, quiet = TRUE)
+read_cpc_data(file, recursive = TRUE, quiet = TRUE)
 }
 \arguments{
   \item{file}{the location of the zxrp file or folder with
@@ -15,9 +15,9 @@
   provide messages}
 }
 \value{
-  the data in the form of a data.frame
+the data in the form of a data.frame
 }
 \description{
-  Reads CPC data into R
+Reads CPC data into R
 }
 

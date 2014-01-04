@@ -2,19 +2,19 @@
 \alias{doy}
 \title{Doy}
 \usage{
-  doy(date)
+doy(date)
 }
 \arguments{
   \item{date}{object to convert - coerced to class Date.}
 }
 \value{
-  An integer vector indicating the day of the year from 1 -
-  366.
+An integer vector indicating the day of the year from 1 -
+366.
 }
 \description{
-  Calculates day of the year.
+Calculates day of the year.
 }
 \seealso{
-  \code{\link{dayte}}
+\code{\link{dayte}}
 }
 

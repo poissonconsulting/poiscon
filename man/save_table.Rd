@@ -2,8 +2,7 @@
 \alias{save_table}
 \title{Save table}
 \usage{
-  save_table(object, name = "table", type = "results",
-    row.names = FALSE)
+save_table(object, name = "table", type = "results", row.names = FALSE)
 }
 \arguments{
   \item{object}{the object to save.}
@@ -18,9 +17,9 @@
   row names.}
 }
 \value{
-  Saves object as .csv files in current table folder.
+Saves object as .csv files in current table folder.
 }
 \description{
-  Saves object as .csv file in current table folder.
+Saves object as .csv file in current table folder.
 }
 

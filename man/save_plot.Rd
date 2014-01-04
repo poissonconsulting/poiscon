@@ -2,8 +2,8 @@
 \alias{save_plot}
 \title{Save plot}
 \usage{
-  save_plot(name = "plot", type = "figures", dwidth = NULL,
-    dheight = NULL, slide = NULL, saveTable = TRUE)
+save_plot(name = "plot", type = "figures", dwidth = NULL,
+  dheight = NULL, slide = NULL, saveTable = TRUE)
 }
 \arguments{
   \item{name}{a character scalar of the name of the
@@ -27,9 +27,9 @@
   dave the plot data.frame as a csv file.#'}
 }
 \value{
-  Saves current plot as .png file in current plots folder.
+Saves current plot as .png file in current plots folder.
 }
 \description{
-  Saves current plot as .png file in current plots folder.
+Saves current plot as .png file in current plots folder.
 }
 

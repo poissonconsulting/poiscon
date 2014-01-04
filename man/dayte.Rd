@@ -2,7 +2,7 @@
 \alias{dayte}
 \title{Dayte}
 \usage{
-  dayte(dt, year = 2000, month = 0)
+dayte(dt, year = 2000, month = 0)
 }
 \arguments{
   \item{dt}{object to convert}
@@ -14,12 +14,12 @@
   split the dayte by.}
 }
 \value{
-  A dayte.
+A dayte.
 }
 \description{
-  Converts object dt to a dayte.
+Converts object dt to a dayte.
 }
 \seealso{
-  \code{\link{doy}} and \code{\link{dayte_time}}.
+\code{\link{doy}} and \code{\link{dayte_time}}.
 }
 

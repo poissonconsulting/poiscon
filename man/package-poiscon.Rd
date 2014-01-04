@@ -5,6 +5,8 @@
 \alias{poiscon}
 \title{Poiscon}
 \description{
-  An R package to facilitate analyses.
+Utility functions to simplify date time manipulations and
+data, plot, table and analysis saving and loading. It is
+used by the employees of Poisson Consulting Ltd.
 }
 

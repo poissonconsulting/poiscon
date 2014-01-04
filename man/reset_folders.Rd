@@ -2,17 +2,14 @@
 \alias{reset_folders}
 \title{Reset poiscon folders}
 \usage{
-  reset_folders(dir = "output")
+reset_folders(dir = "output")
 }
 \arguments{
   \item{dir}{a character scalar indicating the name of the
   folders}
 }
-\value{
-  NULL
-}
 \description{
-  Resets poiscon folders to the default values. The folders
-  are used for saving plots, tables, rdata and analyses.
+Resets poiscon folders to the default values. The folders
+are used for saving plots, tables, rdata and analyses.
 }
 

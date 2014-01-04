@@ -2,8 +2,7 @@
 \alias{save_plots.jags_analysis}
 \title{Save plots}
 \usage{
-  \method{save_plots}{jags_analysis} (object,
-    model_number = 1, ...)
+\method{save_plots}{jags_analysis}(object, model_number = 1, ...)
 }
 \arguments{
   \item{object}{jags_analysis object to plot}
@@ -15,9 +14,9 @@
   methods.}
 }
 \value{
-  Saves jags_analysis as a pdf file.
+Saves jags_analysis as a pdf file.
 }
 \description{
-  Plots jags_analysis object to a pdf file
+Plots jags_analysis object to a pdf file
 }
 

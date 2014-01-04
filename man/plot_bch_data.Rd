@@ -2,7 +2,7 @@
 \alias{plot_bch_data}
 \title{Plotting BCH data}
 \usage{
-  plot_bch_data(data, file = NULL)
+plot_bch_data(data, file = NULL)
 }
 \arguments{
   \item{data}{a data.frame of the BCH data to plot.}
@@ -11,9 +11,9 @@
   for the plot.}
 }
 \value{
-  The data is written to a pdf file.
+The data is written to a pdf file.
 }
 \description{
-  Plots environmental data
+Plots environmental data
 }
 

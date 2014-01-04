@@ -2,11 +2,9 @@
 \alias{plot_residuals}
 \title{Plot residuals}
 \usage{
-  plot_residuals(object, model_number = 1,
-    parm_residual = "residual", parm_fitted = "prediction",
-    name = "residuals", derived_code = NULL,
-    random_effects = NULL, level = "current", data = NULL,
-    ...)
+plot_residuals(object, model_number = 1, parm_residual = "residual",
+  parm_fitted = "prediction", name = "residuals", derived_code = NULL,
+  random_effects = NULL, level = "current", data = NULL, ...)
 }
 \arguments{
   \item{object}{a jags_analysis object.}
@@ -48,10 +46,10 @@
   methods.}
 }
 \value{
-  Save plots to a pdf file.
+Save plots to a pdf file.
 }
 \description{
-  Save residual plots from a jaggernaut jags_analysis
-  object to a pdf file.
+Save residual plots from a jaggernaut jags_analysis object
+to a pdf file.
 }
 

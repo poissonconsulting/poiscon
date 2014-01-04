@@ -2,12 +2,12 @@
 \alias{palette_Poisson}
 \title{Palette Poisson}
 \usage{
-  palette_Poisson()
+palette_Poisson()
 }
 \value{
-  A vector of colors.
+A vector of colors.
 }
 \description{
-  A color palette for Poisson plots
+A color palette for Poisson plots
 }
 

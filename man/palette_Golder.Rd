@@ -2,12 +2,12 @@
 \alias{palette_Golder}
 \title{Palette Golder}
 \usage{
-  palette_Golder()
+palette_Golder()
 }
 \value{
-  A vector of colors.
+A vector of colors.
 }
 \description{
-  A color palette for Golder plots
+A color palette for Golder plots
 }
 

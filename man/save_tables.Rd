@@ -2,7 +2,7 @@
 \alias{save_tables}
 \title{Save tables}
 \usage{
-  save_tables(object, ...)
+save_tables(object, ...)
 }
 \arguments{
   \item{object}{object to save tables}
@@ -11,9 +11,9 @@
   methods.}
 }
 \value{
-  Save object as a tables.
+Save object as a tables.
 }
 \description{
-  Saves object to a tables file
+Saves object to a tables file
 }
 

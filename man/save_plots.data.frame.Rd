@@ -2,8 +2,7 @@
 \alias{save_plots.data.frame}
 \title{Save plots}
 \usage{
-  \method{save_plots}{data.frame} (object, name = "data",
-    ...)
+\method{save_plots}{data.frame}(object, name = "data", ...)
 }
 \arguments{
   \item{object}{data.frame object to plot}
@@ -14,9 +13,9 @@
   methods.}
 }
 \value{
-  Saves data.frame as a pdf file.
+Saves data.frame as a pdf file.
 }
 \description{
-  Plots data.frame object to a pdf file
+Plots data.frame object to a pdf file
 }
 

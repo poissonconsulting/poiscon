@@ -2,7 +2,7 @@
 \alias{load_plot}
 \title{Load plot}
 \usage{
-  load_plot(name = "plot", type = "figures", ext = "rds")
+load_plot(name = "plot", type = "figures", ext = "rds")
 }
 \arguments{
   \item{name}{the name of the plot (without extension).}
@@ -15,10 +15,10 @@
   implemented.}
 }
 \value{
-  a data.frame object
+a data.frame object
 }
 \description{
-  In current form reads in plot .csv file from current plot
-  folder.
+In current form reads in plot .csv file from current plot
+folder.
 }
 

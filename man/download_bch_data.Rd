@@ -2,11 +2,10 @@
 \alias{download_bch_data}
 \title{Download BCH data}
 \usage{
-  download_bch_data(code = "DDM", period = "hourly",
-    startDate = as.Date("2013-01-01"),
-    endDate = Sys.Date(), status = "questionable",
-    surrogate = "questionable", add_spaces = TRUE,
-    access_file = "../../../bchydro_data_12/data/based/download/ColDuncEnv.accdb")
+download_bch_data(code = "DDM", period = "hourly",
+  startDate = as.Date("2013-01-01"), endDate = Sys.Date(),
+  status = "questionable", surrogate = "questionable", add_spaces = TRUE,
+  access_file = "../../../bchydro_data_12/data/based/download/ColDuncEnv.accdb")
 }
 \arguments{
   \item{code}{a character vector of the station codes.}
@@ -34,12 +33,12 @@
   path to the database.}
 }
 \value{
-  A data.frame object.
+A data.frame object.
 }
 \description{
-  Download data from environmental database
+Download data from environmental database
 }
 \seealso{
-  \code{\link{dayte}}.
+\code{\link{dayte}}.
 }
 

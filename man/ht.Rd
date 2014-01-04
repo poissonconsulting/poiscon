@@ -2,7 +2,7 @@
 \alias{ht}
 \title{Head-tail}
 \usage{
-  ht(x, ...)
+ht(x, ...)
 }
 \arguments{
   \item{x}{an object to get the head and tail}
@@ -11,12 +11,12 @@
   methods.}
 }
 \value{
-  Head and tail of x.
+Head and tail of x.
 }
 \description{
-  Short hand for head and tail
+Short hand for head and tail
 }
 \seealso{
-  \code{\link{p}}, \code{\link{s}}, \code{\link{h}}.
+\code{\link{p}}, \code{\link{s}}, \code{\link{h}}.
 }
 

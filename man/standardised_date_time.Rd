@@ -2,7 +2,7 @@
 \alias{standardised_date_time}
 \title{Standardised date time}
 \usage{
-  standardised_date_time(x, standardised_offset = -8)
+standardised_date_time(x, standardised_offset = -8)
 }
 \arguments{
   \item{x}{a date-time object}
@@ -12,23 +12,22 @@
   time zone.}
 }
 \value{
-  A standardised date-time object.
+A standardised date-time object.
 }
 \description{
-  Corrects for any time zone and day light savings
-  difference in a date-time object and returns as tz =
-  "UTC" but shifted by the standardised_offset. Depending
-  on the logging device recorded date times are often in
-  different time zones, i.e., Vemco acoustic receiver
-  detections (UTC), Onset temperature logger readings (PST
-  or PDT depending on when deployed) versus watch (PST or
-  PDT depending on when recorded). To allow analyses to be
-  performed on the year, month, day, hour etc elements
-  without any errors it is important to standardise the
-  date time objects so they have the same time zone. The
-  current function achieves this by forcing all the
-  date-times to tz UTC and then adjusting for the
-  difference in hours between the original
-  \code{utc_offset} and the standardised offset.
+Corrects for any time zone and day light savings difference
+in a date-time object and returns as tz = "UTC" but shifted
+by the standardised_offset. Depending on the logging device
+recorded date times are often in different time zones,
+i.e., Vemco acoustic receiver detections (UTC), Onset
+temperature logger readings (PST or PDT depending on when
+deployed) versus watch (PST or PDT depending on when
+recorded). To allow analyses to be performed on the year,
+month, day, hour etc elements without any errors it is
+important to standardise the date time objects so they have
+the same time zone. The current function achieves this by
+forcing all the date-times to tz UTC and then adjusting for
+the difference in hours between the original
+\code{utc_offset} and the standardised offset.
 }
 
