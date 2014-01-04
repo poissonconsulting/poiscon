@@ -10,7 +10,7 @@
 #' @export
 knit_figures <- function (replacement = NULL) {
   
-  dir <- poiscon:::get_plots_folder(type = "figures")
+  dir <- get_plots_folder(type = "figures")
   files <- list.files(dir, pattern = "[.]rds", recursive = TRUE)
   files <- substr(files,1,nchar(files)-4)
   

@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Takes all parameter estimates in tables folder and prints in markdown
-#' format using the knitr::kable function.
+#' format using the knitr kable function.
 #' 
 #' @param replacement an optional named character vector which specifies replacement
 #' names for directories as well as the order to print the estimates.
