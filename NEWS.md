@@ -1,12 +1,16 @@
 # NEWS
 
+# poiscon 0.6
+
+* Added `perform_analyses` function to run a set of analyses in a project folder.
+
 # poiscon 0.5
 
-* Added `knitr_parameters` and `knit_figures` functions to create markdown
-files of parameter estimates and figures.
+* Added `knitr_parameters`, `knit_figures` and `knit_models` functions to 
+create markdown files of parameter estimates and figures and models.
 
 * Fixed conflict over here function that was imported from plyr and lubridate
-packages.
+packages using @importFrom.
 
 # Bug Reports 
 
