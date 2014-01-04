@@ -109,7 +109,11 @@ download_bch_data <- function (code = "DDM", period = "hourly",
   
   sql <- paste("SELECT * FROM",table_name,where)
   
-  db <- odbcConnectAccess2007(access_file)
+  if(!exists("odbcConnectAccess2007")) {
+    odbcConnectAccess2007 <- NULL
+  } else {
+    db <- odbcConnectAccess2007(access_file)
+  }
   
   on.exit(odbcCloseAll())
   

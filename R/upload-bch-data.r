@@ -46,8 +46,12 @@ upload_bch_data <- function (data, access_file = "../../../bchydro_data_12/data/
   
   data <- subset(data,select = c("Variable","Yr","Mon","Dy","Hr","Min","Level","Surrogate","Status","Comments"))
   
-  db <- odbcConnectAccess2007(access_file)
-
+  if(!exists("odbcConnectAccess2007")) {
+    odbcConnectAccess2007 <- NULL
+  } else {
+    db <- odbcConnectAccess2007(access_file)
+  }
+  
   on.exit(odbcCloseAll())
     
   if(!nrow(sqlTables(db, tableName = "Location")))
