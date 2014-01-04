@@ -1,0 +1,12 @@
+citHeader("To cite poiscon in publications use:")
+
+citEntry(entry = "Manual",
+  title        = "poiscon: An R package of utility functions",
+  author       = personList(as.person("Joseph L. Thorley")),
+  year         = "2014",
+  url          = "https://github.com/poissonconsulting/poiscon",
+  textVersion  =
+  paste("Thorley JL (2014)",
+        "poiscon: An R package of utility functions."
+        )
+)
