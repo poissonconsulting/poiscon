@@ -14,6 +14,6 @@ Prints parameter estimates in markdown format.
 }
 \description{
 Takes all parameter estimates in tables folder and prints
-in markdown format using the knitr::kable function.
+in markdown format using the knitr kable function.
 }
 
