@@ -2,6 +2,8 @@
 # converts all POSIX datetimes to UTC-0800
 UTC8<-function (d)
 {
+  warning("deprecated")
+  
   gmt<-tz(d)=='GMT'
   d<-with_tz(d,'UTC')
   if(any(!gmt))
@@ -11,6 +13,9 @@ UTC8<-function (d)
 }
 
 expand_unique <- function (x, select = NULL, droplevels = FALSE) {
+
+  warning("deprecated")
+  
   stopifnot(is.data.frame(x))
   
   if(!is.null(select))
@@ -34,6 +39,7 @@ expand_unique <- function (x, select = NULL, droplevels = FALSE) {
 
 
 do_plot_analysis<-function (name, species, plot_analysis) {
+  warning("deprecated")
   
   if(!is.function (plot_analysis))
     stop("plot_analysis should be a function")
@@ -58,12 +64,15 @@ do_plot_analysis<-function (name, species, plot_analysis) {
 }
 
 get_spp <- function () {
+  warning("deprecated")
+
   folder <- getOption ("folders.analyses_folder")
   spp <- strsplit(folder, "/")[[1]][2]
   return (spp)
 }
 
 do_plot_analyses<-function (name, species, plot_analysis) {
+  warning("deprecated")
   
   if(!is.function (plot_analysis))
     stop("plot_analyses should be a function")
@@ -94,6 +103,8 @@ do_plot_analyses<-function (name, species, plot_analysis) {
 
 # either hdata or just two columns...
 write_data <- function (x, file = "data.xls", value.name = "Discharge", location = "") {
+  warning("deprecated")
+  
   stopifnot(is.data.frame (x))
   stopifnot(is.character (file))
   stopifnot(is.character (value.name))
@@ -129,6 +140,7 @@ write_data <- function (x, file = "data.xls", value.name = "Discharge", location
 
 write_bch_data <- function (data, file = NULL)
 {
+  warning("deprecated")
   
   if(is.null(file))
     file <- format(min(data$Timing), format = "%Y-%m-%d")
@@ -139,6 +151,7 @@ write_bch_data <- function (data, file = NULL)
 }
 
 is_predictive <- function (x) {
+  warning("deprecated")
   
   if(!is.data.frame(x))
     stop("x should be class data.frame")
@@ -150,6 +163,7 @@ is_predictive <- function (x) {
 }
 
 hdata <- function (data, offset = -8, unit = NULL, sname = NULL) {
+  warning("deprecated")
   
   offset <- as.integer(offset)
   
@@ -180,6 +194,7 @@ hdata <- function (data, offset = -8, unit = NULL, sname = NULL) {
 }
 
 is.hdata <- function (x) {
+  warning("deprecated")
   return ("hdata" %in% class (x))
 }
 
@@ -191,6 +206,7 @@ is.hdata <- function (x) {
 #' @return the data in the form of a object of class hdata
 read_square_data <- function (file="data.csv")
 {
+  warning("deprecated")
   if (!is.character(file)) 
     stop ("file must be class character")
   
@@ -245,6 +261,7 @@ read_square_data <- function (file="data.csv")
 
 read_hobo_file <- function (file) 
 {
+  warning("deprecated")
   dat <- read.csv (file, header = FALSE)
   
   variable <- strsplit(file,split="/")[[1]]
@@ -287,6 +304,8 @@ read_hobo_file <- function (file)
 
 input_hobo_temperature_csv<-function (file, utc_offset = -8)
 {
+  warning("deprecated")
+
   data <- read.csv(file, header=F)
   
   data<-data[,1:3]
@@ -321,6 +340,7 @@ input_hobo_temperature_csv<-function (file, utc_offset = -8)
 }
 
 input_hobo_temperature_csvs <- function (path = ".", utc_offset = -8, recursive = FALSE, quiet = TRUE) {
+  warning("deprecated")
   
   utc_offset <- as.integer(utc_offset)
   if (!utc_offset %in% -12:12)
@@ -351,10 +371,14 @@ input_hobo_temperature_csvs <- function (path = ".", utc_offset = -8, recursive 
 }
 
 spawn_year<-function (dt, month = 6, ...) {
+  warning("deprecated")
+  
   UseMethod("spawn_year", dt)
 }
 
 spawn_year.Date <- function(dt, month = 6, ...) {
+  warning("deprecated")
+
   if(length(month) != 1)
     stop("month must be an integer of length 1")
   if (!month %in% 2:12)
@@ -368,6 +392,8 @@ spawn_year.Date <- function(dt, month = 6, ...) {
 }
 
 spawn_year.POSIXct <- function (dt, month = 1, ...) {
+  warning("deprecated")
+
   if(length(month) != 1)
     stop("month must be an integer of length 1")
   if (!month %in% 2:12)
@@ -381,6 +407,8 @@ spawn_year.POSIXct <- function (dt, month = 1, ...) {
 }
 
 spawn_year.POSIXlt <- function (dt, month = 1, ...) {
+  warning("deprecated")
+
   if(length(month) != 1)
     stop("month must be an integer of length 1")
   if (!month %in% 2:12)
@@ -394,6 +422,8 @@ spawn_year.POSIXlt <- function (dt, month = 1, ...) {
 }
 
 standard_time <- function (time, offset = NULL, tzh = -8) {
+  warning("deprecated")
+
   if(is.null(offset))
     offset <- offset(time)
   time <- force_tz(time, tzone = "UTC")
