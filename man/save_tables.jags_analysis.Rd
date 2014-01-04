@@ -2,8 +2,7 @@
 \alias{save_tables.jags_analysis}
 \title{Save tables}
 \usage{
-  \method{save_tables}{jags_analysis} (object,
-    model_number = 1, ...)
+\method{save_tables}{jags_analysis}(object, model_number = 1, ...)
 }
 \arguments{
   \item{object}{jags_analysis object to tables}
@@ -14,9 +13,9 @@
   methods.}
 }
 \value{
-  Save object as a tables.
+Save object as a tables.
 }
 \description{
-  Saves jags_analysis to tables
+Saves jags_analysis to tables
 }
 

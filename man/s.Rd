@@ -2,7 +2,7 @@
 \alias{s}
 \title{Summary}
 \usage{
-  s(object, ...)
+s(object, ...)
 }
 \arguments{
   \item{object}{an object to summarise}
@@ -11,12 +11,12 @@
   methods.}
 }
 \value{
-  summarises x.
+summarises x.
 }
 \description{
-  Short hand for summary
+Short hand for summary
 }
 \seealso{
-  \code{\link{p}}, \code{\link{h}}, \code{\link{ht}}.
+\code{\link{p}}, \code{\link{h}}, \code{\link{ht}}.
 }
 

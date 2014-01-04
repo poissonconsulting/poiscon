@@ -2,7 +2,7 @@
 \alias{p}
 \title{Print}
 \usage{
-  p(x, ...)
+p(x, ...)
 }
 \arguments{
   \item{x}{an object to print.}
@@ -11,12 +11,12 @@
   methods.}
 }
 \value{
-  Prints x.
+Prints x.
 }
 \description{
-  Short hand for print
+Short hand for print
 }
 \seealso{
-  \code{\link{s}}, \code{\link{h}}, \code{\link{ht}}.
+\code{\link{s}}, \code{\link{h}}, \code{\link{ht}}.
 }
 

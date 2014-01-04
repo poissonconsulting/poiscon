@@ -2,7 +2,7 @@
 \alias{theme_Poisson}
 \title{Theme Poisson}
 \usage{
-  theme_Poisson(base_size = 10, base_family = "Arial")
+theme_Poisson(base_size = 10, base_family = "Arial")
 }
 \arguments{
   \item{base_size}{an integer scalar indicating the base
@@ -12,9 +12,9 @@
   font family.}
 }
 \value{
-  A ggplot2 theme.
+A ggplot2 theme.
 }
 \description{
-  A ggplot2 theme for Poisson plots
+A ggplot2 theme for Poisson plots
 }
 

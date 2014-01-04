@@ -2,7 +2,7 @@
 \alias{gwindow}
 \title{Plotting window}
 \usage{
-  gwindow(dwidth = 1, dheight = 1, slide = FALSE)
+gwindow(dwidth = 1, dheight = 1, slide = FALSE)
 }
 \arguments{
   \item{dwidth}{a numeric scalar indicating the proportion
@@ -15,9 +15,9 @@
   (the default) versus powerpoint slide.}
 }
 \value{
-  Creates a new window for plotting
+Creates a new window for plotting
 }
 \description{
-  Creates a new platform-independent window for plotting
+Creates a new platform-independent window for plotting
 }
 

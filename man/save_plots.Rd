@@ -2,7 +2,7 @@
 \alias{save_plots}
 \title{Save plots}
 \usage{
-  save_plots(object, ...)
+save_plots(object, ...)
 }
 \arguments{
   \item{object}{object to plot}
@@ -11,9 +11,9 @@
   methods.}
 }
 \value{
-  Save plot as a pdf file.
+Save plot as a pdf file.
 }
 \description{
-  Plots object to a pdf file
+Plots object to a pdf file
 }
 

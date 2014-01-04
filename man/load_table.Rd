@@ -2,7 +2,7 @@
 \alias{load_table}
 \title{Load table}
 \usage{
-  load_table(name = "table", type = "results")
+load_table(name = "table", type = "results")
 }
 \arguments{
   \item{name}{the name of the table (without extension).}
@@ -11,9 +11,9 @@
   analysis etc.}
 }
 \value{
-  a data.frame object
+a data.frame object
 }
 \description{
-  Reads in table.csv file from current table folder.
+Reads in table.csv file from current table folder.
 }
 

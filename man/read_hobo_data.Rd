@@ -2,7 +2,7 @@
 \alias{read_hobo_data}
 \title{Read hobo data}
 \usage{
-  read_hobo_data(file, recursive = TRUE, quiet = TRUE)
+read_hobo_data(file, recursive = TRUE, quiet = TRUE)
 }
 \arguments{
   \item{file}{the location of the hobo file or folder with
@@ -15,9 +15,9 @@
   provide messages}
 }
 \value{
-  the data in the form of a data.frame
+the data in the form of a data.frame
 }
 \description{
-  Reads hobo data into R
+Reads hobo data into R
 }
 

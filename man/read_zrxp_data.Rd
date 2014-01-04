@@ -3,7 +3,7 @@
 \alias{read_zrxp_data}
 \title{Read zrxp data into R}
 \usage{
-  read_zrxp_data(file, recursive = FALSE, quiet = TRUE)
+read_zrxp_data(file, recursive = FALSE, quiet = TRUE)
 }
 \arguments{
   \item{file}{the location of the zxrp file or folder with
@@ -16,9 +16,9 @@
   provide messages}
 }
 \value{
-  the data in the form of a data.frame
+the data in the form of a data.frame
 }
 \description{
-  Reads zrxp data into R
+Reads zrxp data into R
 }
 
