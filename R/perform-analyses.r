@@ -38,13 +38,12 @@ perform_analyses <- function (models, ..., niters = 10^3, name = "data") {
   if (nargs == 0) {
     analysis(models = models, name = name, niters = niters)
   } else {
-    folders <- expand.grid(...)
-    for (i in 1:nrow(folders)) {
-      
-      ## need to compute on the language
-      cat(c("\n",as.character(folders[i,1]),as.character(folders[i,2]),"\n\n"))
-      set_folders(as.character(folders[i,1]),as.character(folders[i,2]))
-      
+    folders <- t(expand.grid(...))
+    for (i in 1:ncol(folders)) {
+      cat("\n\n")
+      cat(as.character(folders[,i]))
+      cat("\n\n")
+      set_folders(as.character(folders[,i]))
       
       analysis(models = models, name = name, niters = niters)      
     }
