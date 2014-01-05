@@ -54,18 +54,15 @@ knit_models <- function (replacement) {
     
     cat(c("\n###"," ",title,"\n"))
     
-    rm(description)
+    description <- NULL
+    models <- NULL
+    
     source(file)
     
-    if (!exists("description")) {
-      description <- NULL
-    } else {
+    if (!is.null(description))
       kdescription(description)
-    }
     
-    if (!exists("models")) {
-      models <- NULL
-    } else {
+    if (!is.null(models)) {
       
       for (i in 1:nmodels(models)) {
         cat(c("\n#### ",title," - Model",i,"\n"))
