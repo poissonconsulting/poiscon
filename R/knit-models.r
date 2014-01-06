@@ -46,7 +46,7 @@ knit_models <- function (replacement) {
     colnames(mat) <- c("Variable/Parameter","Description")
     kable(mat)
   }
-  
+    
   for (i in seq_along(files)) {
     
     file <- files[i]
@@ -57,15 +57,18 @@ knit_models <- function (replacement) {
     description <- NULL
     models <- NULL
     
-    source(file)
-    
+    source(file, local = TRUE)
+        
     if (!is.null(description))
       kdescription(description)
     
     if (!is.null(models)) {
       
       for (i in 1:nmodels(models)) {
-        cat(c("\n#### ",title," - Model",i,"\n"))
+        if(!identical(title,"")) {
+          cat(c("\n#### ",title," - Model",i,"\n"))
+        } else
+          cat(c("\n#### Model",i,"\n"))
         
         cat("\n\n")
         

@@ -1,5 +1,9 @@
 # NEWS
 
+# poiscon 0.6.1
+
+* Fixed bug `knit_models` not sourcing description and models.
+
 # poiscon 0.6
 
 * Added `perform_analyses` function to run a set of analyses in a project folder.
