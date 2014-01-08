@@ -9,6 +9,11 @@
 #' @return Embeds figures in markdown format.
 #' @export
 knit_figures <- function (replacement = NULL) {
+
+  assert_that(is.null(replacement) || 
+                (is.character(replacement) && is_named(replacement)))
+  
+  reset_folders()
   
   dir <- get_plots_folder(type = "figures")
   files <- list.files(dir, pattern = "[.]rds", recursive = TRUE)
@@ -56,8 +61,7 @@ knit_figures <- function (replacement = NULL) {
     
     cat("\n<div style=\"text-align: left\" title = \"",file,"\">\n")
     cat(paste0("<img alt = ",file," src = \"",dir,"/",file,".png\" width = \"",width,"%  >\n"))
-    cat("</div\">\n")
-    
-    invisible ()
+    cat("</div\">\n")    
   }
+  invisible ()
 }

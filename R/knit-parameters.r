@@ -13,6 +13,8 @@ knit_parameters <- function (replacement = NULL) {
   assert_that(is.null(replacement) || 
                 (is.character(replacement) && is_named(replacement)))
   
+  reset_folders()
+  
   dir <- get_tables_folder(type = "results")
   files <- list.files(dir, pattern = "[.]csv", recursive = TRUE)
   files <- substr(files,1,nchar(files)-4)
@@ -34,7 +36,7 @@ knit_parameters <- function (replacement = NULL) {
   previous_title <- NULL
   
   for (file in files) {
-    
+        
     csv <- read.csv(file=paste0(dir,"/",file,".csv"))
     
     colnames(csv)[1] <- "Parameter"
@@ -62,7 +64,6 @@ knit_parameters <- function (replacement = NULL) {
     previous_title <- title
     
     kable(csv, row.names = FALSE)
-    
-    invisible ()
   }
+  invisible ()
 }

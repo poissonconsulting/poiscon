@@ -11,6 +11,11 @@
 #' @export
 knit_models <- function (replacement) {
   
+  assert_that(is.null(replacement) || 
+                (is.character(replacement) && is_named(replacement)))
+  
+  reset_folders()
+  
   files <- list.files(pattern = "^models-.*[.][rR]$")
   
   titles <- substr(files, 8, 50)
@@ -79,7 +84,6 @@ knit_models <- function (replacement) {
         cat("\n```\n")
       }     
     }
-    
-    invisible ()
   }
+  invisible ()
 }
