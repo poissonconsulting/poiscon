@@ -1,5 +1,9 @@
 # NEWS
 
+# poiscon 0.6.2
+
+* Fixed bug `knit_...` functions not resetting folders.
+
 # poiscon 0.6.1
 
 * Fixed bug `knit_models` not sourcing description and models.
