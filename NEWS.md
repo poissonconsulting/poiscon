@@ -2,6 +2,10 @@
 
 # poiscon 0.6.2
 
+* added extract-figures, project-folder, report-url and repository-url functions
+
+# poiscon 0.6.2
+
 * Fixed bug `knit_...` functions not resetting folders.
 
 # poiscon 0.6.1
