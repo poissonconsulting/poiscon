@@ -13,7 +13,7 @@ knit_figures(replacement = NULL)
 Embeds figures in markdown format.
 }
 \description{
-Takes all plots in figures folder and embeds in markdown
-format using html.
+Extracts all plots in figures folder to report project
+directory and embeds in markdown format using html.
 }
 
