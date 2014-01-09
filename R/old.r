@@ -135,7 +135,7 @@ write_data <- function (x, file = "data.xls", value.name = "Discharge", location
   if(!bol)
     warning("write-hdata failed")
   
-  invisible (bol)
+  return (invisible(bol))
 }
 
 write_bch_data <- function (data, file = NULL)
@@ -147,7 +147,7 @@ write_bch_data <- function (data, file = NULL)
   
   file <- paste(file,"csv",sep=".")
   
-  invisible(write.csv(data,file,row.names = FALSE))
+  return (invisible(write.csv(data,file,row.names = FALSE)))
 }
 
 is_predictive <- function (x) {

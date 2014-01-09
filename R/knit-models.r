@@ -85,5 +85,5 @@ knit_models <- function (replacement) {
       }     
     }
   }
-  invisible ()
+  return (invisible())
 }

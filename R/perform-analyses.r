@@ -49,5 +49,5 @@ perform_analyses <- function (models, ..., niters = 10^3, name = "data") {
     }
   }
 
-  invisible()
+  return (invisible())
 }

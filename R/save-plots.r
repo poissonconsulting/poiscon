@@ -72,5 +72,5 @@ save_plots.data.frame <- function (object, name = "data", ...) {
     }
   }
   dev.off()
-  invisible(data)
+  return (invisible(data))
 }

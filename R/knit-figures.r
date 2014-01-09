@@ -63,5 +63,5 @@ knit_figures <- function (replacement = NULL) {
     cat(paste0("<img alt = ",file," src = \"",dir,"/",file,".png\" width = \"",width,"%  >\n"))
     cat("</div\">\n")    
   }
-  invisible ()
+  return (invisible())
 }

@@ -38,5 +38,5 @@ resave_plots <- function (type = "figures") {
       print (err)
     } 
   }
-  invisible (files)
+  return (invisible(files))
 }

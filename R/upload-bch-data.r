@@ -80,5 +80,5 @@ upload_bch_data <- function (data, access_file = "../../../bchydro_data_12/data/
     sqlSave(db, dat = data, tablename = "Upload", append = TRUE, rownames = FALSE)
   }
   message(paste0(nrow(data)," rows imported"))
-  invisible(1)
+  return (invisible(1))
 }
