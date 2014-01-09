@@ -1,7 +1,8 @@
 #' @title Knit figures
 #'
 #' @description
-#' Takes all plots in figures folder and embeds in markdown
+#' Extracts all plots in figures folder to report project 
+#' directory and embeds in markdown
 #' format using html.
 #' 
 #' @param replacement an optional named character vector which specifies replacement
@@ -9,13 +10,18 @@
 #' @return Embeds figures in markdown format.
 #' @export
 knit_figures <- function (replacement = NULL) {
-
+  
+  extract_figures()
+  
   assert_that(is.null(replacement) || 
                 (is.character(replacement) && is_named(replacement)))
   
   reset_folders()
   
   dir <- get_plots_folder(type = "figures")
+  # hack to remove end /
+  dir <- str_replace(dir, "/$", "")
+
   files <- list.files(dir, pattern = "[.]rds", recursive = TRUE)
   files <- substr(files,1,nchar(files)-4)
   
@@ -35,6 +41,9 @@ knit_figures <- function (replacement = NULL) {
   
   previous_title <- NULL
   
+  newdir <- str_replace(dir,"output/plots/figures",
+                        paste0("figures/",project_folder()))
+  
   for (file in files) {    
     
     gp <- readRDS(file=paste0(dir,"/",file,".rds"))
@@ -52,16 +61,13 @@ knit_figures <- function (replacement = NULL) {
     title <- gsub("(^|[[:space:]|-])([[:alpha:]])", "\\1\\U\\2", title,
                   perl=TRUE)
     
-    if(is.null(previous_title) || title != previous_title) {
-      cat("\n<div style=\"text-align: left\">\n")
+    if(is.null(previous_title) || title != previous_title)
       cat(c("\n###"," ",title,"\n"))
-      cat("</div\">\n")
-    }
+    
     previous_title <- title
     
-    cat("\n<div style=\"text-align: left\" title = \"",file,"\">\n")
-    cat(paste0("<img alt = ",file," src = \"",dir,"/",file,".png\" width = \"",width,"%  >\n"))
-    cat("</div\">\n")    
+    cat(paste0("<img alt = \"", file, "\" src = \"", newdir, "/",file,
+               ".png\" title = \"",file,"\" width = \"", width, "%\">\n"))
   }
   return (invisible())
 }
