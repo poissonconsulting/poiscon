@@ -13,5 +13,5 @@ tidy_files <- function ()
     message("tidying ", f)
     try(tidy.source(f, file = f, width.cutoff = 80))
   }
-  invisible()
+  return (invisible())
 }

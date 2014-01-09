@@ -14,7 +14,7 @@ reset_folders <- function (dir = "output") {
   set_plots_folder (dir = paste0(dir,"/plots"))
   set_tables_folder (dir = paste0(dir,"/tables"))
 
-  invisible (NULL)
+  return (invisible())
 }
 
 #' @title Reset poiscon directories
@@ -53,5 +53,5 @@ reset_dirs <- function (share = FALSE) {
     set_tables_folder (dir = '../tables')
   }
   
-  invisible ()
+  return (invisible())
 }

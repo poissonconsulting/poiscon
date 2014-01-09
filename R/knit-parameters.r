@@ -65,5 +65,5 @@ knit_parameters <- function (replacement = NULL) {
     
     kable(csv, row.names = FALSE)
   }
-  invisible ()
+  return (invisible())
 }

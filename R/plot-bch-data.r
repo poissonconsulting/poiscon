@@ -48,5 +48,5 @@ plot_bch_data <- function (data, file = NULL)
     print(gp)
     
   }  
-  invisible (data)
+  return (invisible (data))
 }

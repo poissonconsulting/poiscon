@@ -13,7 +13,7 @@ load_rdata <- function (name = 'data') {
   if (file.exists (file))
     return (readRDS(file))
   warning (paste0("file ",file," does not exist"))
-  return (invisible (NULL))
+  return (invisible())
 }
 
 #' @title Load analysis
@@ -29,7 +29,7 @@ load_analysis <- function (name = 'analysis') {
   if (file.exists (file))
     return (readRDS(file))
   warning (paste0("file ",file," does not exist"))
-  return (invisible (NULL))
+  return (invisible())
 }
 
 #' @title Load plot
@@ -52,7 +52,7 @@ load_plot <- function (name = "plot", type = "figures", ext = "rds") {
   if (file.exists (file))
     return (read.csv(file))
   warning (paste0("file ",file," does not exist"))
-  return (invisible (NULL))
+  return (invisible())
 }
 
 #' @title Load table
@@ -70,5 +70,5 @@ load_table <- function (name = "table", type = "results") {
   if (file.exists (file))
     return (read.csv(file))
   warning (paste0("file ",file," does not exist"))
-  return (invisible (NULL))
+  return (invisible())
 }
