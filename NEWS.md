@@ -1,6 +1,10 @@
 # NEWS
 
-# poiscon 0.6.2
+# poiscon 0.6.4
+
+* added upload-files function
+
+# poiscon 0.6.3
 
 * added extract-figures, project-folder, report-url and repository-url functions
 
