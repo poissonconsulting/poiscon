@@ -66,7 +66,7 @@ knit_figures <- function (replacement = NULL) {
     
     previous_title <- title
     
-    cat(paste0("<img alt = \"", file, "\" src = \"", newdir, "/",file,
+    cat(paste0("<img alt = \"", file, "\" src = \"/", newdir, "/",file,
                ".png\" title = \"",file,"\" width = \"", width, "%\">\n"))
   }
   return (invisible())
