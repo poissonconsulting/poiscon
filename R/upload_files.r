@@ -20,7 +20,7 @@ upload_files <- function (web_dir) {
     dir.create(str_replace(to,"[/][^/]*.[.][m][d]$",""), showWarnings = FALSE,
                recursive = TRUE)
     
-    url <- str_replace(to,".md",".html")
+    url <- str_replace(to,".md","")
     url <- str_replace(url,"~/Documents/code/","http://")
     cat(url)
     
