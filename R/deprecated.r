@@ -138,18 +138,6 @@ write_data <- function (x, file = "data.xls", value.name = "Discharge", location
   return (invisible(bol))
 }
 
-write_bch_data <- function (data, file = NULL)
-{
-  warning("deprecated")
-  
-  if(is.null(file))
-    file <- format(min(data$Timing), format = "%Y-%m-%d")
-  
-  file <- paste(file,"csv",sep=".")
-  
-  return (invisible(write.csv(data,file,row.names = FALSE)))
-}
-
 is_predictive <- function (x) {
   warning("deprecated")
   
