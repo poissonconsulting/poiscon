@@ -13,7 +13,7 @@ report_url <- function (date) {
   assert_that(is.scalar(date))
   
   url <- paste0("http://poissonconsulting.github.io/analyses/",
-               format(as.Date("2014-01-09"),"%Y/%m/%d/"),
+               format(date, "%Y/%m/%d/"),
                project_folder())
   return (url)
 }
