@@ -1,5 +1,9 @@
 # NEWS
 
+# poiscon 0.6.5
+
+* corrected spacing `knit_models`
+
 # poiscon 0.6.4
 
 * added upload-files function
