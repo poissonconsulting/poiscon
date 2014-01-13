@@ -57,7 +57,7 @@ knit_models <- function (replacement) {
     file <- files[i]
     title <- titles[i]
     
-    cat(c("\n###"," ",title,"\n"))
+    cat(c("\n###"," ",title))
     
     description <- NULL
     models <- NULL
@@ -71,17 +71,15 @@ knit_models <- function (replacement) {
       
       for (i in 1:nmodels(models)) {
         if(!identical(title,"")) {
-          cat(c("\n#### ",title," - Model",i,"\n"))
+          cat(c("\n#### ",title," - Model",i))
         } else
-          cat(c("\n#### Model",i,"\n"))
-        
-        cat("\n\n")
-        
-        cat("```\n")
-        
+          cat(c("\n#### Model",i))
+                
+        cat("\n```")
+        cat("\n")
         cat(model_code(models)) 
         
-        cat("\n```\n")
+        cat("\n```")
       }     
     }
   }
