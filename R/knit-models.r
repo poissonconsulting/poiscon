@@ -64,9 +64,10 @@ knit_models <- function (replacement) {
     
     source(file, local = TRUE)
         
-    if (!is.null(description))
+    if (!is.null(description)) {
+      cat("\n")
       kdescription(description)
-    
+    }
     if (!is.null(models)) {
       
       for (i in 1:nmodels(models)) {
