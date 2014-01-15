@@ -1,3 +1,13 @@
+#' @title Git commit (and push)
+#'
+#' @description
+#' Commits (and pushes) changes
+#' 
+#' @param dir string of repository directory
+#' @param message string of commit message
+#' @param pash flag of whether to push to remote
+#' @return Git commits
+#' @export
 git_commit <- function (dir = getwd(),
                          message = paste0("poiscon::git_commit: ", Sys.time()),
                          push = TRUE) {
@@ -7,7 +17,7 @@ git_commit <- function (dir = getwd(),
   assert_that(is.flag(push))
     
   if(!file.exists(dir))
-    stop("repository doesn't exist")
+    stop("repository ", dir, " doesn't exist")
   
   if (!file.exists(paste0(dir, "/.git")))
     stop("repository is not a git repository")

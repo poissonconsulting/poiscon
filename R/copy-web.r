@@ -1,16 +1,21 @@
-#' @title Upload files
+#' @title Copy web
 #'
 #' @description
-#' Uploads files to jekyll site on my harddrive.
+#' Copies project report files to jekyll site
 #' 
 #' @param web_dir a character scalar or a Date
 #' @return Uploads files to jekyll site on my harddrive.
 #' @export
-upload_files <- function (web_dir) {
-  assert_that(is.Date(web_dir) || is.string(web_dir))
+copy_web <- function (dir = "poissonconsulting.github.io") { 
   
+  path <- options()$code_dir
+
   from <- paste0("output/report/", project_folder(), ".md")
-  
+
+  # actually get from querying md files
+  web_dir <- options()$report_date
+  assert_that(is.Date(web_dir) || is.string(web_dir))
+    
   if(is.string(web_dir)) {
     
     to <- str_replace(from, 
