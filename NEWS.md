@@ -1,5 +1,10 @@
 # NEWS
 
+# poiscon 0.6.6
+
+* added `install_hd` function to simplify installing packages from harddrive
+* added `git_commit` function to commit (and push) current (or other git repository)
+
 # poiscon 0.6.5
 
 * corrected spacing `knit_models`
