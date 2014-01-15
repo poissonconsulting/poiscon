@@ -1,14 +1,3 @@
-#' @title Commit (and push) repository
-#'
-#' @description
-#' Commits changes to github repository and pushes to remote
-#' 
-#' @param repo_dir string of repository directory name
-#' @param repo_path string of path to repository directory
-#' @param message string of commit message
-#' @param push a logical scalar indicating whether or not to push
-#' @return Transfers deck
-#' @export
 git_commit <- function (dir = getwd(),
                          message = paste0("poiscon::git_commit: ", Sys.time()),
                          push = TRUE) {
