@@ -9,13 +9,12 @@
 #' @export
 extract_figures <- function () {
   
-  folder <- "output/plots/figures"
+  from <- "output/plots/figures"
   
-  files <- list.files(folder, pattern = "[.]png", full.names = TRUE, recursive = TRUE)
+  files <- list.files(from, pattern = "[.]png", full.names = TRUE, 
+                      recursive = TRUE)
   
-  if(length(files) == 0) {
-    message("no figures to extract")
-  } else {
+  if(length(files)) {
     
     to <- str_replace_all(files, "plots/figures", 
                           paste0("report/",project_folder(),"/figures"))
@@ -31,5 +30,5 @@ extract_figures <- function () {
               str_replace_all(to,"[.]png",".csv"), overwrite = TRUE)
     
   }
-  return (invisible(TRUE))
+  return (invisible())
 }
