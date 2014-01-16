@@ -2,7 +2,7 @@
 \alias{knit_report}
 \title{Knits report}
 \usage{
-knit_report(.title, .authors, .tags = NULL, .report_file = "report.rmd")
+knit_report(file = "report.rmd")
 }
 \arguments{
   \item{web_dir}{a character scalar or a Date}

@@ -26,6 +26,7 @@ git_commit <- function (dir = getwd(),
   on.exit(setwd(wd))
   
   setwd(dir)
+  system("git add .")
   system(paste0("git commit -a -m \"", message, "\""))
   
   if(push)

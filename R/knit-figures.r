@@ -10,17 +10,15 @@
 #' @return Embeds figures in markdown format.
 #' @export
 knit_figures <- function (replacement = NULL) {
-  
-  extract_figures()
-  
+      
   assert_that(is.null(replacement) || 
                 (is.character(replacement) && is_named(replacement)))
   
   reset_folders()
+
+  extract_figures()
   
-  dir <- get_plots_folder(type = "figures")
-  # hack to remove end /
-  dir <- str_replace(dir, "/$", "")
+  dir <- "output/plots/figures"
 
   files <- list.files(dir, pattern = "[.]rds", recursive = TRUE)
   files <- substr(files,1,nchar(files)-4)
@@ -42,7 +40,7 @@ knit_figures <- function (replacement = NULL) {
   previous_title <- NULL
   
   newdir <- str_replace(dir,"output/plots/figures",
-                        paste0("figures/",project_folder()))
+                        paste0("figures"))
   
   for (file in files) {    
     
@@ -66,7 +64,7 @@ knit_figures <- function (replacement = NULL) {
     
     previous_title <- title
     
-    cat(paste0("<img alt = \"", file, "\" src = \"/", newdir, "/",file,
+    cat(paste0("<img alt = \"", file, "\" src = \"", newdir, "/",file,
                ".png\" title = \"",file,"\" width = \"", width, "%\">\n"))
   }
   return (invisible())

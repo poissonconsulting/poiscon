@@ -6,46 +6,63 @@
 #' @param web_dir a character scalar or a Date
 #' @return Uploads files to jekyll site on my harddrive.
 #' @export
-copy_web <- function (dir = "poissonconsulting.github.io") { 
+copy_web <- function (dir = "poissonconsulting.github.io") {
+
+  assert_that(is.string(dir))
+  assert_that(is.string(options()$code_dir))
   
   path <- options()$code_dir
 
-  from <- paste0("output/report/", project_folder(), ".md")
-
-  # actually get from querying md files
-  web_dir <- options()$report_date
-  assert_that(is.Date(web_dir) || is.string(web_dir))
+  from <- paste0("output/report/", project_folder(), "/report.md")
+  
+  if(!file.exists(from))
+    stop("file", from, "does not exist")
+  
+  layout <- header_setting(from, "layout")
+  
+  if(is.null(layout))
+    stop("file", from, "does not have a jekyll header")
+  
+  stopifnot(layout %in% c("page", "post"))
+        
+  if(layout == "page") {
     
-  if(is.string(web_dir)) {
+    to <- paste0(path, "/", dir, "/", "temporary-hidden-link/",
+                 murmur3.32(project_folder()), "/", project_folder(),
+                 ".md")
     
-    to <- str_replace(from, 
-                      "output/report", 
-                      paste0("~/Documents/code/poissonconsulting.github.io/",
-                             "temporary-hidden-link/", web_dir))
     dir.create(str_replace(to,"[/][^/]*.[.][m][d]$",""), showWarnings = FALSE,
                recursive = TRUE)
     
-    url <- str_replace(to,".md","")
-    url <- str_replace(url,"~/Documents/code/","http://")
-    cat(url)
+    url <- str_replace(to, ".md","")
     
-  } else {
-    to <- str_replace(from, 
-                      "output/report/", 
-                      paste0("~/Documents/code/poissonconsulting.github.io/",
-                             "_drafts/",format(web_dir,format = "%Y-%m-%d-")))    
+  } else if (layout == "post") {
+    
+    date <- header_setting(from, "date")
+    
+    stopifnot(is.Date(date))
+    
+    to <- paste0(path, "/", dir, "/", "_posts/",
+                 format(date, format = "%Y-%m-%d-"), project_folder(),
+                 ".md")
+    
+    url <- paste0(path, "/", dir, "/analyses/",
+                  format(date, format = "%Y/%m/%d/"), project_folder())    
   }
   
+  url <- str_replace(url, path, "http:/")
+  cat(url)
+      
   bol1 <- file.copy(from, to, overwrite = TRUE)
   
-  from <- paste0("output/report/figures")
-  to <- paste0("~/Documents/code/poissonconsulting.github.io/figures/",
-               project_folder())
+#  from <- paste0("output/report/figures")
+#  to <- paste0("~/Documents/code/poissonconsulting.github.io/figures/",
+#               project_folder())
   
-  dir.create(to, showWarnings = FALSE, recursive = TRUE)
+#  dir.create(to, showWarnings = FALSE, recursive = TRUE)
   
-  to <- str_replace(to, "[/][^/]*[/][^/]*$", "")
+#  to <- str_replace(to, "[/][^/]*[/][^/]*$", "")
   
-  bol2 <- file.copy(from, to, recursive = TRUE)
-  return (invisible(c(bol1, bol2)))
+#  bol2 <- file.copy(from, to, recursive = TRUE)
+#  return (invisible(c(bol1, bol2)))
 }

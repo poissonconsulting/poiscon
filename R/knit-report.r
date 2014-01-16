@@ -29,7 +29,7 @@ knit_report <- function (file = "report.rmd") {
                    paste0("#### ", Sys.Date(), "\n## Background"), to = to)
   
   markdownToHTML(to, str_replace(from, "*[.][m][d]$", ".html"))
-  
+    
   system(paste0("pandoc -s ", to," -o ", str_replace(from,"[.][m][d]$",".docx")))
 
   file.remove(to)
