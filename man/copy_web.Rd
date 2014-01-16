@@ -5,7 +5,7 @@
 copy_web(dir = "poissonconsulting.github.io")
 }
 \arguments{
-  \item{web_dir}{a character scalar or a Date}
+  \item{dir}{jekyll repository}
 }
 \value{
 Uploads files to jekyll site on my harddrive.

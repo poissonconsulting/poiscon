@@ -3,7 +3,7 @@
 #' @description
 #' Copies project report files to jekyll site
 #' 
-#' @param web_dir a character scalar or a Date
+#' @param dir jekyll repository
 #' @return Uploads files to jekyll site on my harddrive.
 #' @export
 copy_web <- function (dir = "poissonconsulting.github.io") {
@@ -38,7 +38,7 @@ copy_web <- function (dir = "poissonconsulting.github.io") {
     
   } else if (layout == "post") {
     
-    date <- header_setting(from, "date")
+    date <- as.Date(header_setting(from, "release_date"))
     
     stopifnot(is.Date(date))
     
@@ -52,17 +52,14 @@ copy_web <- function (dir = "poissonconsulting.github.io") {
   
   url <- str_replace(url, path, "http:/")
   cat(url)
+  
+  "src = \"figures/"
+
+  str_replace_file(from, 
+                   "src = \"figures/", 
+                   paste0("src = \"/figures/", project_folder(), "/"))
       
-  bol1 <- file.copy(from, to, overwrite = TRUE)
+  file.copy(from, to, overwrite = TRUE)
   
-#  from <- paste0("output/report/figures")
-#  to <- paste0("~/Documents/code/poissonconsulting.github.io/figures/",
-#               project_folder())
-  
-#  dir.create(to, showWarnings = FALSE, recursive = TRUE)
-  
-#  to <- str_replace(to, "[/][^/]*[/][^/]*$", "")
-  
-#  bol2 <- file.copy(from, to, recursive = TRUE)
-#  return (invisible(c(bol1, bol2)))
+  figures_web(dir)
 }

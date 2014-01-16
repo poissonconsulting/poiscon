@@ -1,5 +1,10 @@
 # NEWS
 
+#poiscon 0.6.7
+* added `copy_web` and `push_web` functions to control jekyll repositories
+* added `knit-report` to convert report to .md., .docx and .html
+* added `figures-report` and `figures-web` to extract .pngs
+
 # poiscon 0.6.6
 
 * added `install_hd` function to simplify installing packages from harddrive

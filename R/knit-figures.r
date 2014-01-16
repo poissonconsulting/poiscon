@@ -16,7 +16,7 @@ knit_figures <- function (replacement = NULL) {
   
   reset_folders()
 
-  extract_figures()
+  figures_report()
   
   dir <- "output/plots/figures"
 

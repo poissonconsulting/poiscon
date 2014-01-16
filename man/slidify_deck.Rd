@@ -13,7 +13,4 @@ Slidifies deck
 \description{
 Slidifies deck
 }
-\seealso{
-\link{\code{slidify}}
-}
 

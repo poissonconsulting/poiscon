@@ -13,7 +13,4 @@ Initializes deck
 \description{
 Initializes deck using slidify - based on author
 }
-\seealso{
-\link{\code{author}}
-}
 

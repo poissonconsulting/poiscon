@@ -10,7 +10,7 @@ git_commit(dir = getwd(), message = paste0("poiscon::git_commit: ",
 
   \item{message}{string of commit message}
 
-  \item{pash}{flag of whether to push to remote}
+  \item{push}{flag of whether to push to remote}
 }
 \value{
 Git commits

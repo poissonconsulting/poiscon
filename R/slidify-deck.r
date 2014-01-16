@@ -5,7 +5,6 @@
 #' 
 #' @param dir string of deck dir
 #' @return Slidifies deck
-#' @seealso \link{\code{slidify}}
 slidify_deck <- function (dir = "deck") {
   
   wd <- getwd()

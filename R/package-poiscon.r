@@ -6,8 +6,7 @@
 #' by the employees of Poisson Consulting Ltd.
 #' 
 #' @docType package
-#' @import assertthat formatR ggplot2 grid jaggernaut knitr lubridate RODBC 
-#' reshape2 scales stringr
+#' @import assertthat devtools formatR ggplot2 grid jaggernaut hashFunction knitr lubridate markdown RODBC reshape2 scales slidify stringr
 #' @importFrom plyr ddply rbind.fill .
 #' @name package-poiscon
 #' @aliases poiscon

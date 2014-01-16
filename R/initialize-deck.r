@@ -5,10 +5,8 @@
 #' 
 #' @param dir string of deck dir
 #' @return Initializes deck
-#' @seealso \link{\code{author}}
 initialize_deck <- function (dir = "deck") {
   
-  assert_that(require(slidify))
   assert_that(is.string(dir))
 
   to <- paste0("output/decks/", dir)

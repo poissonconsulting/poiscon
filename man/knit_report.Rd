@@ -5,7 +5,7 @@
 knit_report(file = "report.rmd")
 }
 \arguments{
-  \item{web_dir}{a character scalar or a Date}
+  \item{file}{a character scalar of file}
 }
 \value{
 Knits readme file into markdown

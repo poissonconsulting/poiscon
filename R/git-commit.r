@@ -5,7 +5,7 @@
 #' 
 #' @param dir string of repository directory
 #' @param message string of commit message
-#' @param pash flag of whether to push to remote
+#' @param push flag of whether to push to remote
 #' @return Git commits
 #' @export
 git_commit <- function (dir = getwd(),
