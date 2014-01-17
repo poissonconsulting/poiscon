@@ -8,7 +8,7 @@
 #' @param web_dir a string of the web repository
 #' @return deck to web
 #' @export
-deck_to_web <- function (dir = "deck", release_date = NULL,
+deck_to_web <- function (release_date = NULL, dir = "deck",
                          web_dir = "poissonconsulting.github.io") {
   
   assert_that(is.string(dir))
