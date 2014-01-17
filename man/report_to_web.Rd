@@ -1,8 +1,8 @@
-\name{copy_web}
-\alias{copy_web}
-\title{Copy web}
+\name{report_to_web}
+\alias{report_to_web}
+\title{Report to web repository}
 \usage{
-copy_web(dir = "poissonconsulting.github.io")
+report_to_web(dir = "poissonconsulting.github.io")
 }
 \arguments{
   \item{dir}{jekyll repository}

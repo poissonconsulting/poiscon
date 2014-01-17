@@ -1,4 +1,4 @@
-#' @title Copy web
+#' @title Report to web repository
 #'
 #' @description
 #' Copies project report files to jekyll site
@@ -6,7 +6,7 @@
 #' @param dir jekyll repository
 #' @return Uploads files to jekyll site on my harddrive.
 #' @export
-copy_web <- function (dir = "poissonconsulting.github.io") {
+report_to_web <- function (dir = "poissonconsulting.github.io") {
 
   assert_that(is.string(dir))
   assert_that(is.string(options()$code_dir))
@@ -28,13 +28,12 @@ copy_web <- function (dir = "poissonconsulting.github.io") {
   if(layout == "page") {
     
     to <- paste0(path, "/", dir, "/", "temporary-hidden-link/",
-                 murmur3.32(project_folder()), "/", project_folder(),
-                 ".md")
+                 murmur3.32(project_folder()), "/", project_folder())
     
-    dir.create(str_replace(to,"[/][^/]*.[.][m][d]$",""), showWarnings = FALSE,
+    dir.create(to, showWarnings = FALSE,
                recursive = TRUE)
     
-    url <- str_replace(to, ".md","")
+    url <- to
     
   } else if (layout == "post") {
     
@@ -43,8 +42,7 @@ copy_web <- function (dir = "poissonconsulting.github.io") {
     stopifnot(is.Date(date))
     
     to <- paste0(path, "/", dir, "/", "_posts/",
-                 format(date, format = "%Y-%m-%d-"), project_folder(),
-                 ".md")
+                 format(date, format = "%Y-%m-%d-"), project_folder())
     
     url <- paste0(path, "/", dir, "/analyses/",
                   format(date, format = "%Y/%m/%d/"), project_folder())    
@@ -59,7 +57,7 @@ copy_web <- function (dir = "poissonconsulting.github.io") {
                    "src = \"figures/", 
                    paste0("src = \"/figures/", project_folder(), "/"))
       
-  file.copy(from, to, overwrite = TRUE)
+  file.copy(from, paste0(to, "/index.md"), overwrite = TRUE)
   
   figures_web(dir)
 }

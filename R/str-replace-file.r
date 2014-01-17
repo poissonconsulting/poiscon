@@ -4,7 +4,7 @@ str_replace_file <- function (file, pattern, replacement, to = NULL) {
   assert_that(file.exists(file))
   assert_that(is.null(to) || is.string(to))
   
-  text <- readLines(file)
+  text <- readLines(file, warn = FALSE)
   text <- str_replace_all(text, pattern, replacement)
   
   return (writeLines(text, ifelse(is.null(to), file, to)))
