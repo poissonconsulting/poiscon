@@ -1,3 +1,7 @@
+# poiscon 0.6.9
+
+* `knit_report` now uses `render_jekyll()`
+
 # poiscon 0.6.8
 
 * added *deck* functions `author-deck`, `slidify-deck` and `deck-to-web` 
