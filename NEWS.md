@@ -1,6 +1,10 @@
-# NEWS
+# poiscon 0.6.8
 
-#poiscon 0.6.7
+* added *deck* functions `author-deck`, `slidify-deck` and `deck-to-web` 
+on top of slidify library for presentations
+
+# poiscon 0.6.7
+
 * added `copy_web` and `push_web` functions to control jekyll repositories
 * added `knit-report` to convert report to .md., .docx and .html
 * added `figures-report` and `figures-web` to extract .pngs
