@@ -18,6 +18,7 @@ knit_report <- function (file = "report.rmd") {
   if(!file.exists(str_replace(to, "/report.md", "")))
     dir.create(str_replace(to, "/report.md", ""), FALSE, recursive = TRUE)
   
+  render_jekyll()
   knit(file, output = to)
     
   from <- to
@@ -37,18 +38,18 @@ knit_report <- function (file = "report.rmd") {
   if(layout == "page") {
     str_replace_file(from, 
                      "[#][#][ ][B][a][c][k][g][r][o][u][n][d]", 
-                     paste0("# ", title, "\n### Draft: ", Sys.Date(), 
+                     paste0("# ", title, "\n### Draft: ", Sys.time(), 
                             "\n## Background"),
                      to = to_html)  
     
     str_replace_file(from, 
                      "[#][#][ ][B][a][c][k][g][r][o][u][n][d]", 
-                     paste0("### Draft: ", Sys.Date(), "\n## Background"),
+                     paste0("### Draft: ", Sys.time(), "\n## Background"),
                      to = to_docx)    
     
     str_replace_file(from, 
                      "[#][#][ ][B][a][c][k][g][r][o][u][n][d]", 
-                     paste0("### Draft: ", Sys.Date(), "\n## Background"))      
+                     paste0("### Draft: ", Sys.time(), "\n## Background"))      
   } else {
     date <- as.Date(header_setting(from, "release_date"))
     
