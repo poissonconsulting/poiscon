@@ -32,6 +32,10 @@ perform_analyses <- function (models, ..., niters = 10^3, name = "data") {
     if (opts_jagr("mode") != "debug") {
       save_plots(analysis)
       plot_residuals(analysis)
+    } else {
+      newdata <- dataset(analysis)[1,,drop = FALSE]
+      predict(analysis, newdata = newdata, parm = "prediction")
+      predict(analysis, newdata = newdata, parm = "residual")
     }
   }
   
