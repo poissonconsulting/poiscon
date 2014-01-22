@@ -1,3 +1,8 @@
+# poiscon 0.6.10
+
+* `perform_analyses` does test of prediction and residual in derived code
+when in mode debug
+
 # poiscon 0.6.9
 
 * `knit_report` now uses `render_jekyll()`
