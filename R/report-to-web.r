@@ -63,4 +63,5 @@ report_to_web <- function (dir = "poissonconsulting.github.io") {
     file.copy(from, paste0(to, ".md"), overwrite = TRUE)
   }  
   figures_web(dir)
+  return (invisible(TRUE))
 }

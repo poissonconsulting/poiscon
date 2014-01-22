@@ -78,5 +78,5 @@ knit_report <- function (file = "report.rmd") {
   file.remove(to_html)
   file.remove(to_docx)
   
-  return (invisible())
+  return (invisible(TRUE))
 }
