@@ -25,7 +25,7 @@ standardise_datetime <- function (x, standardised_offset = -8) {
     stop("standardised_offset must be an integer scalar between -12 and +12")
   
   offset <- utc_offset(x)
-  x <- force_tz(x, tzone = "UTC")
+  x <- force_tz(x, tzone = "GMT")
   x <- x - new_period(hour = offset - standardised_offset)
   return (x)
 }
