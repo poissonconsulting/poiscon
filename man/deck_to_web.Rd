@@ -2,7 +2,7 @@
 \alias{deck_to_web}
 \title{Deck to web repository}
 \usage{
-deck_to_web(dir = "deck", release_date = NULL,
+deck_to_web(release_date = NULL, dir = "deck",
   web_dir = "poissonconsulting.github.io")
 }
 \arguments{
