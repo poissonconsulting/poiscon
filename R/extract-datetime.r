@@ -6,7 +6,6 @@
 #' @param expand character vector of column names where [prefix]expand[suffix]
 #' and expand must only be Year, Month, Day, Hour, Minute and/or Second
 #' @param tz string of time zone
-#' @param clean_up flag of whether to delete columns from data
 #' @return A date time object
 #' @seealso \code{\link{sql_datetime}}, \code{\link{ISOdatetime}} 
 #' and \code{\link{extract_date}}
@@ -18,14 +17,13 @@
 #' @export
 extract_datetime <- function (data, prefix = "", suffix = "",
                               expand = c("Year", "Month", "Day", "Hour", "Minute", "Second"),
-                              tz = "", clean_up = FALSE) {
+                              tz = "") {
   
   assert_that(is.string(prefix) && noNA(prefix))
   assert_that(is.string(suffix) && noNA(suffix))
   assert_that(is.character(expand) && noNA(expand))
   assert_that(all(expand %in% c("Year", "Month", "Day", "Hour", "Minute", "Second")))
   assert_that(!any(duplicated(expand)))
-  assert_that(is.flag(clean_up) && noNA(clean_up))
   
   values <- list()
   
@@ -42,8 +40,6 @@ extract_datetime <- function (data, prefix = "", suffix = "",
       warning("Column '", column, "' not in data")
     } else {
       values[[x]] <- data[[column]]
-      if (clean_up)
-        data[[column]] <- NULL
     }
   }
   
@@ -62,19 +58,17 @@ extract_datetime <- function (data, prefix = "", suffix = "",
 #' @param suffix string
 #' @param expand character vector of column names where [prefix]expand[suffix]
 #' and expand must only be Year, Month, Day
-#' @param clean_up flag of whether to delete columns from data
 #' @return A Date object
 #' @seealso \link{extract_datetime} 
 #' @export
 extract_date <- function (data, prefix = "", suffix = "",
-                              expand = c("Year", "Month", "Day"), clean_up = FALSE) {
+                              expand = c("Year", "Month", "Day")) {
   
   assert_that(is.string(prefix) && noNA(prefix))
   assert_that(is.string(suffix) && noNA(suffix))
   assert_that(is.character(expand) && noNA(expand))
   assert_that(all(expand %in% c("Year", "Month", "Day")))
   assert_that(!any(duplicated(expand)))
-  assert_that(is.flag(clean_up) && noNA(clean_up))
   
   values <- list()
   
@@ -88,8 +82,6 @@ extract_date <- function (data, prefix = "", suffix = "",
       warning("Column '", column, "' not in data")
     } else {
       values[[x]] <- data[[column]]
-      if (clean_up)
-        data[[column]] <- NULL
     }
   }
   
@@ -104,17 +96,16 @@ extract_date <- function (data, prefix = "", suffix = "",
 #' @param expand character vector of column names where [prefix]expand[suffix]
 #' and expand must only be Hour, Minute and/or Second
 #' @param tz string of time zone
-#' @param clean_up flag of whether to delete columns from data
 #' @return A datetime object
 #' @seealso \link{sql_datetime} and \link{ISOdatetime}
 #' @export
 extract_time <- function (data, prefix = "", suffix = "",
                               expand = c("Hour", "Minute", "Second"),
-                              tz = "", clean_up = FALSE) {
+                              tz = "") {
   
   assert_that(is.character(expand) && noNA(expand))
   assert_that(all(expand %in% c("Hour", "Minute", "Second")))
   assert_that(!any(duplicated(expand)))
   
-  return (extract_datetime(data, prefix, suffix, expand, tz, clean_up))
+  return (extract_datetime(data, prefix, suffix, expand, tz))
 }
