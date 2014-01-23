@@ -27,7 +27,7 @@ cleanup_datetime <- function (data, prefix = "", suffix = "",
     if(!column %in% colnames(data)) {
       warning("Column '", column, "' not in data")
     } else
-      data[[x]] <- NULL
+      data[[column]] <- NULL
   }
   data
 }
