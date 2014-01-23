@@ -13,19 +13,3 @@ utc_offset <- function (x) {
   hour <- hour(period)
   return (hour)
 }
-
-#' @title Offset
-#'
-#' @description 
-#' Offset.
-#' 
-#' @param time a datetime object
-#' @export
-offset <- function (time) {
-  warning("deprecated using utc_offset instead")
-  tz <- format(time, format = "%Z")
-  off <- rep(NA, length(tz))
-  off[tz == "PDT"] <- -7
-  off[tz == "PST"] <- -8
-  return (off)
-}
