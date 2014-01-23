@@ -2,7 +2,7 @@
 \alias{extract_datetime}
 \title{Extracts datetime from data frame}
 \usage{
-extract_datetime(data, prefix = "", suffix = "", expand = c("Year",
+extract_datetime(data, prefix = "^", suffix = "$", expand = c("Year",
   "Month", "Day", "Hour", "Minute", "Second"), tz = "PST",
   standardised_offset = -8)
 }
@@ -52,6 +52,12 @@ extract_datetime(data, tz = "PDT")
 extract_datetime(data, tz = "PST8PDT")
 extract_datetime(data, tz = "UTC")
 extract_datetime(data, standardised_offset = -7)
+
+data <- data.frame(ReleaseYear = 2002, ReleasedMonth = 2, DayRel = 2,
+                   RelHourRel = 2, Minute = 2, Second = 2, DupSecond = 3)
+
+extract_datetime(data, "")
+extract_datetime(data, "", "")
 }
 \seealso{
 \code{\link{sql_datetime}}, \code{\link{ISOdatetime}} and

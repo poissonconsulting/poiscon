@@ -31,8 +31,15 @@
 #' extract_datetime(data, tz = "PST8PDT")
 #' extract_datetime(data, tz = "UTC")
 #' extract_datetime(data, standardised_offset = -7)
+#' 
+#' data <- data.frame(ReleaseYear = 2002, ReleasedMonth = 2, DayRel = 2, 
+#'                    RelHourRel = 2, Minute = 2, Second = 2, DupSecond = 3)
+#'                    
+#' extract_datetime(data, "")
+#' extract_datetime(data, "", "")
+#' 
 #' @export
-extract_datetime <- function (data, prefix = "", suffix = "",
+extract_datetime <- function (data, prefix = "^", suffix = "$",
                               expand = c("Year", "Month", "Day", "Hour",
                                          "Minute", "Second"),
                               tz = "PST", standardised_offset = -8) {
@@ -53,13 +60,16 @@ extract_datetime <- function (data, prefix = "", suffix = "",
   values[["Minute"]] <- 0
   values[["Second"]] <- 0
   
+  colnames <- colnames(data)
   for (x in expand) {
-    column <- paste0(prefix, x, suffix)
-    if(!column %in% colnames(data)) {
-      warning("Column '", column, "' not in data")
-    } else {
-      values[[x]] <- data[[column]]
-    }
+    regexp <- paste0(prefix, x, suffix)
+    index <- grep(regexp, colnames)
+    if (length(index) == 0) {
+      warning("Regular expression ", regexp, " not in colnames")
+    } else if (length(index) == 1) {
+      values[[x]] <- data[[colnames[index]]]
+    } else
+      warning("Regular expression ", regexp, " matches columns ", paste(colnames[index], collapse = " "))
   }
   
   adjust <- switch(tz, "PDT" = -7, "PST" = -8, 0)
@@ -106,13 +116,16 @@ extract_date <- function (data, prefix = "", suffix = "",
   values[["Month"]] <- 1
   values[["Day"]] <- 1
   
+  colnames <- colnames(data)
   for (x in expand) {
-    column <- paste0(prefix, x, suffix)
-    if(!column %in% colnames(data)) {
-      warning("Column '", column, "' not in data")
-    } else {
-      values[[x]] <- data[[column]]
-    }
+    regexp <- paste0(prefix, x, suffix)
+    index <- grep(regexp, colnames)
+    if (length(index) == 0) {
+      warning("Regular expression", regexp, "not in colnames")
+    } else if (length(index) == 1) {
+      values[[x]] <- data[[colnames[index]]]
+    } else
+      warning("Regular expression", regexp, "matches columns", colnames[index])
   }
   
   as.Date(paste(values[["Year"]], values[["Month"]], values[["Day"]], sep = "-"))
