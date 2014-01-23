@@ -2,7 +2,7 @@
 \alias{cleanup_datetime}
 \title{Cleans up datetime from data frame}
 \usage{
-cleanup_datetime(data, prefix = "", suffix = "", expand = c("Year",
+cleanup_datetime(data, prefix = "^", suffix = "$", expand = c("Year",
   "Month", "Day", "Hour", "Minute", "Second"))
 }
 \arguments{
@@ -10,13 +10,14 @@ cleanup_datetime(data, prefix = "", suffix = "", expand = c("Year",
   [prefix]expand[suffix], [prefix]expand[suffix] values
   etc}
 
-  \item{prefix}{string}
+  \item{prefix}{string for matching regexp pattern start}
 
-  \item{suffix}{string}
+  \item{suffix}{string for matching regexp pattern end}
 
   \item{expand}{character vector of column names where
   [prefix]expand[suffix] and expand must only be Year,
-  Month, Day, Hour, Minute and/or Second}
+  Month, Day, Hour, Minute and/or Second \code{\link{grep}}
+  function}
 }
 \value{
 Cleaned up data
@@ -29,6 +30,15 @@ data <- data.frame(Year = 2000, Month = 1:4, Day = 2)
 cleanup_datetime(data)
 data <- data.frame(Year = 2000, Month = 1:4, Day = 2, Comments = "No way")
 cleanup_datetime(data)
+data <- data.frame(YearRelease = 2000, MonthReleased = 1:4, DayDeceased = 2,
+                   XDay = 3, TDayY = 4)
+cleanup_datetime(data)
+cleanup_datetime(data, "", "")
+cleanup_datetime(data, "^X")
+cleanup_datetime(data, "^T")
+cleanup_datetime(data, "^T", "")
+cleanup_datetime(data, "^T", "Y$")
+cleanup_datetime(data, ,"Release[d]*|Deceased$")
 }
 \seealso{
 \code{\link{extract_datetime}}

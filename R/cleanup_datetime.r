@@ -1,10 +1,11 @@
 #' @title Cleans up datetime from data frame
 #' 
 #' @param data data.frame with columns of [prefix]expand[suffix], [prefix]expand[suffix] values etc
-#' @param prefix string
-#' @param suffix string
+#' @param prefix string for matching regexp pattern start
+#' @param suffix string for matching regexp pattern end
 #' @param expand character vector of column names where [prefix]expand[suffix]
 #' and expand must only be Year, Month, Day, Hour, Minute and/or Second
+#' \code{\link{grep}} function
 #' @return Cleaned up data
 #' @seealso \code{\link{extract_datetime}}
 #' @examples
@@ -12,8 +13,18 @@
 #' cleanup_datetime(data)
 #' data <- data.frame(Year = 2000, Month = 1:4, Day = 2, Comments = "No way")
 #' cleanup_datetime(data)
+#' data <- data.frame(YearRelease = 2000, MonthReleased = 1:4, DayDeceased = 2,
+#'                    XDay = 3, TDayY = 4)
+#' cleanup_datetime(data)
+#' cleanup_datetime(data, "", "")
+#' cleanup_datetime(data, "^X")
+#' cleanup_datetime(data, "^T")
+#' cleanup_datetime(data, "^T", "")
+#' cleanup_datetime(data, "^T", "Y$")
+#' cleanup_datetime(data, ,"Release[d]*|Deceased$")
+#' 
 #' @export
-cleanup_datetime <- function (data, prefix = "", suffix = "",
+cleanup_datetime <- function (data, prefix = "^", suffix = "$",
                               expand = c("Year", "Month", "Day", "Hour", "Minute", "Second")) {
   
   assert_that(is.string(prefix) && noNA(prefix))
@@ -22,13 +33,13 @@ cleanup_datetime <- function (data, prefix = "", suffix = "",
   assert_that(all(expand %in% c("Year", "Month", "Day", "Hour", "Minute", "Second")))
   assert_that(!any(duplicated(expand)))
   
+  colnames <- colnames(data) 
+  indices <- integer(0)
   for (x in expand) {
-    column <- paste0(prefix, x, suffix)
-    if(!column %in% colnames(data)) {
-      warning("Column '", column, "' not in data")
-    } else
-      data[[column]] <- NULL
+    indices <- c(indices, grep(paste0(prefix, x, suffix), colnames))
   }
+  if (length(indices))
+    return (data[,-sort(unique(indices)),drop = FALSE])
   data
 }
 
