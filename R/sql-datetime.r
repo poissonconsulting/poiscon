@@ -19,10 +19,12 @@
 #' @export
 sql_datetime <- function (column = "DateTime", suffix = NULL, 
                           expand = c("Year", "Month", "Day", "Hour", "Minute", "Second")) {
-  
+    
   assert_that(is.string(column) && noNA(column))
   assert_that(is.null(suffix) || (is.string(suffix) && noNA(suffix)))
   assert_that(is.character(expand) && noNA(expand))
+  assert_that(all(expand %in% c("Year", "Month", "Day", "Hour", "Minute", "Second")))
+  assert_that(!any(duplicated(expand)))
   
   if(is.null(suffix)) {
     suffix <- str_replace(column, "DateTime", "")
@@ -50,7 +52,6 @@ sql_date <- function (column = "Date", suffix = NULL,
   
   assert_that(is.string(column) && noNA(column))
   assert_that(is.null(suffix) || (is.string(suffix) && noNA(suffix)))
-  assert_that(is.character(expand) && noNA(expand))
   
   if(is.null(suffix)) {
     suffix <- str_replace(column, "Date", "")
@@ -77,7 +78,6 @@ sql_time <- function (column = "Time", suffix = NULL,
                       expand = c("Hour", "Minute", "Second")) {
   assert_that(is.string(column) && noNA(column))
   assert_that(is.null(suffix) || (is.string(suffix) && noNA(suffix)))
-  assert_that(is.character(expand) && noNA(expand))
   
   if(is.null(suffix)) {
     suffix <- str_replace(column, "Time", "")
