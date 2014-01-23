@@ -15,4 +15,8 @@ Calculates the offsets in hours between the time zones of a
 date time object and the Coordinated Universal Time time
 zone.
 }
+\seealso{
+\code{\link{standardised_date_time}} and
+\code{\link{combine_date_time}}
+}
 

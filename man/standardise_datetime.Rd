@@ -1,11 +1,11 @@
-\name{standardised_date_time}
-\alias{standardised_date_time}
-\title{Standardised date time}
+\name{standardise_datetime}
+\alias{standardise_datetime}
+\title{Standardise datetime}
 \usage{
-standardised_date_time(x, standardised_offset = -8)
+standardise_datetime(x, standardised_offset = -8)
 }
 \arguments{
-  \item{x}{a date-time object}
+  \item{x}{a datetime object}
 
   \item{standardised_offset}{an integer scalar indicating
   the time difference in hours between UTC and the desired
@@ -31,6 +31,7 @@ the difference in hours between the original
 \code{utc_offset} and the standardised offset.
 }
 \seealso{
-\code{\link{standardise_datetime}}
+\code{\link{utc_offset}} and
+\code{\link{combine_date_time}}
 }
 

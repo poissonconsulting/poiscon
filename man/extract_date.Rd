@@ -1,0 +1,30 @@
+\name{extract_date}
+\alias{extract_date}
+\title{Extracts Date}
+\usage{
+extract_date(data, prefix = "", suffix = "", expand = c("Year", "Month",
+  "Day"))
+}
+\arguments{
+  \item{data}{data.frame with columns of
+  [prefix]expand[suffix], [prefix]expand[suffix] values
+  etc}
+
+  \item{prefix}{string}
+
+  \item{suffix}{string}
+
+  \item{expand}{character vector of column names where
+  [prefix]expand[suffix] and expand must only be Year,
+  Month, Day}
+}
+\value{
+A Date object
+}
+\description{
+Extracts Date
+}
+\seealso{
+\link{extract_datetime}
+}
+

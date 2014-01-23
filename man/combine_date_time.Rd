@@ -15,4 +15,8 @@ A datetime object.
 \description{
 Combines date and time into a datetime object.
 }
+\seealso{
+\code{\link{standardised_date_time}} and
+\code{\link{utc_offset}}
+}
 

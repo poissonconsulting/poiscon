@@ -1,0 +1,26 @@
+\name{sql_date}
+\alias{sql_date}
+\title{SQL Date}
+\usage{
+sql_date(column = "Date", suffix = NULL, expand = c("Year", "Month",
+  "Day"))
+}
+\arguments{
+  \item{column}{string of column name}
+
+  \item{suffix}{string of suffix to add to expand names}
+
+  \item{expand}{character vector of SQL functions to apply
+  to column and names of columns}
+}
+\value{
+A string of the SQL commands
+}
+\description{
+Expands date column in SQL query to extract Year, Month,
+Day values.
+}
+\seealso{
+\link{sql_datetime} and \link{sql_time}
+}
+
