@@ -3,7 +3,8 @@
 \title{Extracts datetime from data frame}
 \usage{
 extract_datetime(data, prefix = "", suffix = "", expand = c("Year",
-  "Month", "Day", "Hour", "Minute", "Second"), tz = "")
+  "Month", "Day", "Hour", "Minute", "Second"), tz = "PST",
+  standardised_offset = -8)
 }
 \arguments{
   \item{data}{data.frame with columns of
@@ -18,7 +19,20 @@ extract_datetime(data, prefix = "", suffix = "", expand = c("Year",
   [prefix]expand[suffix] and expand must only be Year,
   Month, Day, Hour, Minute and/or Second}
 
-  \item{tz}{string of time zone}
+  \item{tz}{string of time zone. Typical values are
+  "PST8PDT" if Pacific time i.e., includes daylight
+  savings, "PST" if Pacific standard time i.e. no daylight
+  savings "PDT" if Pacific dayight time i.e. all daylight
+  savings and "UTC" all in Universal Coordinated Time
+  (GMT). "PST8PDT" occurs when times are read from a watch,
+  "PST" occurs when loggers are deployed in pacific
+  standard time (recommended) "PDT" occurs when loggers are
+  deployed in pacific daylight time without adjusting and
+  "UTC" occurs with non-adjusted Vemco receivers.}
+
+  \item{standardised_offset}{an integer scalar indicating
+  the time difference in hours between UTC and the desired
+  time zone.}
 }
 \value{
 A date time object
@@ -27,10 +41,17 @@ A date time object
 Extracts datetime from data frame
 }
 \examples{
-data <- data.frame(Year = 2000, Month = 1:4, Day = 2)
+data <- data.frame(Year = 2000, Month = 1:12, Day = 2,
+                   Hour = 12, Minute = 30, Second = 1)
 extract_datetime(data)
 extract_date(data)
 extract_time(data)
+
+extract_datetime(data)
+extract_datetime(data, tz = "PDT")
+extract_datetime(data, tz = "PST8PDT")
+extract_datetime(data, tz = "UTC")
+extract_datetime(data, standardised_offset = -7)
 }
 \seealso{
 \code{\link{sql_datetime}}, \code{\link{ISOdatetime}} and

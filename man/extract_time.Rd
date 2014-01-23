@@ -3,7 +3,7 @@
 \title{Extracts time from data frame}
 \usage{
 extract_time(data, prefix = "", suffix = "", expand = c("Hour", "Minute",
-  "Second"), tz = "")
+  "Second"), tz = "PST", standardised_offset = -8)
 }
 \arguments{
   \item{data}{data.frame with columns of
@@ -19,6 +19,10 @@ extract_time(data, prefix = "", suffix = "", expand = c("Hour", "Minute",
   Minute and/or Second}
 
   \item{tz}{string of time zone}
+
+  \item{standardised_offset}{an integer scalar indicating
+  the time difference in hours between UTC and the desired
+  time zone.}
 }
 \value{
 A datetime object

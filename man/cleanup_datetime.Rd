@@ -25,6 +25,8 @@ Cleaned up data
 Cleans up datetime from data frame
 }
 \examples{
+data <- data.frame(Year = 2000, Month = 1:4, Day = 2)
+cleanup_datetime(data)
 data <- data.frame(Year = 2000, Month = 1:4, Day = 2, Comments = "No way")
 cleanup_datetime(data)
 }
