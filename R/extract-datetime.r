@@ -42,7 +42,7 @@ extract_datetime <- function (data, prefix = "", suffix = "",
       warning("Column '", column, "' not in data")
     } else {
       values[[x]] <- data[[column]]
-      if (cleanup)
+      if (clean_up)
         data[[column]] <- NULL
     }
   }
@@ -88,7 +88,7 @@ extract_date <- function (data, prefix = "", suffix = "",
       warning("Column '", column, "' not in data")
     } else {
       values[[x]] <- data[[column]]
-      if (cleanup)
+      if (clean_up)
         data[[column]] <- NULL
     }
   }
