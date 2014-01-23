@@ -127,8 +127,9 @@ extract_date <- function (data, prefix = "", suffix = "",
     } else
       warning("Regular expression", regexp, "matches columns", colnames[index])
   }
-  
-  as.Date(paste(values[["Year"]], values[["Month"]], values[["Day"]], sep = "-"))
+  char <- paste(values[["Year"]], values[["Month"]], values[["Day"]], sep = "-")
+  is.na(char[grep("NA", char)]) <- TRUE
+  as.Date(char)
 }
 
 #' @title Extracts time from data frame
