@@ -56,6 +56,10 @@ report_to_web <- function (dir = "poissonconsulting.github.io") {
   str_replace_file(from, 
                    "src = \"figures/", 
                    paste0("src = \"/figures/", project_folder(), "/"))
+
+  str_replace_file(from, 
+                   "\\]\\(input/images/", 
+                   paste0("\\]\\(/images/", project_folder(), "/"))
   
   if(layout == "page") {
     file.copy(from, paste0(to, "/index.md"), overwrite = TRUE)
@@ -63,5 +67,6 @@ report_to_web <- function (dir = "poissonconsulting.github.io") {
     file.copy(from, paste0(to, ".md"), overwrite = TRUE)
   }  
   figures_web(dir)
+  images_web(dir)
   return (invisible(TRUE))
 }
