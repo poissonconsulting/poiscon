@@ -18,6 +18,11 @@ knit_report <- function (file = "report.rmd") {
   if(!file.exists(str_replace(to, "/report.md", "")))
     dir.create(str_replace(to, "/report.md", ""), FALSE, recursive = TRUE)
   
+  if(file.exists("input/images")) {
+    file.copy("input/images", str_replace(to, "/report.md", ""), 
+              overwrite = TRUE, recursive = TRUE, copy.mode = TRUE)
+  }
+  
   render_jekyll()
   knit(file, output = to)
     
