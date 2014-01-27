@@ -21,6 +21,7 @@ Imports:
     knitr,
     lubridate,
     markdown,
+    pingr,
     plyr,
     reshape2,
     RODBC,
