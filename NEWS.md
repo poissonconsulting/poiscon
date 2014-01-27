@@ -1,3 +1,10 @@
+# poiscon 0.6.11
+
+* added `sql_datetime`. `extract_datetime` and `cleanup_datetime` families of functions
+to handle timezones when inputting from access database
+
+* added `ping()` to signal completion of `perform_analyses` function
+
 # poiscon 0.6.10
 
 * `perform_analyses` does test of prediction and residual in derived code
