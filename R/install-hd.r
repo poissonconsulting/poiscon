@@ -17,5 +17,5 @@ install_hd <- function (pkg = "poiscon", code_dir = options()$code_dir) {
   if(!file.exists(dir))
     stop("directory", dir, "doesn't exist")
   
-  return (install(dir))
+  install(dir, local = FALSE)
 }
