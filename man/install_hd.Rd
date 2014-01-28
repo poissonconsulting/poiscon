@@ -1,6 +1,6 @@
 \name{install_hd}
 \alias{install_hd}
-\title{Installs package from hard drive}
+\title{Install package from hard drive}
 \usage{
 install_hd(pkg = "poiscon", code_dir = options()$code_dir)
 }
@@ -13,6 +13,6 @@ install_hd(pkg = "poiscon", code_dir = options()$code_dir)
 Installs package
 }
 \description{
-Commits changes to github repository and pushes to remote
+Install package from hard drive
 }
 
