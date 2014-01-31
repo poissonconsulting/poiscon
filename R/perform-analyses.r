@@ -32,7 +32,7 @@ perform_analyses <- function (models, ..., niters = 10^3, name = "data") {
     if (opts_jagr("mode") != "debug") {
       save_plots(analysis)
       plot_residuals(analysis)
-    } else if (!is.null(derived_code(analysis)) {
+    } else if (!is.null(derived_code(analysis))) {
       data <- dataset(analysis)
       if(is.data.frame(data)) {
         newdata <- data[1,,drop = FALSE]
