@@ -64,6 +64,14 @@ knit_parameters <- function (replacement = NULL) {
     previous_title <- title
     
     kable(csv, row.names = FALSE)
+    
+    file <- str_replace(file, "estimates", "rhat")
+    
+    if(file.exists(paste0(dir,"/",file,".csv"))) {
+      csv <- read.csv(file=paste0(dir,"/",file,".csv"))
+      cat("\n")
+      kable(csv, row.names = FALSE)      
+    }
   }
   return (invisible())
 }

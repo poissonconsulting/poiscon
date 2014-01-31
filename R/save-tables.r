@@ -23,9 +23,18 @@ save_tables<- function (object, ...) {
 #' @export
 save_tables.jags_analysis <- function (object, model_number = 1, ...) {
   
-  save_table(rhat(subset(object, model_number = model_number), combine = FALSE),
-             'convergence',type='analyses', row.names = T)
+  object <- subset(object, model_number = model_number)
+  
+  rhat_all <- rhat(object, combine = FALSE)
+  rhat <- rhat(object, combine = TRUE)
+  coef <- coef(object)
+  niters <- niters(object)
+  
+  save_table(rhat_all, "convergence", type = "analyses", row.names = TRUE)
 
-  save_table(coef(subset(object, model_number = model_number)),'estimates', 
-             row.names = T)
+  save_table(coef, "estimates", row.names = TRUE)
+  
+  table <- data.frame(Rhat = rhat, Iterations = niters)
+  
+  save_table(table, "rhat", row.names = FALSE)
 }
