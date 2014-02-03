@@ -57,7 +57,8 @@ knit_models <- function (replacement) {
     file <- files[i]
     title <- titles[i]
     
-    cat(c("\n###"," ",title))
+    cat(c("\n\n###"," ",title))
+    cat("\n\n")
     
     description <- NULL
     models <- NULL
@@ -76,11 +77,11 @@ knit_models <- function (replacement) {
         } else
           cat(c("\n#### Model",i))
                 
-        cat("\n```")
+        cat("\n\n~~~")
         cat("\n")
         cat(model_code(models)) 
         
-        cat("\n```")
+        cat("\n~~~\n\n")
       }     
     }
   }

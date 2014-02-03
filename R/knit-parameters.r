@@ -59,7 +59,7 @@ knit_parameters <- function (replacement = NULL) {
                   perl=TRUE)
     
     if(is.null(previous_title) || title != previous_title) {
-      cat(c("\n###"," ",title,"\n"))
+      cat(c("\n\n###"," ",title,"\n\n"))
     }
     previous_title <- title
     
@@ -69,8 +69,9 @@ knit_parameters <- function (replacement = NULL) {
     
     if(file.exists(paste0(dir,"/",file,".csv"))) {
       csv <- read.csv(file=paste0(dir,"/",file,".csv"))
-      cat("\n")
+      cat("\n\n")
       kable(csv, row.names = FALSE)      
+      cat("\n\n")
     }
   }
   return (invisible())
