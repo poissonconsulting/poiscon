@@ -67,12 +67,12 @@ knit_report <- function (file = "report.rmd") {
 
     str_replace_file(from, 
                      "[{][%][ ][i][n][c][l][u][d][e][ ][J][B][/][s][e][t][u][p][ ][%]}",
-                     paste("#", title, "\n###", date),
+                     paste("\n\n#", title, "\n\n###", date, "\n\n"),
                      to = to_html)  
 
     str_replace_file(from, 
                      "[{][%][ ][i][n][c][l][u][d][e][ ][J][B][/][s][e][t][u][p][ ][%]}",
-                     paste("###", date),
+                     paste("\n\n###", date, "\n\n"),
                      to = to_docx)
   }
   

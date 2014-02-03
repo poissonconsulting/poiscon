@@ -60,11 +60,11 @@ knit_figures <- function (replacement = NULL) {
                   perl=TRUE)
     
     if(is.null(previous_title) || title != previous_title)
-      cat(c("\n###"," ",title,"\n"))
+      cat(c("\n\n###"," ",title,"\n\n"))
     
     previous_title <- title
     
-    cat(paste0("<img alt = \"", file, "\" src = \"", newdir, "/",file,
+    cat(paste0("\n<img alt = \"", file, "\" src = \"", newdir, "/",file,
                ".png\" title = \"",file,"\" width = \"", width, "%\">\n"))
   }
   return (invisible())
