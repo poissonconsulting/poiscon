@@ -2,13 +2,10 @@
 \alias{ht}
 \title{Head-tail}
 \usage{
-ht(x, ...)
+ht(x)
 }
 \arguments{
   \item{x}{an object to get the head and tail}
-
-  \item{...}{further arguments passed to or from other
-  methods.}
 }
 \value{
 Head and tail of x.
