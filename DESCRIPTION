@@ -1,16 +1,16 @@
 Package: poiscon
 Type: Package
 Title: Poisson Consulting Utility Functions
-Version: 0.7.2
-Date: 2014-01-09
+Version: 0.7.0.3
+Date: 2014-02-09
 Author: Joe Thorley [aut, cre]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
-Description: Utility functions to simplify date time manipulations and
-        data, plot, table and analysis saving and loading. It is used
-        by the employees of Poisson Consulting Ltd.
+Description: Utility functions to simplify date time manipulations and data, plot, table
+          and analysis saving and loading. It is used by the employees of Poisson
+          Consulting Ltd.
 Depends: R (>= 3.0.2)
-Imports: assertthat, devtools, formatR, ggplot2, grid, jaggernaut (>=
-        1.5.6), hashFunction, knitr, lubridate, markdown, pingr, plyr,
-        reshape2, RODBC, scales, slidify, stringr
+Imports: assertthat, devtools, formatR, ggplot2, grid, jaggernaut (>= 1.5.6),
+          hashFunction, knitr, lubridate, markdown, pingr, plyr, reshape2, RODBC, scales,
+          slidify, stringr
 Suggests: testthat
 License: MIT + file LICENSE
