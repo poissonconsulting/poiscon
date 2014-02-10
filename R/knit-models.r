@@ -79,7 +79,10 @@ knit_models <- function (replacement) {
                 
         cat("\n\n~~~")
         cat("\n")
-        cat(model_code(models)) 
+        model_code <- model_code(models)
+        if(is.list(model_code))
+          model_code <- model_code[[i]]
+        cat(model_code) 
         
         cat("\n~~~\n\n")
       }     
