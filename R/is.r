@@ -100,4 +100,3 @@ is_bounded <- function (x, min = -Inf, max = Inf) {
   stopifnot(is_numeric_scalar(max))
   return (all(x >= min & x <= max))
 }
-
