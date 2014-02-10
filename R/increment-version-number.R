@@ -1,4 +1,3 @@
-
 #' @title Increment version number
 #'
 #' @description
