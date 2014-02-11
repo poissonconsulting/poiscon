@@ -37,11 +37,18 @@ save_analysis<-function (object, name = 'analysis') {
 #' @param dwidth a numeric scalar indicating the proportion of the window width. By default NULL and taken from plot window.
 #' @param dheight a numeric scalar indicating the proportion of the window height. By default NULL and taken from plot window.
 #' @param slide a logical scalar or NULL indicating whether a slide window.
-#' @param saveTable a logical scalar indicating whether to dave the plot data.frame 
-#' as a csv file.#' 
+#' @param saveTable a logical scalar indicating whether to save the plot data.frame 
+#' as a csv file.
+#' @param report logical scalar indicating whether the plot should be displayed
+#' to an analysis report.
 #' @return Saves current plot as .png file in current plots folder.
 #' @export
-save_plot<-function (name='plot', type='figures', dwidth=NULL, dheight=NULL, slide=NULL, saveTable = TRUE) {    
+save_plot<-function (name='plot', type='figures', dwidth=NULL, dheight=NULL, slide=NULL, saveTable = TRUE, report = TRUE) {
+  
+  assert_that(is.flag(report) && noNA(report))
+  
+  if (!identical(type,"figures"))
+    report <- FALSE
 
   slide <- type == 'slides'
   
@@ -68,7 +75,7 @@ save_plot<-function (name='plot', type='figures', dwidth=NULL, dheight=NULL, sli
     write.csv(last_plot()$data,file=paste0(filename,'.csv'),row.names=F)
   
   gp <- last_plot()
-  gp <- list (ggplot = gp, width = width, height = height, dpi = dpi)
+  gp <- list (ggplot = gp, width = width, height = height, dpi = dpi, report = report)
   class(gp) <- 'gp'
   
   saveRDS(gp,file=paste0(filename,'.rds'))
