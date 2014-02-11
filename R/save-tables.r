@@ -21,8 +21,13 @@ save_tables<- function (object, ...) {
 #' @return Save object as a tables.
 #' @method save_tables jags_analysis
 #' @export
-save_tables.jags_analysis <- function (object, model_number = 1, ...) {
+save_tables.jags_analysis <- function (object, model_number = 1,
+                                       ...) {
   
+  if(model_number == 0) {
+    dic <- dic_jags(object)
+    save_table(dic,"dic", row.names = TRUE)
+  }
   object <- subset(object, model_number = model_number)
   
   rhat_all <- rhat(object, combine = FALSE)

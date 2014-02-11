@@ -36,7 +36,7 @@ knit_parameters <- function (replacement = NULL) {
   previous_title <- NULL
   
   for (file in files) {
-        
+   
     csv <- read.csv(file=paste0(dir,"/",file,".csv"))
     
     colnames(csv)[1] <- "Parameter"
@@ -62,6 +62,16 @@ knit_parameters <- function (replacement = NULL) {
       cat(c("\n\n###"," ",title,"\n\n"))
     }
     previous_title <- title
+    
+    file_dic <- str_replace(file, "estimates", "dic")
+    
+    if(file.exists(paste0(dir,"/",file_dic,".csv"))) {
+      csv_dic <- read.csv(file=paste0(dir,"/",file_dic,".csv"))
+      colnames(csv_dic)[1] <- "Model"
+      cat("\n\n")
+      kable(csv_dic, row.names = FALSE)      
+      cat("\n\n")
+    }
     
     kable(csv, row.names = FALSE)
     
