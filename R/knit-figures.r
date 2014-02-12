@@ -42,12 +42,13 @@ knit_figures <- function (replacement = NULL) {
   newdir <- str_replace(dir,"output/plots/figures",
                         paste0("figures"))
   
+  fignum <- 0
+  
   for (file in files) {    
     
     gp <- readRDS(file=paste0(dir,"/",file,".rds"))
     
     if(is.null(gp$report) || gp$report) {
-      width <- gp$width / 6 * 100
       
       text <- strsplit(file,"/",fixed = T)[[1]]
       text <- text[-length(text)]
@@ -64,12 +65,17 @@ knit_figures <- function (replacement = NULL) {
         cat(c("\n\n###"," ",title,"\n\n"))
       
       previous_title <- title
+      
+      width <- gp$width
+      if (width <= 10) {
+        width <-  1/ width * 100
+      }
 
+      fignum <- fignum + 1
       cat("\n<figure>\n")
       cat(paste0("\n<img alt = \"", file, "\" src = \"", newdir, "/",file,
                  ".png\" title = \"",file,"\" width = \"", width, "%\">\n"))
-      if(!is.null(gp$caption))
-        cat(paste0("\n<figcaption>", gp$caption, "</figcaption>\n"))        
+      cat(paste0("\n<figcaption>Figure ", fignum, ". ", gp$caption, "</figcaption>\n"))        
       cat("\n</figure>\n")
     }
   }

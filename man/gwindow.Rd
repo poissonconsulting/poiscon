@@ -2,17 +2,17 @@
 \alias{gwindow}
 \title{Plotting window}
 \usage{
-gwindow(dwidth = 1, dheight = 1, slide = FALSE)
+gwindow(width = 100, height = NULL)
 }
 \arguments{
-  \item{dwidth}{a numeric scalar indicating the proportion
-  of the page width}
+  \item{width}{a numeric scalar indicating the percent of
+  the page width (or the number of plots per page width -
+  up to 10)}
 
-  \item{dheight}{a numeric scalar indicating the proprotion
-  of the page height}
-
-  \item{slide}{a logical scalar indicating whether plot
-  (the default) versus powerpoint slide.}
+  \item{height}{a numeric scalar indicating the percent of
+  the page height - by default the same percent as the
+  width (or the number of plots per page width - up to
+  10).}
 }
 \value{
 Creates a new window for plotting

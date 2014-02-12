@@ -1,4 +1,3 @@
-
 #' @title Save rdata
 #'
 #' @description 
@@ -8,8 +7,8 @@
 #' @param name a character scalar of the name of the file.
 #' @return Saves object as .rdata files in current rdata folder.
 #' @export
-save_rdata<-function (object, name = 'data') {
-  file <- paste0(get_rdata_folder(), '/', name, '.rds')
+save_rdata<-function (object, name = "data") {
+  file <- paste0(get_rdata_folder(), "/", name, ".rds")
   return (saveRDS(object, file))
 }
 
@@ -34,56 +33,66 @@ save_analysis<-function (object, name = 'analysis') {
 #' 
 #' @param name a character scalar of the name of the object.
 #' @param type a character scalar of the type of folder to save in.
-#' @param dwidth a numeric scalar indicating the proportion of the window width. By default NULL and taken from plot window.
-#' @param dheight a numeric scalar indicating the proportion of the window height. By default NULL and taken from plot window.
-#' @param slide a logical scalar or NULL indicating whether a slide window.
+#' @param width a numeric scalar indicating the percent of the page width (or the 
+#' number of plots per page width - up to 10)
+#' @param height a numeric scalar indicating the percent of the page height - by default
+#' the same percent as the width (or the 
+#' number of plots per page width - up to 10).
 #' @param saveTable a logical scalar indicating whether to save the plot data.frame 
-#' as a csv file.
+#' as a csv file or a integer scalar indicating the maximum number of rows to save the
+#' csv file for.
 #' @param report logical scalar indicating whether the plot should be displayed
 #' to an analysis report.
 #' @param caption character scalar of caption else NULL.
 #' @return Saves current plot as .png file in current plots folder.
 #' @export
-save_plot<-function (name='plot', type='figures', dwidth=NULL, dheight=NULL, slide=NULL, saveTable = TRUE, report = TRUE, caption = NULL) {
+save_plot<-function (name = "plot", type = "figures", width = NULL, height = NULL,
+                     saveTable = 100, report = TRUE, caption = NULL) {
   
+  assert_that(is.string(name))
+  assert_that(is.string(type))
+  assert_that((is.flag(saveTable) || is.count(saveTable)) && noNA(saveTable))
   assert_that(is.flag(report) && noNA(report))
   assert_that(is.null(caption) || is.string(caption))
   
-  if (!identical(type,"figures"))
-    report <- FALSE
+  if (type != "figures")
+    report <- FALSE 
 
-  slide <- type == 'slides'
+  if (is.null(width))
+    width <- getOption("poiscon.gwindow.width", 100)
+  if (is.null(height))
+    height <- getOption("poiscon.gwindow.height", width)
   
-  if (is.null(dwidth))
-    dwidth <- getOption("gwindow.dwidth",1)
-  if (is.null(dheight))
-    dheight <- getOption("gwindow.dheight",1)
-  if (is.null(slide))
-    slide <- getOption("gwindow.slide",FALSE)
-  
-  if (slide) {
-    width <- getOption("gwindow.width_slide",10) / dwidth
-    height <- getOption("gwindow.height_slide",7.5) / dheight
-    dpi <- getOption("gwindow.dpi_slide",96)
-  } else {
-    width <- getOption("gwindow.width",6) / dwidth
-    height <- getOption("gwindow.height",6) / dheight
-    dpi <- getOption("gwindow.dpi",300)    
-  }
-  
-  filename <- paste0(get_plots_folder(type=type), '/', name)
-      
-  if (saveTable)
-    write.csv(last_plot()$data,file=paste0(filename,'.csv'),row.names=F)
-  
+  dpi <- getOption("gwindow.dpi", 300)    
+   
   gp <- last_plot()
   gp <- list (ggplot = gp, width = width, height = height, dpi = dpi, report = report,
               caption = caption)
-  class(gp) <- 'gp'
+  class(gp) <- "gp"
+
+  filename <- paste0(get_plots_folder(type=type), "/", name)
   
-  saveRDS(gp,file=paste0(filename,'.rds'))
+  saveRDS(gp, file = paste0(filename, ".rds"))
   
-  return (ggsave(paste0(filename, '.png'), width = width, height = height, dpi = dpi))
+  data <- last_plot()$data
+  
+  if (is.numeric(saveTable))
+    saveTable <- nrow(data) < saveTable
+  
+  if (saveTable)
+    write.csv(data, file = paste0(filename, ".csv"),row.names = FALSE)
+  
+  page.width <- getOption("poiscon.page_width", 6)
+  
+  if(width > 10) {
+    width <- width / 100 * page.width
+    height <- height / 100 * page.width
+  }
+  else {
+    width <- page.width / width
+    height <- page.width / height
+  }
+  ggsave(paste0(filename, ".png"), width = width, height = height, dpi = dpi)
 }
 
 #' @title Save table
