@@ -41,11 +41,13 @@ save_analysis<-function (object, name = 'analysis') {
 #' as a csv file.
 #' @param report logical scalar indicating whether the plot should be displayed
 #' to an analysis report.
+#' @param caption character scalar of caption else NULL.
 #' @return Saves current plot as .png file in current plots folder.
 #' @export
-save_plot<-function (name='plot', type='figures', dwidth=NULL, dheight=NULL, slide=NULL, saveTable = TRUE, report = TRUE) {
+save_plot<-function (name='plot', type='figures', dwidth=NULL, dheight=NULL, slide=NULL, saveTable = TRUE, report = TRUE, caption = NULL) {
   
   assert_that(is.flag(report) && noNA(report))
+  assert_that(is.null(caption) || is.string(caption))
   
   if (!identical(type,"figures"))
     report <- FALSE
@@ -75,7 +77,8 @@ save_plot<-function (name='plot', type='figures', dwidth=NULL, dheight=NULL, sli
     write.csv(last_plot()$data,file=paste0(filename,'.csv'),row.names=F)
   
   gp <- last_plot()
-  gp <- list (ggplot = gp, width = width, height = height, dpi = dpi, report = report)
+  gp <- list (ggplot = gp, width = width, height = height, dpi = dpi, report = report,
+              caption = caption)
   class(gp) <- 'gp'
   
   saveRDS(gp,file=paste0(filename,'.rds'))

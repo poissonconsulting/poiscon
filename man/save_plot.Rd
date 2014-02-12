@@ -3,7 +3,8 @@
 \title{Save plot}
 \usage{
 save_plot(name = "plot", type = "figures", dwidth = NULL,
-  dheight = NULL, slide = NULL, saveTable = TRUE, report = TRUE)
+  dheight = NULL, slide = NULL, saveTable = TRUE, report = TRUE,
+  caption = NULL)
 }
 \arguments{
   \item{name}{a character scalar of the name of the
@@ -27,7 +28,9 @@ save_plot(name = "plot", type = "figures", dwidth = NULL,
   save the plot data.frame as a csv file.}
 
   \item{report}{logical scalar indicating whether the plot
-  should be displayed in an analysis report.}
+  should be displayed to an analysis report.}
+
+  \item{caption}{character scalar of caption else NULL.}
 }
 \value{
 Saves current plot as .png file in current plots folder.

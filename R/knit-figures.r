@@ -64,9 +64,13 @@ knit_figures <- function (replacement = NULL) {
         cat(c("\n\n###"," ",title,"\n\n"))
       
       previous_title <- title
-      
+
+      cat("\n<figure>\n")
       cat(paste0("\n<img alt = \"", file, "\" src = \"", newdir, "/",file,
                  ".png\" title = \"",file,"\" width = \"", width, "%\">\n"))
+      if(!is.null(gp$caption))
+        cat(paste0("\n<figcaption>", gp$caption, "</figcaption>\n"))        
+      cat("\n</figure>\n")
     }
   }
   return (invisible())
