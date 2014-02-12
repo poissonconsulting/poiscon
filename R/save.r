@@ -38,7 +38,7 @@ save_analysis<-function (object, name = 'analysis') {
 #' @param height a numeric scalar indicating the percent of the page height - by default
 #' the same percent as the width (or the 
 #' number of plots per page width - up to 10).
-#' @param saveTable a logical scalar indicating whether to save the plot data.frame 
+#' @param save_table a logical scalar indicating whether to save the plot data.frame 
 #' as a csv file or a integer scalar indicating the maximum number of rows to save the
 #' csv file for.
 #' @param report logical scalar indicating whether the plot should be displayed
@@ -47,11 +47,11 @@ save_analysis<-function (object, name = 'analysis') {
 #' @return Saves current plot as .png file in current plots folder.
 #' @export
 save_plot<-function (name = "plot", type = "figures", width = NULL, height = NULL,
-                     saveTable = 100, report = TRUE, caption = NULL) {
+                     save_table = 100, report = TRUE, caption = NULL) {
   
   assert_that(is.string(name))
   assert_that(is.string(type))
-  assert_that((is.flag(saveTable) || is.count(saveTable)) && noNA(saveTable))
+  assert_that((is.flag(save_table) || is.count(save_table)) && noNA(save_table))
   assert_that(is.flag(report) && noNA(report))
   assert_that(is.null(caption) || is.string(caption))
   
@@ -76,10 +76,10 @@ save_plot<-function (name = "plot", type = "figures", width = NULL, height = NUL
   
   data <- last_plot()$data
   
-  if (is.numeric(saveTable))
-    saveTable <- nrow(data) < saveTable
+  if (is.numeric(save_table))
+    save_table <- nrow(data) < save_table
   
-  if (saveTable)
+  if (save_table)
     write.csv(data, file = paste0(filename, ".csv"),row.names = FALSE)
   
   page.width <- getOption("poiscon.page_width", 6)
