@@ -1,4 +1,4 @@
-#' @title Is informative prediction
+#' @title Is Predictive
 #'
 #' @description
 #' Tests whether a prediction data.frame is informative i.e.,
@@ -7,7 +7,7 @@
 #' @param x data.frame of predictions to test informative
 #' @return logical scalar indicating whether informative
 #' @export
-is_informative_prediction <- function (x) {
+is_predictive <- function (x) {
   assert_that(is.data.frame(x))
   assert_that(all(c("estimate","lower","upper") %in% colnames(x)))
 
