@@ -33,27 +33,31 @@ save_analysis<-function (object, name = 'analysis') {
 #' 
 #' @param name a character scalar of the name of the object.
 #' @param type a character scalar of the type of folder to save in.
-#' @param width a numeric scalar indicating the percent of the page width (or the 
-#' number of plots per page width - up to 10)
-#' @param height a numeric scalar indicating the percent of the page height - by default
-#' the same percent as the width (or the 
-#' number of plots per page width - up to 10).
 #' @param save_table a logical scalar indicating whether to save the plot data.frame 
 #' as a csv file or a integer scalar indicating the maximum number of rows to save the
 #' csv file for.
 #' @param report logical scalar indicating whether the plot should be displayed
 #' to an analysis report.
 #' @param caption character scalar of caption else NULL.
+#' #' @param width a numeric scalar indicating the percent of the page width (or the 
+#' number of plots per page width - up to 10)
+#' @param height a numeric scalar indicating the percent of the page height - by default
+#' the same percent as the width (or the 
+#' number of plots per page width - up to 10).
+#' @param dpi integer scalar of dots per inch. If NULL (the default) then
+#' given by option poiscon.dpi which by default is 300.
 #' @return Saves current plot as .png file in current plots folder.
 #' @export
-save_plot<-function (name = "plot", type = "figures", width = NULL, height = NULL,
-                     save_table = 100, report = TRUE, caption = NULL) {
+save_plot <- function (name = "plot", type = "figures",
+                     save_table = 100, report = TRUE, caption = NULL, 
+                     width = NULL, height = NULL,dpi = NULL) {
   
   assert_that(is.string(name))
   assert_that(is.string(type))
   assert_that((is.flag(save_table) || is.count(save_table)) && noNA(save_table))
   assert_that(is.flag(report) && noNA(report))
   assert_that(is.null(caption) || is.string(caption))
+  assert_that(is.null(dpi) || (is.count(dpi) && noNA(dpi)))
   
   if (type != "figures")
     report <- FALSE 
@@ -63,18 +67,23 @@ save_plot<-function (name = "plot", type = "figures", width = NULL, height = NUL
   if (is.null(height))
     height <- getOption("poiscon.gwindow.height", width)
   
-  dpi <- getOption("gwindow.dpi", 300)    
+  if(width <= 10) {
+    width <- 100 / width
+    height <- 100 / height
+  }
+  
+  if(is.null(dpi))
+    dpi <- getOption("poiscon.dpi", 300)    
    
-  gp <- last_plot()
-  gp <- list (ggplot = gp, width = width, height = height, dpi = dpi, report = report,
-              caption = caption)
+  gp <- list (ggplot = last_plot(), width = width, height = height, 
+              dpi = dpi, report = report, caption = caption)
   class(gp) <- "gp"
 
   filename <- paste0(get_plots_folder(type=type), "/", name)
   
   saveRDS(gp, file = paste0(filename, ".rds"))
   
-  data <- last_plot()$data
+  data <- gp$ggplot$data
   
   if (is.numeric(save_table))
     save_table <- nrow(data) < save_table
@@ -82,16 +91,11 @@ save_plot<-function (name = "plot", type = "figures", width = NULL, height = NUL
   if (save_table)
     write.csv(data, file = paste0(filename, ".csv"),row.names = FALSE)
   
-  page.width <- getOption("poiscon.page_width", 6)
+  page_width <- getOption("poiscon.page_width", 6)
   
-  if(width > 10) {
-    width <- width / 100 * page.width
-    height <- height / 100 * page.width
-  }
-  else {
-    width <- page.width / width
-    height <- page.width / height
-  }
+  width <- width / 100 * page_width
+  height <- height / 100 * page_width
+
   ggsave(paste0(filename, ".png"), width = width, height = height, dpi = dpi)
 }
 

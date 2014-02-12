@@ -23,20 +23,19 @@ gwindow <- function (width = 100, height = NULL) {
   
   if(is.null(height))
     height <- width
+  
+  if(width <= 10) {
+    width <- 100 / width
+    height <- 100 / height
+  }
 
   options(poiscon.gwindow.width = width)
   options(poiscon.gwindow.height = height)   
   
-  page.width <- getOption("poiscon.page_width", 6)
-  
-  if(width > 10) {
-    width <- width / 100 * page.width
-    height <- height / 100 * page.width
-  }
-  else {
-    width <- page.width / width
-    height <- page.width / height
-  } 
+  page_width <- getOption("poiscon.page_width", 6)
+
+  width <- page_width * width / 100
+  height <- page_width * height / 100
   
   windows (width = width, height = height)    
 }

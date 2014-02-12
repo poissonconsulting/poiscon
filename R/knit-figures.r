@@ -65,16 +65,11 @@ knit_figures <- function (replacement = NULL) {
         cat(c("\n\n###"," ",title,"\n\n"))
       
       previous_title <- title
-      
-      width <- gp$width
-      if (width <= 10) {
-        width <-  1/ width * 100
-      }
 
       fignum <- fignum + 1
       cat("\n<figure>\n")
       cat(paste0("\n<img alt = \"", file, "\" src = \"", newdir, "/",file,
-                 ".png\" title = \"",file,"\" width = \"", width, "%\">\n"))
+                 ".png\" title = \"",file,"\" width = \"", gp$width, "%\">\n"))
       cat(paste0("\n<figcaption>Figure ", fignum, ". ", gp$caption, "</figcaption>\n"))        
       cat("\n</figure>\n")
     }
