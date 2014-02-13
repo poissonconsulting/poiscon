@@ -32,7 +32,7 @@ resave_plots <- function (type = "figures", dpi = NULL) {
     
     width <- gp$width
     height <- gp$height
-    gp <- gp$ggplot
+    gp <- ggplot(gp)
     
     page_width <- getOption("poiscon.page_width", 6)
     

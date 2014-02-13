@@ -8,8 +8,10 @@
 #' @return Saves object as .rdata files in current rdata folder.
 #' @export
 save_rdata<-function (object, name = "data") {
+  
   file <- paste0(get_rdata_folder(), "/", name, ".rds")
-  return (saveRDS(object, file))
+  
+  saveRDS(object, file)
 }
 
 #' @title Save analysis
@@ -22,8 +24,11 @@ save_rdata<-function (object, name = "data") {
 #' @return Saves object as .rdata files in current analysis folder.
 #' @export
 save_analysis<-function (object, name = 'analysis') {
+  assert_that(is.jags_analysis(object))
+  
   file <- paste0(get_analyses_folder(), '/', name, '.rds')
-  return (saveRDS(object, file))
+  
+  saveRDS(object, file)
 }
 
 #' @title Save plot
@@ -75,15 +80,14 @@ save_plot <- function (name = "plot", type = "figures",
   if(is.null(dpi))
     dpi <- getOption("poiscon.dpi", 300)    
    
-  gp <- list (ggplot = last_plot(), width = width, height = height, 
+  gplot <- gplot(ggplot = last_plot(), width = width, height = height, 
               dpi = dpi, report = report, caption = caption)
-  class(gp) <- "gp"
-
+  
   filename <- paste0(get_plots_folder(type=type), "/", name)
   
-  saveRDS(gp, file = paste0(filename, ".rds"))
+  saveRDS(gplot, file = paste0(filename, ".rds"))
   
-  data <- gp$ggplot$data
+  data <- dataset(gplot)
   
   if (is.numeric(save_table))
     save_table <- nrow(data) < save_table
@@ -112,6 +116,8 @@ save_plot <- function (name = "plot", type = "figures",
 #' @export
 save_table<-function (object, name='table', type='results', row.names = FALSE) {
   object <- as.data.frame(object)
+  
   filename <- paste0(get_tables_folder(type=type), '/', name,'.csv')
-  return (write.csv(object, filename, row.names = row.names))
+
+  write.csv(object, filename, row.names = row.names)
 }

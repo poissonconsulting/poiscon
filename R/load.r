@@ -35,24 +35,26 @@ load_analysis <- function (name = 'analysis') {
 #' @title Load plot
 #'
 #' @description 
-#' In current form reads in plot .csv file from current plot folder.
+#' Reads in ggplot object
 #' 
-#' @param name the name of the plot (without extension).
-#' @param type the plot type i.e. figures (default) or analysis, slides etc.
-#' @param ext the extension of the file type to read in i.e. ".rds" the 
-#' default or ".csv" the only option currently implemented.
+#' @param name character scalar of the name of the plot (without extension).
+#' @param type the plot type i.e. figures (default) or analysis, data etc.
 #' @return a data.frame object
 #' @export
-load_plot <- function (name = "plot", type = "figures", ext = "rds") {
-
-  if(!identical(ext,"csv"))
-    stop("ext argument currently only accepts \"csv\"")
+load_plot <- function (name = "plot", type = "figures") {
   
-  file <- paste0(get_plots_folder(type = type), "/", name, ".csv")
-  if (file.exists (file))
-    return (read.csv(file))
-  warning (paste0("file ",file," does not exist"))
-  return (invisible())
+  file <- paste0(get_plots_folder(type = type), "/", name, ".rds")
+
+  if (!file.exists (file)) {
+    warning ("plot ", file, " does not exist")
+    return (NULL)
+  }
+  gplot <-readRDS(file)
+  if(!is.gplot(gplot)) {
+    warning ("plot ", file, " is of class ", class(gplot))
+  }
+    
+  gplot$ggplot
 }
 
 #' @title Load table
