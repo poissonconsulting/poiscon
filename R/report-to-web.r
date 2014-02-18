@@ -50,6 +50,9 @@ report_to_web <- function (dir = "poissonconsulting-jekyll") {
   }
   
   url <- str_replace(url, path, "http:/")
+  url <- str_replace(url, "http://poissonconsulting-jekyll/", "http://poissonconsulting.github.io/")
+  url <- str_replace(url, "http://joethorley-jekyll/", "http://joethorley.github.io/")
+
   cat(url)
   
   "src = \"figures/"
