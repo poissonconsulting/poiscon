@@ -13,7 +13,7 @@ figures_web <- function (dir = "poissonconsulting.github.io") {
   assert_that(is.string(dir))
   
   path <- getOption("code_dir", "~/Documents/code")
-  assert_that(path)
+  assert_that(is.string(path))
 
   from <- "output/plots/figures"
   
