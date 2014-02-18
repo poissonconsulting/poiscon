@@ -10,10 +10,12 @@
 push_web <- function (dir = "poissonconsulting.github.io",
                       message = paste0(project_folder(), " ",Sys.time())) {
   
-  path <- options()$code_dir
   
   assert_that(is.string(dir))
-  assert_that(is.string(path))
+  
+  path <- getOption("code_dir", "~/Documents/code")
+  if(!is.string(path))
+    stop("option()$code_dir must be a character scalar")
   
   message("Pushing jekyll web repository ", dir, " ...")
   
