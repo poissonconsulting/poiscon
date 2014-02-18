@@ -12,7 +12,7 @@ report_to_web <- function (dir = "poissonconsulting-jekyll") {
   
   path <- getOption("code_dir", "~/Documents/code")
 
-  assert_that(path)
+  assert_that(is.string(path))
 
   from <- paste0("output/report/", project_folder(), "/report.md")
   
