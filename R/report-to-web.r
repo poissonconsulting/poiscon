@@ -6,12 +6,13 @@
 #' @param dir jekyll repository
 #' @return Uploads files to jekyll site on my harddrive.
 #' @export
-report_to_web <- function (dir = "poissonconsulting.github.io") {
+report_to_web <- function (dir = "poissonconsulting-jekyll") {
 
   assert_that(is.string(dir))
-  assert_that(is.string(options()$code_dir))
   
-  path <- options()$code_dir
+  path <- getOption("code_dir", "~/Documents/code")
+
+  assert_that(path)
 
   from <- paste0("output/report/", project_folder(), "/report.md")
   

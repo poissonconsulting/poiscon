@@ -14,10 +14,13 @@ deck_to_web <- function (release_date = NULL, dir = "deck",
   assert_that(is.string(dir))
   assert_that(is.null(release_date) || is.Date(release_date))
   assert_that(is.string(web_dir))
-  assert_that(is.string(getOption("code_dir")))
+  
+  path <- getOption("code_dir", "~/Documents/code")
+
+  assert_that(is.string(path))
   
   assert_that(file.exists(dir))
-  assert_that(file.exists(paste(getOption("code_dir"), web_dir, sep = "/")))
+  assert_that(file.exists(paste(path, web_dir, sep = "/")))
   
   project_folder <- project_folder()
   
@@ -26,7 +29,6 @@ deck_to_web <- function (release_date = NULL, dir = "deck",
   
   setwd(paste(wd, dir, sep = "/"))
   
-  path <- getOption("code_dir")
   
   if (!file.exists("libraries")) {
     message("Please set mode to selfcontained and run slidify_deck")
