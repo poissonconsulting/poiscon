@@ -5,7 +5,7 @@
 #' ensure correct height and width when inserted into Microsoft Word document 
 #' @param type a character element indicating the type of plots to redraw by default type = "figures"
 #' @param dpi integer scalar of dots per inch. If NULL (the default) then
-#' given by option poiscon.dpi which by default is 300.
+#' given by option poiscon.dpi which by default is 320
 #' @return invisible logical scalar indicating whether successful.
 #' @export
 resave_plots <- function (type = "figures", dpi = NULL) {

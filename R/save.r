@@ -50,7 +50,7 @@ save_analysis<-function (object, name = 'analysis') {
 #' the same percent as the width (or the 
 #' number of plots per page width - up to 10).
 #' @param dpi integer scalar of dots per inch. If NULL (the default) then
-#' given by option poiscon.dpi which by default is 300.
+#' given by option poiscon.dpi which by default is 320
 #' @return Saves current plot as .png file in current plots folder.
 #' @export
 save_plot <- function (name = "plot", type = "figures",
@@ -78,7 +78,7 @@ save_plot <- function (name = "plot", type = "figures",
   }
   
   if(is.null(dpi))
-    dpi <- getOption("poiscon.dpi", 300)    
+    dpi <- getOption("poiscon.dpi", 320)    
    
   gplot <- gplot(ggplot = last_plot(), width = width, height = height, 
               dpi = dpi, report = report, caption = caption)
