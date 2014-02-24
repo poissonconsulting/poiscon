@@ -2,7 +2,7 @@
 \alias{report_to_web}
 \title{Report to web repository}
 \usage{
-report_to_web(dir = "poissonconsulting.github.io")
+report_to_web(dir = "poissonconsulting-jekyll")
 }
 \arguments{
   \item{dir}{jekyll repository}

@@ -10,7 +10,7 @@ resave_plots(type = "figures", dpi = NULL)
 
   \item{dpi}{integer scalar of dots per inch. If NULL (the
   default) then given by option poiscon.dpi which by
-  default is 300.}
+  default is 320}
 }
 \value{
 invisible logical scalar indicating whether successful.

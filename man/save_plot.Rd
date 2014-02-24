@@ -34,7 +34,7 @@ save_plot(name = "plot", type = "figures", save_table = 100,
 
   \item{dpi}{integer scalar of dots per inch. If NULL (the
   default) then given by option poiscon.dpi which by
-  default is 300.}
+  default is 320}
 }
 \value{
 Saves current plot as .png file in current plots folder.

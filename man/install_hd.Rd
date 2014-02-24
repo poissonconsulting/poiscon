@@ -2,7 +2,8 @@
 \alias{install_hd}
 \title{Install package from hard drive}
 \usage{
-install_hd(pkg = "poiscon", code_dir = options()$code_dir)
+install_hd(pkg = "poiscon", code_dir = getOption("code_dir",
+  "~/Documents/code"))
 }
 \arguments{
   \item{pkg}{string of repository directory name}
