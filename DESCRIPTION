@@ -27,7 +27,8 @@ Imports:
     RODBC,
     scales,
     slidify,
-    stringr
+    stringr,
+    tools (>= 3.0.2)
 Suggests:
     testthat
 License: MIT + file LICENSE

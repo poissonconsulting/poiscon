@@ -1,23 +1,35 @@
 \name{gwindow}
 \alias{gwindow}
-\title{Plotting window}
+\title{Open graphics window}
 \usage{
-gwindow(width = 100, height = NULL)
+gwindow(width = 100, height = width)
 }
 \arguments{
   \item{width}{a numeric scalar indicating the percent of
-  the page width (or the number of plots per page width -
-  up to 10)}
+  the page width (or if 10 or less the width of the page in
+  inches)}
 
   \item{height}{a numeric scalar indicating the percent of
-  the page height - by default the same percent as the
-  width (or the number of plots per page width - up to
-  10).}
+  the page height (or if 10 or less the width of the page
+  in inches). By default height is the same as the width.}
 }
 \value{
-Creates a new window for plotting
+a new graphics window for plotting
 }
 \description{
-Creates a new platform-independent window for plotting
+Opens a new graphics window for plotting
+}
+\examples{
+\dontrun{
+
+gwindow(50)
+gwindow(3)
+gwindow(50, 100)
+gwindow(3, 6)
+gwindow(3, 100)
+}
+}
+\seealso{
+\code{\link{save_plot}}
 }
 

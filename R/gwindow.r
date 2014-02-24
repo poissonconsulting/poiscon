@@ -1,41 +1,52 @@
-#' @title Plotting window
+open_window <- function (width, height) {
+  fun <- switch(Sys.info()["sysname"],
+         Windows = windows,
+         Darwin = quartz,
+         stop("gwindow not yet implemented for this operating system"))
+
+  fun(width = width, height = height)
+}
+
+#' @title Open graphics window
 #'
 #' @description
-#' Creates a new platform-independent window for plotting
+#' Opens a new graphics window for plotting
 #'
-#' @param width a numeric scalar indicating the percent of the page width (or the 
-#' number of plots per page width - up to 10)
-#' @param height a numeric scalar indicating the percent of the page height - by default
-#' the same percent as the width (or the 
-#' number of plots per page width - up to 10).
-#' @return Creates a new window for plotting
+#' @param width a numeric scalar indicating the percent of the page width (or 
+#' if 10 or less the width of the page in inches)
+#' @param height a numeric scalar indicating the percent of the page height (or 
+#' if 10 or less the width of the page in inches). By default height is
+#' the same as the width.
+#' @return a new graphics window for plotting
+#' @seealso \code{\link{save_plot}}
+#' @examples
+#' \dontrun{
+#' 
+#' gwindow(50)
+#' gwindow(3)
+#' gwindow(50, 100)
+#' gwindow(3, 6)
+#' gwindow(3, 100)
+#' }
 #' @export
-gwindow <- function (width = 100, height = NULL) {
+gwindow <- function (width = 100, height = width) {
   
-  assert_that(is.numeric(width) && noNA(width))
-  assert_that(is.null(height) || (is.numeric(height) && noNA(height)))
+  assert_that(is.number(width))
+  assert_that(is.number(height))
   
-  if (.Platform$OS.type == "unix") {
-    windows <- function (width = 7, height = 7,...) {
-      quartz (width = width, height = height, ...)
-    }
-  }
+  page_width <- getOption("poiscon.page_width", 6)
   
-  if(is.null(height))
-    height <- width
+  if(width <= 10)
+    width <- round(width / page_width * 100)
   
-  if(width <= 10) {
-    width <- 100 / width
-    height <- 100 / height
-  }
+  if(height <= 10)
+    height <- round(height / page_width * 100)
 
   options(poiscon.gwindow.width = width)
   options(poiscon.gwindow.height = height)   
   
-  page_width <- getOption("poiscon.page_width", 6)
-
   width <- page_width * width / 100
   height <- page_width * height / 100
   
-  windows (width = width, height = height)    
+  open_window (width = width, height = height)    
 }
