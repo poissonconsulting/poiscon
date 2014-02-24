@@ -20,7 +20,7 @@ knit_figures <- function (replacement = NULL) {
   
   dir <- "output/plots/figures"
   
-  files <- list.files(dir, pattern = "[.]rds", recursive = TRUE)
+  files <- list.files(dir, pattern = "[.]rds$", recursive = TRUE)
   files <- substr(files,1,nchar(files)-4)
   
   

@@ -11,7 +11,7 @@ figures_report <- function () {
   
   from <- "output/plots/figures"
   
-  files <- list.files(from, pattern = "[.]png", full.names = TRUE, 
+  files <- list.files(from, pattern = "[.]png$", full.names = TRUE, 
                       recursive = TRUE)
   
   if(length(files)) {

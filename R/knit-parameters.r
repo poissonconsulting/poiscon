@@ -16,7 +16,7 @@ knit_parameters <- function (replacement = NULL) {
   reset_folders()
   
   dir <- get_tables_folder(type = "results")
-  files <- list.files(dir, pattern = "[.]csv", recursive = TRUE)
+  files <- list.files(dir, pattern = "[.]csv$", recursive = TRUE)
   files <- substr(files,1,nchar(files)-4)
   files <- files[substr(files,nchar(files)-8, nchar(files)) == "estimates"]
   
