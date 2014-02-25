@@ -5,15 +5,16 @@
 load_table(name = "table", type = "results")
 }
 \arguments{
-  \item{name}{the name of the table (without extension).}
+  \item{name}{the name of the table (csv extension is not
+  required)}
 
   \item{type}{the table type i.e. results (default) or
   analysis etc.}
 }
 \value{
-a data.frame object
+a data.frame of the table
 }
 \description{
-Reads in table.csv file from current table folder.
+Reads in csv file from current table folder.
 }
 

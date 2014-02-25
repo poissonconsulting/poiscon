@@ -26,7 +26,7 @@ save_tables.jags_analysis <- function (object, model_number = 1,
   
   if(model_number == 0) {
     dic <- dic_jags(object)
-    save_table(dic,"dic", row.names = TRUE)
+    save_table(dic, "dic")
   }
   object <- subset(object, model_number = model_number)
   
@@ -35,11 +35,11 @@ save_tables.jags_analysis <- function (object, model_number = 1,
   coef <- coef(object)
   niters <- niters(object)
   
-  save_table(rhat_all, "convergence", type = "analyses", row.names = TRUE)
+  save_table(rhat_all, "convergence", type = "analyses")
 
-  save_table(coef, "estimates", row.names = TRUE)
+  save_table(coef, "estimates")
   
   table <- data.frame(Rhat = rhat, Iterations = niters)
   
-  save_table(table, "rhat", row.names = FALSE)
+  save_table(table, "rhat")
 }

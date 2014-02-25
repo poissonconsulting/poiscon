@@ -30,22 +30,3 @@ save_analysis<-function (object, name = 'analysis') {
   
   saveRDS(object, file)
 }
-
-#' @title Save table
-#'
-#' @description 
-#' Saves object as .csv file in current table folder.
-#' 
-#' @param object the object to save.
-#' @param name a character scalar of the name of the object.
-#' @param type a character scalar of the type of folder to save in.
-#' @param row.names a logical scalar of whether to include row names.
-#' @return Saves object as .csv files in current table folder.
-#' @export
-save_table<-function (object, name='table', type='results', row.names = FALSE) {
-  object <- as.data.frame(object)
-  
-  filename <- paste0(get_tables_folder(type=type), '/', name,'.csv')
-
-  write.csv(object, filename, row.names = row.names)
-}
