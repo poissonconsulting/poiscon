@@ -50,9 +50,6 @@ load_plot <- function (name = "plot", type = "figures") {
     return (NULL)
   }
   gplot <-readRDS(file)
-  if(!is.gplot(gplot)) {
-    warning ("plot ", file, " is of class ", class(gplot))
-  }
     
   gplot$ggplot
 }

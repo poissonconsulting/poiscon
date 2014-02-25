@@ -51,12 +51,12 @@ save_plot <- function (name = "plot", type = "figures",
   
   file <- file.path(get_plots_folder(type=type), name)
 
-  gplot <- gplot(ggplot = last_plot(), width = width, height = height, 
+  gplot <- list(ggplot = last_plot(), width = width, height = height, 
                  report = report, caption = caption)
     
   saveRDS(gplot, file = replace_ext(file, "rds"))
   
-  data <- dataset(gplot)
+  data <- gplot$ggplot$data
   
   if(save_rows > 0) {
     write.csv(data[1:(min(save_rows, nrow(data))),], 

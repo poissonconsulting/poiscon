@@ -1,4 +1,3 @@
-S3method(dataset,ggplot)
 S3method(dayte,Date)
 S3method(dayte,POSIXct)
 S3method(dayte,POSIXlt)
