@@ -25,7 +25,7 @@ save_tables.jags_analysis <- function (object, model_number = 1,
                                        ...) {
   
   if(model_number == 0) {
-    dic <- dic_jags(object)
+    dic <- as.data.frame(dic_jags(object))
     save_table(dic, "dic")
   }
   object <- subset(object, model_number = model_number)
