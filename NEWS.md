@@ -1,3 +1,7 @@
+# poiscon 0.7
+
+* too much to describe right now...
+
 # poiscon 0.6.11
 
 * added `sql_datetime`. `extract_datetime` and `cleanup_datetime` families of functions
