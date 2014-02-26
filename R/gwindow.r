@@ -10,11 +10,12 @@ open_window <- function (width, height) {
 #' @title Open graphics window
 #'
 #' @description
-#' Opens a new graphics window for plotting
+#' Opens a new graphics window for plotting by default the page width is 
+#' 6 inches.
 #'
 #' @param width a numeric scalar indicating the percent of the page width (or 
 #' if 10 or less the width of the page in inches)
-#' @param height a numeric scalar indicating the percent of the page height (or 
+#' @param height a numeric scalar indicating the percent of the page width (or 
 #' if 10 or less the width of the page in inches). By default height is
 #' the same as the width.
 #' @return a new graphics window for plotting
