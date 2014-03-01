@@ -31,8 +31,11 @@ perform_analyses <- function (models, ..., niters = 10^3, name = "data") {
     
     if (opts_jagr("mode") != "debug") {
       save_plots(analysis)
-      if (!is.null(derived_code(analysis))) {
+      dc <- derived_code(analysis)
+      if (!is.null(dc)) {
+        if(length(grep("residual[/[]", dc)) & length(grep("prediction[/[]", dc))) { 
           plot_residuals(analysis)
+        }
       }  
     } else if (!is.null(derived_code(analysis))) {
       data <- dataset(analysis)
@@ -43,9 +46,9 @@ perform_analyses <- function (models, ..., niters = 10^3, name = "data") {
           derived_code <- list(derived_code)
         for(i in 1:length(derived_code)) {
           dc <- derived_code[[i]]
-          if (length(grep("prediction",dc)))
+          if (length(grep("prediction[/[]",dc)))
             predict(analysis, model_number = i, newdata = newdata, parm = "prediction")
-          if (length(grep("residual",dc)))
+          if (length(grep("residual[/[]",dc)))
             predict(analysis, model_number = i, newdata = newdata, parm = "residual")
         }
       }
