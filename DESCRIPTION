@@ -15,6 +15,7 @@ Imports:
     devtools,
     formatR,
     ggplot2,
+    grDevices,    
     grid,
     jaggernaut (>= 1.7),
     hashFunction,
