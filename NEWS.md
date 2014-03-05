@@ -1,6 +1,10 @@
 # poiscon 0.7
 
-* too much to describe right now...
+* see commit history
+
+# poiscon 0.7
+
+* see commit history
 
 # poiscon 0.6.11
 
