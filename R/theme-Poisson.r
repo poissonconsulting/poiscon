@@ -1,4 +1,3 @@
-
 #' @title Theme Poisson
 #'
 #' @description 
@@ -56,15 +55,4 @@ theme_Poisson<-function (base_size = 10, base_family = 'Arial') {
     plot.title = element_blank(), 
     plot.margin = unit(c(1, 1, 0.5, 0.5), "lines"),
     complete = TRUE)
-}
-
-#' @title Palette Poisson
-#'
-#' @description 
-#' A color palette for Poisson plots
-#' 
-#' @return A vector of colors.
-#' @export
-palette_Poisson <- function () {
-  return (c("black","red","blue","darkgreen"))
 }
