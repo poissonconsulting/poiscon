@@ -26,9 +26,10 @@ upload_bch_data <- function (data, access_file = "../../../bchydro_data_12/data/
   data$Min <- minute(data$Timing)
   sec <- second(data$Timing)
   
-  if(any(sec > 0))
-    stop("seconds must be zero")
-    
+  if(any(sec > 0)) {
+    warning("non-zero seconds")
+  }
+  
   data$Variable <- as.character(data$Variable)
   
   if(is.null(data$Surrogate))
