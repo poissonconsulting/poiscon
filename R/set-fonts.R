@@ -10,4 +10,5 @@ set_fonts <- function () {
   } else {
     windowsFonts(Arial = windowsFont("Arial"))
   }
+  graphics.off()
 }
