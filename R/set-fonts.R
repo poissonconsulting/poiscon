@@ -1,4 +1,6 @@
 set_fonts <- function () {
+  require(grDevices)
+
   if (.Platform$OS.type == "unix") {
     if (Sys.info()["sysname"] == "Darwin") {
       quartzFonts(sans = quartzFont(rep("Arial", 4)))
