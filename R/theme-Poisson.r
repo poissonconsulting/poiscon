@@ -7,7 +7,7 @@
 #' @param base_family a character scalar indicating the base font family.
 #' @return A ggplot2 theme.
 #' @export
-theme_Poisson<-function (base_size = 10, base_family = 'Arial') {           
+theme_Poisson<-function (base_size = 10, base_family = "Helvetica") {           
   theme(
     line = element_line(
       colour = "black", size = 0.5, linetype = 1, lineend = "butt"
