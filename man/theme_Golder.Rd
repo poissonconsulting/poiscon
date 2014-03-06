@@ -2,7 +2,7 @@
 \alias{theme_Golder}
 \title{Theme Golder}
 \usage{
-theme_Golder(base_size = 10, base_family = "Arial")
+theme_Golder(base_size = 10, base_family = "Helvetica")
 }
 \arguments{
   \item{base_size}{an integer scalar indicating the base

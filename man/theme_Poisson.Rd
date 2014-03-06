@@ -2,7 +2,7 @@
 \alias{theme_Poisson}
 \title{Theme Poisson}
 \usage{
-theme_Poisson(base_size = 10, base_family = "Arial")
+theme_Poisson(base_size = 10, base_family = "Helvetica")
 }
 \arguments{
   \item{base_size}{an integer scalar indicating the base
