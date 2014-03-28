@@ -68,6 +68,5 @@ perform_analyses <- function (models, ..., niters = 10^3, name = "data") {
       analysis(models = models, name = name, niters = niters)      
     }
   }
-  ping()
   return (invisible())
 }

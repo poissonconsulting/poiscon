@@ -17,7 +17,7 @@
 #' @param standardised_offset an integer scalar indicating the time difference
 #' in hours between UTC and the desired time zone. 
 #' @return A standardised date-time object.
-#' @seealso \code{\link{utc_offset}} and \code{\link{combine_date_time}}
+#' @seealso \code{\link{utc_offset}}
 #' @export
 standardise_datetime <- function (x, standardised_offset = -8) {
   if(!is_integer_scalar(standardised_offset) ||
