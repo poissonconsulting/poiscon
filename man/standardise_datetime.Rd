@@ -31,7 +31,6 @@ the difference in hours between the original
 \code{utc_offset} and the standardised offset.
 }
 \seealso{
-\code{\link{utc_offset}} and
-\code{\link{combine_date_time}}
+\code{\link{utc_offset}}
 }
 
