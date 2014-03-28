@@ -7,7 +7,8 @@
 #' 
 #' @docType package
 #' @import devtools assertthat tulip stringr lubridate dplyr plyr 
-#' reshape2 grid ggplot2 scales RODBC jaggernaut knitr knitcitations 
+#' reshape2 grid ggplot2 scales RODBC datalist jaggernaut knitr 
+#' knitcitations 
 #' markdown grDevices hashFunction
 #' @name package-poiscon
 #' @aliases poiscon
