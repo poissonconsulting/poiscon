@@ -10,7 +10,7 @@
 #' @param name a character scalar of the name of the data
 #' @return Performs analyses using jaggernaut
 #' @export
-perform_analyses <- function (models, ..., niters = 10^3, name = "data") {
+perform_analyses <- function(models, ..., niters = 10^3, name = "data") {
   
   assert_that(is.jags_model(models))
   assert_that(is.count(niters))
@@ -18,7 +18,7 @@ perform_analyses <- function (models, ..., niters = 10^3, name = "data") {
   args <- list(...)
   nargs <- length(args)
   
-  analysis <- function (models, name, niters) {
+  analysis <- function(models, name, niters) {
     data <- load_rdata(name)
     
     analysis <- jags_analysis(models, data = data, niters = niters)
@@ -33,23 +33,24 @@ perform_analyses <- function (models, ..., niters = 10^3, name = "data") {
       save_plots(analysis)
       dc <- derived_code(analysis)
       if (!is.null(dc)) {
-        if(length(grep("residual[/[]", dc)) & length(grep("prediction[/[]", dc))) { 
+        if (length(grep("residual[/[]", dc)) & length(grep("prediction[/[]", 
+          dc))) {
           plot_residuals(analysis)
         }
-      }  
+      }
     } else if (!is.null(derived_code(analysis))) {
       data <- dataset(analysis)
-      if(is.data.frame(data)) {
-        newdata <- data[1,,drop = FALSE]
+      if (is.data.frame(data)) {
+        newdata <- data[1, , drop = FALSE]
         derived_code <- derived_code(analysis)
-        if (!is.list(derived_code))
+        if (!is.list(derived_code)) 
           derived_code <- list(derived_code)
-        for(i in 1:length(derived_code)) {
+        for (i in 1:length(derived_code)) {
           dc <- derived_code[[i]]
-          if (length(grep("prediction[/[]",dc)))
-            predict(analysis, model_number = i, newdata = newdata, parm = "prediction")
-          if (length(grep("residual[/[]",dc)))
-            predict(analysis, model_number = i, newdata = newdata, parm = "residual")
+          if (length(grep("prediction[/[]", dc))) 
+          predict(analysis, model_number = i, newdata = newdata, parm = "prediction")
+          if (length(grep("residual[/[]", dc))) 
+          predict(analysis, model_number = i, newdata = newdata, parm = "residual")
         }
       }
     }
@@ -61,12 +62,12 @@ perform_analyses <- function (models, ..., niters = 10^3, name = "data") {
     folders <- t(expand.grid(...))
     for (i in 1:ncol(folders)) {
       cat("\n\n")
-      cat(as.character(folders[,i]))
+      cat(as.character(folders[, i]))
       cat("\n\n")
-      set_folders(as.character(folders[,i]))
+      set_folders(as.character(folders[, i]))
       
-      analysis(models = models, name = name, niters = niters)      
+      analysis(models = models, name = name, niters = niters)
     }
   }
-  return (invisible())
-}
+  return(invisible())
+} 

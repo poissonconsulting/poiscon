@@ -1,9 +1,6 @@
-open_window <- function (width, height) {
-  fun <- switch(Sys.info()["sysname"],
-         Windows = windows,
-         Darwin = quartz,
-         stop("gwindow not yet implemented for this operating system"))
-
+open_window <- function(width, height) {
+  fun <- switch(Sys.info()["sysname"], Windows = windows, Darwin = quartz, stop("gwindow not yet implemented for this operating system"))
+  
   fun(width = width, height = height)
 }
 
@@ -30,24 +27,24 @@ open_window <- function (width, height) {
 #' gwindow(3, 100)
 #' }
 #' @export
-gwindow <- function (width = 100, height = width) {
+gwindow <- function(width = 100, height = width) {
   
   assert_that(is.number(width))
   assert_that(is.number(height))
   
   page_width <- getOption("poiscon.page_width", 6)
   
-  if(width <= 10)
-    width <- round(width / page_width * 100)
+  if (width <= 10) 
+    width <- round(width/page_width * 100)
   
-  if(height <= 10)
-    height <- round(height / page_width * 100)
-
+  if (height <= 10) 
+    height <- round(height/page_width * 100)
+  
   options(poiscon.gwindow.width = width)
-  options(poiscon.gwindow.height = height)   
+  options(poiscon.gwindow.height = height)
   
-  width <- page_width * width / 100
-  height <- page_width * height / 100
+  width <- page_width * width/100
+  height <- page_width * height/100
   
-  open_window (width = width, height = height)    
-}
+  open_window(width = width, height = height)
+} 

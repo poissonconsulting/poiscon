@@ -7,7 +7,7 @@
 #' @param ... further arguments passed to or from other methods.
 #' @return Save object as a tables.
 #' @export
-save_tables<- function (object, ...) {
+save_tables <- function(object, ...) {
   UseMethod("save_tables", object)
 }
 #' @title Save tables
@@ -21,10 +21,9 @@ save_tables<- function (object, ...) {
 #' @return Save object as a tables.
 #' @method save_tables jags_analysis
 #' @export
-save_tables.jags_analysis <- function (object, model_number = 1,
-                                       ...) {
+save_tables.jags_analysis <- function(object, model_number = 1, ...) {
   
-  if(model_number == 0) {
+  if (model_number == 0) {
     dic <- as.data.frame(dic_jags(object))
     save_table(dic, "dic")
   }
@@ -36,10 +35,10 @@ save_tables.jags_analysis <- function (object, model_number = 1,
   niters <- niters(object)
   
   save_table(rhat_all, "convergence", type = "analyses")
-
+  
   save_table(coef, "estimates")
   
   table <- data.frame(Rhat = rhat, Iterations = niters)
   
   save_table(table, "rhat")
-}
+} 

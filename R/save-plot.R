@@ -20,12 +20,15 @@
 #' @return Saves current plot as png file in current plots folder.
 #' @seealso \code{\link{gwindow}}
 #' @export
-save_plot <- function (name = "plot", type = "figures", save_rows = 100,
-                     report = TRUE, caption = NULL, width = NULL, height = NULL) {
+save_plot <- function(name = "plot", type = "figures", save_rows = 100, report = TRUE, 
+  caption = NULL, width = NULL, height = NULL) {
   
-  if(is.null(caption)) caption <- ""
-  if(is.null(width)) width <- 0
-  if(is.null(height)) height <- 0
+  if (is.null(caption)) 
+    caption <- ""
+  if (is.null(width)) 
+    width <- 0
+  if (is.null(height)) 
+    height <- 0
   
   assert_that(is.string(name))
   assert_that(is.string(type))
@@ -35,42 +38,41 @@ save_plot <- function (name = "plot", type = "figures", save_rows = 100,
   assert_that(is.number(width))
   assert_that(is.number(height))
   
-  if (type != "figures")
-    report <- FALSE 
-
+  if (type != "figures") 
+    report <- FALSE
+  
   page_width <- getOption("poiscon.page_width", 6)
-  dpi <- getOption("poiscon.dpi", 320)    
-
-  if (width == 0)
+  dpi <- getOption("poiscon.dpi", 320)
+  
+  if (width == 0) 
     width <- getOption("poiscon.gwindow.width", 100)
-  if (height == 0)
+  if (height == 0) 
     height <- getOption("poiscon.gwindow.height", width)
   
-  if(width <= 10)
-    width <- round(width / page_width * 100)
+  if (width <= 10) 
+    width <- round(width/page_width * 100)
   
-  if(height <= 10)
-    height <- round(height / page_width * 100)
+  if (height <= 10) 
+    height <- round(height/page_width * 100)
   
-  file <- file.path(get_plots_folder(type=type), name)
-
-  obj <- list(plot = last_plot(), width = width, height = height, 
-                 report = report, caption = caption)
-    
+  file <- file.path(get_plots_folder(type = type), name)
+  
+  obj <- list(plot = last_plot(), width = width, height = height, report = report, 
+    caption = caption)
+  
   saveRDS(obj, file = replace_ext(file, "rds"))
   
   data <- obj$plot$data
   
-  if(save_rows > nrow(data)) {
+  if (save_rows > nrow(data)) {
     row.names <- row.names(data)
-    row.names <- !(is.null(row.names) 
-                   || identical(row.names,as.character(1:nrow(data))))
+    row.names <- !(is.null(row.names) || identical(row.names, as.character(1:nrow(data))))
     
-    write.csv(data, file =  replace_ext(file, "csv"), row.names = row.names)
+    write.csv(data, file = replace_ext(file, "csv"), row.names = row.names)
   }
   
-  width <- width / 100 * page_width
-  height <- height / 100 * page_width
-
+  width <- width/100 * page_width
+  height <- height/100 * page_width
+  
   ggsave(replace_ext(file, "png"), width = width, height = height, dpi = dpi)
-}
+} 

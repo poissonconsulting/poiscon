@@ -8,7 +8,7 @@
 #' @param dataset logical scalar indicating whether to return the data as opposed to the ggplot object
 #' @return the gggplot object or the plot data
 #' @export
-load_plot <- function (name = "plot", type = "figures", dataset = FALSE) {
+load_plot <- function(name = "plot", type = "figures", dataset = FALSE) {
   
   assert_that(is.string(name))
   assert_that(is.string(type))
@@ -18,11 +18,11 @@ load_plot <- function (name = "plot", type = "figures", dataset = FALSE) {
   
   file <- file.path(get_plots_folder(type = type), name)
   
-  if (!file.exists (file))
-    stop("the rds file associated with file ",replace_ext(file, "png")," does not exist")
+  if (!file.exists(file)) 
+    stop("the rds file associated with file ", replace_ext(file, "png"), " does not exist")
   
-  if(dataset)
-    return (readRDS(file)$plot$data)
-    
+  if (dataset) 
+    return(readRDS(file)$plot$data)
+  
   readRDS(file)$plot
-}
+} 

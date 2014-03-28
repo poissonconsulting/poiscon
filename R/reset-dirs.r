@@ -8,13 +8,13 @@
 #' @param dir a character scalar indicating the name of the folders
 #' @return NULL
 #' @export
-reset_folders <- function (dir = "output") {
-  set_rdata_folder (dir = paste0(dir,"/rdata"))
-  set_analyses_folder (dir = paste0(dir,"/analyses"))
-  set_plots_folder (dir = paste0(dir,"/plots"))
-  set_tables_folder (dir = paste0(dir,"/tables"))
-
-  return (invisible())
+reset_folders <- function(dir = "output") {
+  set_rdata_folder(dir = paste0(dir, "/rdata"))
+  set_analyses_folder(dir = paste0(dir, "/analyses"))
+  set_plots_folder(dir = paste0(dir, "/plots"))
+  set_tables_folder(dir = paste0(dir, "/tables"))
+  
+  return(invisible())
 }
 
 #' @title Reset poiscon directories
@@ -28,30 +28,30 @@ reset_folders <- function (dir = "output") {
 #'   higher in the directory structure (share = FALSE) the default
 #' @return NULL
 #' @export
-reset_dirs <- function (share = FALSE) {
+reset_dirs <- function(share = FALSE) {
   
   warning("deprecated - use reset folders")
-
-  if(!inherits(share, "logical"))
+  
+  if (!inherits(share, "logical")) 
     stop("share must be class logical")
   
-  if(length(share) != 1)
+  if (length(share) != 1) 
     stop("share must be a logical vector of length one")
   
-  if(is.na(share))
+  if (is.na(share)) 
     stop("share must be TRUE or FALSE")
   
-  if(share) {
-    set_rdata_folder (dir = 'rdata')
-    set_analyses_folder (dir = 'analyses')
-    set_plots_folder (dir = 'plots')
-    set_tables_folder (dir = 'tables')
+  if (share) {
+    set_rdata_folder(dir = "rdata")
+    set_analyses_folder(dir = "analyses")
+    set_plots_folder(dir = "plots")
+    set_tables_folder(dir = "tables")
   } else {
-    set_rdata_folder (dir = '../rdata')
-    set_analyses_folder (dir = '../analyses')
-    set_plots_folder (dir = '../plots')
-    set_tables_folder (dir = '../tables')
+    set_rdata_folder(dir = "../rdata")
+    set_analyses_folder(dir = "../analyses")
+    set_plots_folder(dir = "../plots")
+    set_tables_folder(dir = "../tables")
   }
   
-  return (invisible())
-}
+  return(invisible())
+} 

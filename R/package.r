@@ -11,4 +11,4 @@
 #' markdown grDevices hashFunction
 #' @name package-poiscon
 #' @aliases poiscon
-NULL
+NULL 

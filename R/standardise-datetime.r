@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Corrects for any time zone and day light savings difference in a date-time object
-#' and returns as tz = "UTC" but shifted by the standardised_offset. Depending
+#' and returns as tz = 'UTC' but shifted by the standardised_offset. Depending
 #' on the logging device recorded date times are often in different time zones, 
 #' i.e., Vemco acoustic receiver detections (UTC), Onset 
 #' temperature logger readings (PST or PDT depending on when deployed) 
@@ -19,22 +19,22 @@
 #' @return A standardised date-time object.
 #' @seealso \code{\link{utc_offset}}
 #' @export
-standardise_datetime <- function (x, standardised_offset = -8) {
-  if(!is_integer_scalar(standardised_offset) ||
-     !is_bounded(standardised_offset, -12, 12))
+standardise_datetime <- function(x, standardised_offset = -8) {
+  if (!is_integer_scalar(standardised_offset) || !is_bounded(standardised_offset, 
+    -12, 12)) 
     stop("standardised_offset must be an integer scalar between -12 and +12")
   
   offset <- utc_offset(x)
   x <- force_tz(x, tzone = "GMT")
   x <- x - new_period(hour = offset - standardised_offset)
-  return (x)
+  return(x)
 }
 
 #' @title Standardised date time
 #'
 #' @description
 #' Corrects for any time zone and day light savings difference in a date-time object
-#' and returns as tz = "UTC" but shifted by the standardised_offset. Depending
+#' and returns as tz = 'UTC' but shifted by the standardised_offset. Depending
 #' on the logging device recorded date times are often in different time zones, 
 #' i.e., Vemco acoustic receiver detections (UTC), Onset 
 #' temperature logger readings (PST or PDT depending on when deployed) 
@@ -51,8 +51,8 @@ standardise_datetime <- function (x, standardised_offset = -8) {
 #' @return A standardised date-time object.
 #' @seealso \code{\link{standardise_datetime}}
 #' @export
-standardised_date_time <- function (x, standardised_offset = -8) {
+standardised_date_time <- function(x, standardised_offset = -8) {
   warning("deprecated by standardise_datetime")
   
   standardise_datetime(x, standardised_offset)
-}
+} 

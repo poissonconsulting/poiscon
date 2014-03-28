@@ -6,4 +6,4 @@
   theme_set(theme_Poisson())
   
   invisible()
-}
+} 

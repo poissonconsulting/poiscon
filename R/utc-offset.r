@@ -8,9 +8,9 @@
 #' @return The offsets as an numeric vector.
 #' @seealso \code{\link{standardised_date_time}}
 #' @export
-utc_offset <- function (x) {
+utc_offset <- function(x) {
   difftime <- force_tz(x, "UTC") - x
   period <- suppressMessages(as.period(difftime))
   hour <- hour(period)
-  return (hour)
-}
+  return(hour)
+} 

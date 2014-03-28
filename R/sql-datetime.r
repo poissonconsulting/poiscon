@@ -11,28 +11,28 @@
 #' @examples
 #' 
 #' sql_datetime()
-#' sql_datetime(suffix = "Caught")
-#' sql_datetime("RecaughtD8Time")
-#' sql_datetime("DateTimeRecaught")
-#' sql_datetime("RecaughtDateTime")
+#' sql_datetime(suffix = 'Caught')
+#' sql_datetime('RecaughtD8Time')
+#' sql_datetime('DateTimeRecaught')
+#' sql_datetime('RecaughtDateTime')
 #' 
 #' @export
-sql_datetime <- function (column = "DateTime", suffix = NULL, 
-                          expand = c("Year", "Month", "Day", "Hour", "Minute", "Second")) {
-    
+sql_datetime <- function(column = "DateTime", suffix = NULL, expand = c("Year", "Month", 
+  "Day", "Hour", "Minute", "Second")) {
+  
   assert_that(is.string(column) && noNA(column))
   assert_that(is.null(suffix) || (is.string(suffix) && noNA(suffix)))
   assert_that(is.character(expand) && noNA(expand))
   assert_that(all(expand %in% c("Year", "Month", "Day", "Hour", "Minute", "Second")))
   assert_that(!any(duplicated(expand)))
   
-  if(is.null(suffix)) {
+  if (is.null(suffix)) {
     suffix <- str_replace(column, "DateTime", "")
-    if (identical(suffix, column))
+    if (identical(suffix, column)) 
       suffix <- ""
   }
   
-  paste0(expand, "(", column, ") ", "AS " ,expand, suffix, collapse = ", ")
+  paste0(expand, "(", column, ") ", "AS ", expand, suffix, collapse = ", ")
 }
 
 #' @title SQL Date
@@ -47,15 +47,15 @@ sql_datetime <- function (column = "DateTime", suffix = NULL,
 #' @seealso \link{sql_datetime} and \link{sql_time}
 #' 
 #' @export
-sql_date <- function (column = "Date", suffix = NULL, 
-                      expand = c("Year", "Month", "Day")) {
+sql_date <- function(column = "Date", suffix = NULL, expand = c("Year", "Month", 
+  "Day")) {
   
   assert_that(is.string(column) && noNA(column))
   assert_that(is.null(suffix) || (is.string(suffix) && noNA(suffix)))
   
-  if(is.null(suffix)) {
+  if (is.null(suffix)) {
     suffix <- str_replace(column, "Date", "")
-    if (identical(suffix, column))
+    if (identical(suffix, column)) 
       suffix <- ""
   }
   
@@ -74,16 +74,16 @@ sql_date <- function (column = "Date", suffix = NULL,
 #' @seealso \link{sql_datetime} and \link{sql_date}
 #' 
 #' @export
-sql_time <- function (column = "Time", suffix = NULL, 
-                      expand = c("Hour", "Minute", "Second")) {
+sql_time <- function(column = "Time", suffix = NULL, expand = c("Hour", "Minute", 
+  "Second")) {
   assert_that(is.string(column) && noNA(column))
   assert_that(is.null(suffix) || (is.string(suffix) && noNA(suffix)))
   
-  if(is.null(suffix)) {
+  if (is.null(suffix)) {
     suffix <- str_replace(column, "Time", "")
-    if (identical(suffix, column))
+    if (identical(suffix, column)) 
       suffix <- ""
   }
   
   sql_datetime(column, suffix, expand)
-}
+} 
