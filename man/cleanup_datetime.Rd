@@ -28,17 +28,17 @@ Cleans up datetime from data frame
 \examples{
 data <- data.frame(Year = 2000, Month = 1:4, Day = 2)
 cleanup_datetime(data)
-data <- data.frame(Year = 2000, Month = 1:4, Day = 2, Comments = "No way")
+data <- data.frame(Year = 2000, Month = 1:4, Day = 2, Comments = 'No way')
 cleanup_datetime(data)
 data <- data.frame(YearRelease = 2000, MonthReleased = 1:4, DayDeceased = 2,
                    XDay = 3, TDayY = 4)
 cleanup_datetime(data)
-cleanup_datetime(data, "", "")
-cleanup_datetime(data, "^X")
-cleanup_datetime(data, "^T")
-cleanup_datetime(data, "^T", "")
-cleanup_datetime(data, "^T", "Y$")
-cleanup_datetime(data, ,"Release[d]*|Deceased$")
+cleanup_datetime(data, '', '')
+cleanup_datetime(data, '^X')
+cleanup_datetime(data, '^T')
+cleanup_datetime(data, '^T', '')
+cleanup_datetime(data, '^T', 'Y$')
+cleanup_datetime(data, ,'Release[d]*|Deceased$')
 }
 \seealso{
 \code{\link{extract_datetime}}

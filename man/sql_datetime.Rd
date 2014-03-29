@@ -22,10 +22,10 @@ Month, ..., Second values.
 }
 \examples{
 sql_datetime()
-sql_datetime(suffix = "Caught")
-sql_datetime("RecaughtD8Time")
-sql_datetime("DateTimeRecaught")
-sql_datetime("RecaughtDateTime")
+sql_datetime(suffix = 'Caught')
+sql_datetime('RecaughtD8Time')
+sql_datetime('DateTimeRecaught')
+sql_datetime('RecaughtDateTime')
 }
 \seealso{
 \link{sql_date} and \link{sql_time}

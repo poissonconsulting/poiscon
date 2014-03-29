@@ -20,15 +20,15 @@ extract_datetime(data, prefix = "^", suffix = "$", expand = c("Year",
   Month, Day, Hour, Minute and/or Second}
 
   \item{tz}{string of time zone. Typical values are
-  "PST8PDT" if Pacific time i.e., includes daylight
-  savings, "PST" if Pacific standard time i.e. no daylight
-  savings "PDT" if Pacific dayight time i.e. all daylight
-  savings and "UTC" all in Universal Coordinated Time
-  (GMT). "PST8PDT" occurs when times are read from a watch,
-  "PST" occurs when loggers are deployed in pacific
-  standard time (recommended) "PDT" occurs when loggers are
+  'PST8PDT' if Pacific time i.e., includes daylight
+  savings, 'PST' if Pacific standard time i.e. no daylight
+  savings 'PDT' if Pacific dayight time i.e. all daylight
+  savings and 'UTC' all in Universal Coordinated Time
+  (GMT). 'PST8PDT' occurs when times are read from a watch,
+  'PST' occurs when loggers are deployed in pacific
+  standard time (recommended) 'PDT' occurs when loggers are
   deployed in pacific daylight time without adjusting and
-  "UTC" occurs with non-adjusted Vemco receivers.}
+  'UTC' occurs with non-adjusted Vemco receivers.}
 
   \item{standardised_offset}{an integer scalar indicating
   the time difference in hours between UTC and the desired
@@ -48,16 +48,16 @@ extract_date(data)
 extract_time(data)
 
 extract_datetime(data)
-extract_datetime(data, tz = "PDT")
-extract_datetime(data, tz = "PST8PDT")
-extract_datetime(data, tz = "UTC")
+extract_datetime(data, tz = 'PDT')
+extract_datetime(data, tz = 'PST8PDT')
+extract_datetime(data, tz = 'UTC')
 extract_datetime(data, standardised_offset = -7)
 
 data <- data.frame(ReleaseYear = 2002, ReleasedMonth = 2, DayRel = 2,
                    RelHourRel = 2, Minute = 2, Second = 2, DupSecond = 3)
 
-extract_datetime(data, "")
-extract_datetime(data, "", "")
+extract_datetime(data, '')
+extract_datetime(data, '', '')
 }
 \seealso{
 \code{\link{sql_datetime}}, \code{\link{ISOdatetime}} and

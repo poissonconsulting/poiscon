@@ -16,7 +16,7 @@ A standardised date-time object.
 }
 \description{
 Corrects for any time zone and day light savings difference
-in a date-time object and returns as tz = "UTC" but shifted
+in a date-time object and returns as tz = 'UTC' but shifted
 by the standardised_offset. Depending on the logging device
 recorded date times are often in different time zones,
 i.e., Vemco acoustic receiver detections (UTC), Onset
