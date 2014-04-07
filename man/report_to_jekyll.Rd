@@ -1,0 +1,27 @@
+\name{report_to_jekyll}
+\alias{report_to_jekyll}
+\title{Report to Jekyll Repository}
+\usage{
+report_to_jekyll(report = "report.Rmd",
+  jekyll_dir = getOptions("reporting.jekyll.dir", "jekyll"),
+  code_dir = getOptions("reporting.code.dir", "~/Code"))
+}
+\arguments{
+  \item{report}{a character scalar indicating the knitted
+  RMarkdown file and associated images and figures to copy
+  to the jekyll repository.}
+
+  \item{jekyll_dir}{a character scalar of the path to the
+  jekyll directory relative to the code directory.}
+
+  \item{code_dir}{a character scalar of the absolute path
+  to the code directory.}
+}
+\value{
+An invisible logical scalar indicating if successful.
+}
+\description{
+Copies report to jekyll repository for publishing on
+website. An inhouse function.
+}
+
