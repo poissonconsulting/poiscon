@@ -1,0 +1,17 @@
+\name{delete_plots}
+\alias{delete_plots}
+\title{Delete plots folder}
+\usage{
+delete_plots(check = TRUE)
+}
+\arguments{
+  \item{check}{a logical scalar indicating whether to check
+  with user before deleting}
+}
+\value{
+An invisible logical scalar indicating if successful.
+}
+\description{
+Deletes plots folder for current project.
+}
+

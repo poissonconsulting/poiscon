@@ -1,3 +1,9 @@
+#' Source windows
+#' 
+#' Requires that file be sourced in windows.
+#' 
+#' @param file a character scalar indicating the file to source
+#' @param verbose a logical scalar indicating whether to print messages.
 #' @export
 source_windows <- function (file, verbose = getOption("verbose")) {
   assert_that(is.string(file))
@@ -39,7 +45,7 @@ knit_report <- function (report = "report.Rmd", quiet = FALSE) {
 #' @return An invisible logical scalar indicating if successful.
 #' @export
 report_to_jekyll <- function (report = "report.Rmd",
-  jekyll_dir = getOptions("reporting.jekyll.dir", "jekyll"),
-  code_dir = getOptions("reporting.code.dir", "~/Code")) {
+  jekyll_dir = getOption("reporting.jekyll.dir", "jekyll"),
+  code_dir = getOption("reporting.code.dir", "~/Code")) {
   stop("inhouse function")
 }

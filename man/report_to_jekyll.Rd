@@ -3,8 +3,8 @@
 \title{Report to Jekyll Repository}
 \usage{
 report_to_jekyll(report = "report.Rmd",
-  jekyll_dir = getOptions("reporting.jekyll.dir", "jekyll"),
-  code_dir = getOptions("reporting.code.dir", "~/Code"))
+  jekyll_dir = getOption("reporting.jekyll.dir", "jekyll"),
+  code_dir = getOption("reporting.code.dir", "~/Code"))
 }
 \arguments{
   \item{report}{a character scalar indicating the knitted

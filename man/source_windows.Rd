@@ -1,0 +1,17 @@
+\name{source_windows}
+\alias{source_windows}
+\title{Source windows}
+\usage{
+source_windows(file, verbose = getOption("verbose"))
+}
+\arguments{
+  \item{file}{a character scalar indicating the file to
+  source}
+
+  \item{verbose}{a logical scalar indicating whether to
+  print messages.}
+}
+\description{
+Requires that file be sourced in windows.
+}
+
