@@ -12,7 +12,7 @@ Depends:
     R (>= 3.0.3),
     devtools,
     assertthat,
-    tulip (>= 0.0.5),
+    tulip (>= 0.0.6),
     stringr,
     lubridate,
     dplyr,
@@ -24,8 +24,6 @@ Depends:
     RODBC,
     datalist,
     jaggernaut
-Imports:
-    grDevices
 Suggests:
     testthat
 License: MIT + file LICENSE
