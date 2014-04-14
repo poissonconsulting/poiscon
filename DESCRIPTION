@@ -23,8 +23,7 @@ Depends:
     scales,
     RODBC,
     datalist,
-    jaggernaut,
-    pingr
+    jaggernaut
 Suggests:
     testthat
 License: MIT + file LICENSE
