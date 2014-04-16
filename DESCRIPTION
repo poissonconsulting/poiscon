@@ -20,6 +20,8 @@ Depends:
     reshape2,
     grid,
     ggplot2,
+    ggthemes,
+    GGally,
     scales,
     RODBC,
     datalist,

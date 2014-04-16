@@ -7,7 +7,7 @@
 #' 
 #' @docType package
 #' @import devtools assertthat tulip stringr lubridate dplyr plyr 
-#' reshape2 grid ggplot2 scales RODBC datalist jaggernaut
+#' reshape2 grid ggplot2 ggthemes GGally scales RODBC datalist jaggernaut
 #' @name package-poiscon
 #' @aliases poiscon
 NULL 
