@@ -14,8 +14,13 @@ load_table <- function(name = "table", type = "results") {
   name <- replace_ext(name, "rds")
   file <- file.path(get_tables_folder(type = type), name)
   
-  if (!file.exists(file)) 
-    stop("the rds file associated with file ", replace_ext(file, "csv"), " does not exist")
-  
+  if (!file.exists(file)) {
+    warning("the rds file associated with file '", replace_ext(file, "csv"), "' does not exist")
+    file <- replace_ext(file, "csv")
+    if (!file.exists(file))
+      stop("file '", file, "' does not exist")
+    
+    return (read.csv(file))
+  }
   readRDS(file)$data
 } 
