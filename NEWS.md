@@ -1,10 +1,12 @@
+# poiscon 0.8.7
+
+* load_table iuses `csv` if `rds` file not available
+* specified package version numbers and moved `dplyr` to last
+* added `delete_plots` and `delete_output` functions
+
 # poiscon 0.7
 
-* see commit history
-
-# poiscon 0.7
-
-* see commit history
+* major reconfiguration with other packages
 
 # poiscon 0.6.11
 
