@@ -1,4 +1,4 @@
 library(testthat)
-library(Poisson)
+library(poiscon)
 
 test_package("Poisson")

@@ -1,3 +1,13 @@
+# poiscon 0.8.8
+
+* save_rdata(object, name = NULL) now uses object name if
+name is unspecified and if object is unspecified saves all
+data.frames in global environment as individual objects
+using own names
+* load_rdata(name = NULL) now loads all objects in
+current rdata folder is name is unspecified into 
+global env
+
 # poiscon 0.8.7
 
 * load_table iuses `csv` if `rds` file not available

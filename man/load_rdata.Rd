@@ -2,15 +2,18 @@
 \alias{load_rdata}
 \title{Load rdata}
 \usage{
-load_rdata(name = "data")
+load_rdata(name = NULL)
 }
 \arguments{
-  \item{name}{the name of the file (without extension).}
+  \item{name}{the name of the file (without extension) to
+  load. If unspecified then loads all R data files in
+  current rdata folder into the global environment.}
 }
 \value{
-an object
+the object if name is specified otherwise loads all objects
+in current rdata folder into global workspace
 }
 \description{
-Reads in .rdata file from current rdata folder.
+Reads in R data file from current rdata folder.
 }
 

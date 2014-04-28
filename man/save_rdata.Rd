@@ -2,15 +2,20 @@
 \alias{save_rdata}
 \title{Save rdata}
 \usage{
-save_rdata(object, name = "data")
+save_rdata(object, name = NULL)
 }
 \arguments{
-  \item{object}{the object to save.}
+  \item{object}{the object to save if unspecified the
+  function saves all data.frames in the global environment}
 
-  \item{name}{a character scalar of the name of the file.}
+  \item{name}{string of the name of the file if unspecified
+  the file is named the same as the object. If object is
+  unspecified name is ignored and each data.frame in the
+  global environment is saved.}
 }
 \value{
-Saves object as .rdata files in current rdata folder.
+Invisible flag indicating if successful (also issues
+warning if FALSE).
 }
 \description{
 Saves object as .rdata files in current rdata folder.
