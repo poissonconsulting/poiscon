@@ -1,16 +1,16 @@
 # poiscon
 
-Poiscon is an R package of utility functions to simplify date time manipulations
+poiscon is an R package of utility functions to simplify date time manipulations
 and data, plot, table and analysis saving and loading. It is used by the 
 employees of Poisson Consulting Ltd.
 
-## Development
+## Installation
 
-To install the development version of poiscon, it's easiest to use the `devtools` package:
+To install the latest version of poiscon:
 
     # install.packages("devtools")
     library(devtools)
-    install_github("poiscon", "poissonconsulting")
+    install_github("poissonconsulting/poiscon@v0.8.9")
     
 ## Contact
 
