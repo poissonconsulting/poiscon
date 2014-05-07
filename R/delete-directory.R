@@ -11,6 +11,8 @@ delete_output <- function (delete_rdata_input = TRUE, check = TRUE) {
   
   dir <- file.path(getwd(), "output")
   flag <- TRUE
+  
+  delete_rdata_input <- delete_rdata_input || !file.exists(file.path(dir,"rdata","input"))
   if(!delete_rdata_input) {
     flag <- copy_directory(file.path(dir,"rdata","input"), parent_dir = tempdir(),
       check = FALSE)
@@ -19,7 +21,7 @@ delete_output <- function (delete_rdata_input = TRUE, check = TRUE) {
   if(flag) {
     flag <- delete_directory(dir, check = check)
     if (flag && !delete_rdata_input) {
-      flag <- copy_directory(dir = file.path(tempdir(), "rdata", "input"), parent_dir = file.path(getwd(), "output", "rdata"), check = FALSE)
+      flag <- copy_directory(dir = file.path(tempdir(), "input"), parent_dir = file.path(getwd(), "output", "rdata"), check = FALSE)
     }
   }
   if(!flag)
