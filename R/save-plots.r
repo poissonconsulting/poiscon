@@ -40,6 +40,7 @@ save_plots.jags_analysis <- function(object, model_number = 1, ...) {
 #' @param ... further arguments passed to or from other methods.
 #' @return Saves data.frame as a pdf file.
 #' @method save_plots data.frame
+#' @importFrom ggplot2 ggplot aes_string geom_point xlab position_jitter ylab
 #' @export
 save_plots.data.frame <- function(object, name = "data", ...) {
   file <- paste0(get_plots_folder(type = "data"), "/", name, ".pdf")

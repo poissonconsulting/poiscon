@@ -19,6 +19,7 @@
 #' taken from the height of the previous gwindow.
 #' @return Saves current plot as png file in current plots folder.
 #' @seealso \code{\link{gwindow}}
+#' @importFrom ggplot2 ggsave last_plot
 #' @export
 save_plot <- function(name = "plot", type = "figures", save_rows = 100, report = TRUE, 
   caption = NULL, width = NULL, height = NULL) {

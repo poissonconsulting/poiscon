@@ -1,4 +1,13 @@
-# poiscon 0.8.8
+#NEWS
+
+#### poiscon 0.8.9
+
+- `delete_output()` now has argument to keep output/rdata/input folder
+- tidied up namespace so only import packages that uses
+- colors now c("black", "red", "blue", "green4", "orange3", "slategray")
+- uses `tulip` v0.0.7 and `jaggernaut` v1.8.0
+
+#### poiscon 0.8.8
 
 * save_rdata(object, name = NULL) now uses object name if
 name is unspecified and if object is unspecified saves all
@@ -8,33 +17,33 @@ using own names
 current rdata folder is name is unspecified into 
 global env
 
-# poiscon 0.8.7
+#### poiscon 0.8.7
 
 * load_table iuses `csv` if `rds` file not available
 * specified package version numbers and moved `dplyr` to last
 * added `delete_plots` and `delete_output` functions
 
-# poiscon 0.7
+### poiscon 0.7
 
 * major reconfiguration with other packages
 
-# poiscon 0.6.11
+##### poiscon 0.6.11
 
 * added `sql_datetime`. `extract_datetime` and `cleanup_datetime` families of functions
 to handle timezones when inputting from access database
 
 * added `ping()` to signal completion of `perform_analyses` function
 
-# poiscon 0.6.10
+##### poiscon 0.6.10
 
 * `perform_analyses` does test of prediction and residual in derived code
 when in mode debug
 
-# poiscon 0.6.9
+##### poiscon 0.6.9
 
 * `knit_report` now uses `render_jekyll()`
 
-# poiscon 0.6.8
+##### poiscon 0.6.8
 
 * added *deck* functions `author-deck`, `slidify-deck` and `deck-to-web` 
 on top of slidify library for presentations

@@ -2,11 +2,15 @@
 \alias{delete_output}
 \title{Delete output folder}
 \usage{
-delete_output(check = TRUE)
+delete_output(delete_rdata_input = TRUE, check = TRUE)
 }
 \arguments{
-  \item{check}{a logical scalar indicating whether to check
-  with user before deleting}
+  \item{delete_rdata_input}{flag indicating whether to
+  delete the output/rdata/input folder which in the PCL
+  system is used to store the initial input of data}
+
+  \item{check}{flag indicating whether to confirm with user
+  before deleting}
 }
 \value{
 An invisible logical scalar indicating if successful.

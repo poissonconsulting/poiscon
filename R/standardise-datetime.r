@@ -18,6 +18,7 @@
 #' in hours between UTC and the desired time zone. 
 #' @return A standardised date-time object.
 #' @seealso \code{\link{utc_offset}}
+#' @importFrom lubridate force_tz new_period
 #' @export
 standardise_datetime <- function(x, standardised_offset = -8) {
   if (!is_integer_scalar(standardised_offset) || !is_bounded(standardised_offset, 

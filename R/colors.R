@@ -3,15 +3,16 @@
 #' @description
 #' Sets color palette for poiscon
 #' 
-#' @param values character vector of colors (by default a color blind friendly
-#' palette starting with black)
-#' @return invisible logical scalar indicating if successful
+#' @param values character vector of colors
+#' @return invisible character vector of colors
 #' @export
-set_colors <- function(values = c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", 
-  "#0072B2", "#D55E00", "#CC79A7")) {
-  stopifnot(is.character(values))
+set_colors <- function(values = get_colors()) {
+  assert_that(is.character(values))
+  if(length(values) < 6)
+    stop("there must be at least 6 color values")
+  
   options(poiscon.colors = values)
-  invisible(TRUE)
+  invisible(values)
 }
 
 
@@ -23,6 +24,5 @@ set_colors <- function(values = c("#000000", "#E69F00", "#56B4E9", "#009E73", "#
 #' @return color palette as character vector
 #' @export
 get_colors <- function() {
-  getOption("poiscon.colors", c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", 
-    "#0072B2", "#D55E00", "#CC79A7"))
+  getOption("poiscon.colors", c("black", "red", "blue", "green4", "orange3", "slategray"))
 } 

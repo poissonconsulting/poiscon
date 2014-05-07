@@ -38,6 +38,7 @@
 #' extract_datetime(data, '')
 #' extract_datetime(data, '', '')
 #' 
+#' @importFrom lubridate hours
 #' @export
 extract_datetime <- function(data, prefix = "^", suffix = "$", expand = c("Year", 
   "Month", "Day", "Hour", "Minute", "Second"), tz = "PST", standardised_offset = -8) {

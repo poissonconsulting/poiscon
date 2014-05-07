@@ -16,6 +16,7 @@
 #' sql_datetime('DateTimeRecaught')
 #' sql_datetime('RecaughtDateTime')
 #' 
+#' @importFrom stringr str_replace
 #' @export
 sql_datetime <- function(column = "DateTime", suffix = NULL, expand = c("Year", "Month", 
   "Day", "Hour", "Minute", "Second")) {

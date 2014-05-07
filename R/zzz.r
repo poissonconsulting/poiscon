@@ -1,3 +1,4 @@
+#' @importFrom ggplot2 theme_set
 .onLoad <- function(libname, pkgname) {
   
   reset_folders()

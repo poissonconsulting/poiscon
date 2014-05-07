@@ -21,6 +21,7 @@
 #' @param data the dataset for which to calculate the residuals. By default data is NULL as the residuals are typically calculated on the original dataset.
 #' @param ... further arguments passed to or from other methods.
 #' @return Save plots to a pdf file.
+#' @importFrom ggplot2 ggplot aes_string geom_histogram geom_vline geom_hline geom_pointrange xlab expand_limits ylab
 #' @export
 plot_residuals <- function(object, model_number = 1, parm_residual = "residual", 
   parm_fitted = "prediction", name = "residuals", derived_code = NULL, random_effects = NULL, 

@@ -7,6 +7,7 @@
 #' @param x a date-time object
 #' @return The offsets as an numeric vector.
 #' @seealso \code{\link{standardised_date_time}}
+#' @importFrom lubridate hour force_tz as.period
 #' @export
 utc_offset <- function(x) {
   difftime <- force_tz(x, "UTC") - x

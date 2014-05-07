@@ -7,6 +7,8 @@
 #' @param base_size an integer scalar indicating the base font size.
 #' @param base_family a character scalar indicating the base font family.
 #' @return A ggplot2 theme.
+#' @importFrom ggplot2 theme element_line element_rect element_text element_blank rel
+#' @importFrom grid unit
 #' @export
 theme_Golder <- function(base_size = 10, base_family = "Helvetica") {
   theme(line = element_line(colour = "black", size = 0.5, linetype = 1, lineend = "butt"), 
