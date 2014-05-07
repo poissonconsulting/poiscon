@@ -11,14 +11,14 @@ delete_output <- function (delete_rdata_input = TRUE, check = TRUE) {
   
   dir <- file.path(getwd(), "output")
   flag <- TRUE
-  if(delete_rdata_input) {
+  if(!delete_rdata_input) {
     flag <- copy_directory(file.path(dir,"rdata","input"), parent_dir = tempdir(),
       check = FALSE)
   }
   
   if(flag) {
     flag <- delete_directory(dir, check = check)
-    if (flag && delete_rdata_input) {
+    if (flag && !delete_rdata_input) {
       flag <- copy_directory(dir = file.path(tempdir(), "rdata", "input"), parent_dir = file.path(getwd(), "output", "rdata"), check = FALSE)
     }
   }
