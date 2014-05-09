@@ -10,7 +10,12 @@ To install the latest version of poiscon:
 
     # install.packages("devtools")
     library(devtools)
-    install_github("poissonconsulting/poiscon@v0.8.9")
+    install_github("poissonconsulting/tulip@v0.0.8")
+    install_github("poissonconsulting/datalist@v0.0.4")
+    install_github("poissonconsulting/juggler@v0.1.2")
+    install_github("poissonconsulting/jaggernaut@v1.8.0")
+    install_github("poissonconsulting/poiscon@v0.8.10")
+    library(poiscon)
     
 ## Contact
 

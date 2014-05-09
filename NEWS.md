@@ -1,5 +1,9 @@
 #NEWS
 
+#### poiscon 0.8.10
+
+- added `diel_period()`
+
 #### poiscon 0.8.9
 
 - `delete_output()` now has argument to keep output/rdata/input folder
