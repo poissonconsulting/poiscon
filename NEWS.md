@@ -1,5 +1,9 @@
 #NEWS
 
+#### poiscon 0.8.11
+
+- moved `perform_analyses` into `functions.R` script of skeleton
+
 #### poiscon 0.8.10
 
 - added `diel_period()`
