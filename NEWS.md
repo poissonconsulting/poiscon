@@ -1,5 +1,9 @@
 #NEWS
 
+#### poiscon 0.8.12
+
+- changed `delete_directory` to not delete output/rdata/input by default
+
 #### poiscon 0.8.11
 
 - moved `perform_analyses` into `functions.R` script of skeleton

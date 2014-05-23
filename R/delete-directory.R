@@ -6,7 +6,7 @@
 #' @param check flag indicating whether to confirm with user before deleting
 #' @return An invisible logical scalar indicating if successful.
 #' @export
-delete_output <- function (delete_rdata_input = TRUE, check = TRUE) {
+delete_output <- function (delete_rdata_input = FALSE, check = TRUE) {
   assert_that(is.flag(delete_rdata_input) && noNA(delete_rdata_input))
   
   dir <- file.path(getwd(), "output")
