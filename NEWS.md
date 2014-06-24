@@ -1,5 +1,9 @@
 #NEWS
 
+#### poiscon 0.8.13
+
+- updated ggplot2 themes to include panel.margin.x and panel.margin y
+
 #### poiscon 0.8.12
 
 - changed `delete_directory` to not delete output/rdata/input by default
