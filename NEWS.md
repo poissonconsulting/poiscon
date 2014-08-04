@@ -1,5 +1,9 @@
 #NEWS
 
+#### poiscon 0.8.14
+
+- updated ggplot2 Poisson theme to include panel.grid.minor and panel.grid.major
+
 #### poiscon 0.8.13
 
 - updated ggplot2 themes to include panel.margin.x and panel.margin y
