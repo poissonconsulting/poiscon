@@ -5,8 +5,7 @@
 #'Save residual plots from a jaggernaut jags_analysis object to a pdf file.
 #' 
 #' @param object a jags_analysis object.
-#' @param model_number an integer vector specifying the model to select. 
-#' If model_number = 0 then it selects the model with the lowest DIC.
+#' @param model a count or flag specifying the model to select. 
 #' @param parm_residual a character element naming the residuals parameter.
 #' @param parm_fitted a character element naming the fitted parameter.
 #' @param name a character scalar naming the file.
@@ -23,14 +22,14 @@
 #' @return Save plots to a pdf file.
 #' @importFrom ggplot2 ggplot aes_string geom_histogram geom_vline geom_hline geom_pointrange xlab expand_limits ylab
 #' @export
-plot_residuals <- function(object, model_number = 1, parm_residual = "residual", 
+plot_residuals <- function(object, model = 1, parm_residual = "residual", 
   parm_fitted = "prediction", name = "residuals", derived_code = NULL, random_effects = NULL, 
   level = "current", data = NULL, ...) {
   
-  res <- residuals(object, model_number = model_number, parm = parm_residual, derived_code = derived_code, 
+  res <- residuals(object, model = model, parm = parm_residual, derived_code = derived_code, 
     random_effects = random_effects, level = level, data = data, ...)
   
-  fit <- fitted(object, model_number = model_number, parm = parm_fitted, derived_code = derived_code, 
+  fit <- fitted(object, model = model, parm = parm_fitted, derived_code = derived_code, 
     random_effects = random_effects, level = level, data = data, ...)
   
   res$fitted <- fit$estimate

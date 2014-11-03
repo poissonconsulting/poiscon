@@ -4,6 +4,7 @@
 
 * upgraded to jaggernaut 2.1.1 - no longer calculates dic
 * generates x11 for linux
+* switched from model_number to model for new jaggernaut
 
 #### poiscon 0.8.14
 

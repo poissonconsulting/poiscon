@@ -16,14 +16,14 @@ save_tables <- function(object, ...) {
 #' Saves jags_analysis to tables
 #' 
 #' @param object jags_analysis object to tables
-#' @param model_number a integer scalar of the model number
+#' @param model a integer scalar of the model number
 #' @param ... further arguments passed to or from other methods.
 #' @return Save object as a tables.
 #' @method save_tables jags_analysis
 #' @export
-save_tables.jags_analysis <- function(object, model_number = 1, ...) {
+save_tables.jags_analysis <- function(object, model = 1, ...) {
   
-  object <- subset(object, model_number = model_number)
+  object <- subset(object, model = model)
   
   convergence_all <- convergence(object, combine = FALSE)
   convergence <- convergence(object, combine = TRUE)

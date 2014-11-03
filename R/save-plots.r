@@ -18,15 +18,15 @@ save_plots <- function(object, ...) {
 #' Plots jags_analysis object to a pdf file
 #' 
 #' @param object jags_analysis object to plot
-#' @param model_number a integer scalar of the model to plot
+#' @param model a number or string of the model to plot
 #' @param ... further arguments passed to or from other methods.
 #' @return Saves jags_analysis as a pdf file.
 #' @method save_plots jags_analysis
 #' @export
-save_plots.jags_analysis <- function(object, model_number = 1, ...) {
+save_plots.jags_analysis <- function(object, model = 1, ...) {
   file <- paste0(get_plots_folder(type = "analyses"), "/trace.pdf")
   pdf(file = file, width = 8.5, height = 11)
-  plot(object, model_number = model_number)
+  plot(object, model = model)
   dev.off()
 }
 
