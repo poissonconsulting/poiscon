@@ -23,22 +23,18 @@ save_tables <- function(object, ...) {
 #' @export
 save_tables.jags_analysis <- function(object, model_number = 1, ...) {
   
-  if (model_number == 0) {
-    dic <- as.data.frame(dic_jags(object))
-    save_table(dic, "dic")
-  }
   object <- subset(object, model_number = model_number)
   
-  rhat_all <- rhat(object, combine = FALSE)
-  rhat <- rhat(object, combine = TRUE)
+  convergence_all <- convergence(object, combine = FALSE)
+  convergence <- convergence(object, combine = TRUE)
   coef <- coef(object)
   niters <- niters(object)
   
-  save_table(rhat_all, "convergence", type = "analyses")
+  save_table(convergence_all, "convergence", type = "analyses")
   
   save_table(coef, "estimates")
   
-  table <- data.frame(Rhat = rhat, Iterations = niters)
+  table <- data.frame(Convergence = convergence, Iterations = niters)
   
-  save_table(table, "rhat")
+  save_table(table, "convergence")
 } 

@@ -1,5 +1,5 @@
 open_window <- function(width, height) {
-  fun <- switch(Sys.info()["sysname"], Windows = windows, Darwin = quartz, stop("gwindow not yet implemented for this operating system"))
+  fun <- switch(Sys.info()["sysname"], Windows = windows, Darwin = quartz, x11)
   
   fun(width = width, height = height)
 }

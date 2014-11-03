@@ -1,5 +1,10 @@
 #NEWS
 
+#### poiscon 0.8.15
+
+* upgraded to jaggernaut 2.1.1 - no longer calculates dic
+* generates x11 for linux
+
 #### poiscon 0.8.14
 
 - updated ggplot2 Poisson theme to include panel.grid.minor and panel.grid.major
