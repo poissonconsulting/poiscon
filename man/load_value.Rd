@@ -3,19 +3,21 @@
 \alias{load_value}
 \title{Load table}
 \usage{
-load_value(colname, rowname, folders = get_folders(), name = "table",
-  type = "results")
+load_value(rowname, colname = "estimate", folders = get_folders(),
+  name = "estimates", type = "results", digits = 6)
 }
 \arguments{
-\item{colname}{string of name of column containing value}
-
 \item{rowname}{string of name of row containing value}
+
+\item{colname}{string of name of column containing value}
 
 \item{folders}{string of folders containing table - separate folders with '/'}
 
 \item{name}{the name of the table (csv extension is not required)}
 
 \item{type}{the table type i.e. results (default) or analysis etc.}
+
+\item{digits}{count of number of significant digits}
 }
 \value{
 a data.frame of the table
