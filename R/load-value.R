@@ -19,9 +19,9 @@ load_value <- function(rowname, colname = "estimate", folders = get_folders(), n
   assert_that(is.string(type))
   assert_that(is.count(digits))
   
-  on.exit(set_folders(get_folders()))
-  set_folders(folders)
-  
+  old_folders <- set_folders(folders)
+  on.exit(set_folders(old_folders))
+
   table <- load_table(name = name, type = type)
   
   assert_that(!anyDuplicated(colnames(table)))

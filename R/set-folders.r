@@ -32,6 +32,8 @@ set_tables_folder <- function(folder = NULL, dir = getOption("folders.tables_dir
 #' @export
 set_folders <- function(...) {
   
+  old_folders <- get_folders()
+  
   folder <- paste(..., sep = "/", collapse = "/")
   if (!length(folder)) 
     folder <- NULL
@@ -39,5 +41,6 @@ set_folders <- function(...) {
   set_rdata_folder(folder)
   set_analyses_folder(folder)
   set_plots_folder(folder)
-  invisible(set_tables_folder(folder))
+  set_tables_folder(folder)
+  invisible(old_folders)
 } 
