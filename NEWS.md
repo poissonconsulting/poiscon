@@ -1,5 +1,9 @@
 #NEWS
 
+#### poiscon 0.8.16
+
+* added `load_value()` to get values from saved tables
+
 #### poiscon 0.8.15
 
 * upgraded to jaggernaut 2.1.1 - no longer calculates dic

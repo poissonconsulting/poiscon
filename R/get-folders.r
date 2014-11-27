@@ -38,3 +38,13 @@ get_tables_folder <- function(type = "results") {
     return(paste0(getOption("folders.tables_directory"), "/", type))
   return(paste0(getOption("folders.tables_directory"), "/", type, "/", getOption("folders.tables_folder")))
 } 
+
+#' @title Get folders
+#'
+#' @description 
+#' Sets folders for rdata, plots, tables, and analyses
+#' 
+#' @export
+get_folders <- function () {
+  getOption("folders.tables_folder")
+}
