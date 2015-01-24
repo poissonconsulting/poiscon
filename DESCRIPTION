@@ -17,7 +17,8 @@ Imports:
     lubridate (>= 1.3.3),
     grid (>= 3.1.0),
     ggplot2 (>= 1.0.0),
-    jaggernaut (>= 2.2.6)
+    jaggernaut (>= 2.2.6),
+    beepr (>= 1.1)
 Suggests:
     testthat
 License: MIT + file LICENSE

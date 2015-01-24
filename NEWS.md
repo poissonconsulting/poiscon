@@ -1,6 +1,9 @@
 # poiscon v0.8.18
 
-- removed inhouse functions
+- added `perform_analyses` function
+- added `plot_residuals_analyses` function
+- added `remove_dots_colnames_data_frames` function
+- removed inhouse functions (as masking reporting)
 
 # poiscon v0.8.17
 
