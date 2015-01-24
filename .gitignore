@@ -1,6 +1,4 @@
-*.odt
 .Rproj.user
 .Rhistory
 .RData
 .DS_Store
-*.html
