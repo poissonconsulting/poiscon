@@ -1,42 +1,22 @@
 
-set_rdata_folder <- function(..., dir = getOption("folders.rdata_directory")) {
-  folder <- paste(..., sep = "/", collapse = "/")
-  if (!length(folder)) 
-    folder <- NULL
-  
+set_rdata_folder <- function(folder = NULL, dir = getOption("folders.rdata_directory")) {
   options(folders.rdata_folder = folder)
   options(folders.rdata_directory = dir)
-  return(invisible())
 }
 
-set_analyses_folder <- function(..., dir = getOption("folders.analyses_directory")) {
-  folder <- paste(..., sep = "/", collapse = "/")
-  if (!length(folder)) 
-    folder <- NULL
-  
+set_analyses_folder <- function(folder = NULL, dir = getOption("folders.analyses_directory")) {
   options(folders.analyses_folder = folder)
   options(folders.analyses_directory = dir)
-  return(invisible())
 }
 
-set_plots_folder <- function(..., dir = getOption("folders.plots_directory")) {
-  folder <- paste(..., sep = "/", collapse = "/")
-  if (!length(folder)) 
-    folder <- NULL
-  
+set_plots_folder <- function(folder = NULL, dir = getOption("folders.plots_directory")) {
   options(folders.plots_folder = folder)
   options(folders.plots_directory = dir)
-  return(invisible())
 }
 
-set_tables_folder <- function(..., dir = getOption("folders.tables_directory")) {
-  folder <- paste(..., sep = "/", collapse = "/")
-  if (!length(folder)) 
-    folder <- NULL
-  
+set_tables_folder <- function(folder = NULL, dir = getOption("folders.tables_directory")) {
   options(folders.tables_folder = folder)
   options(folders.tables_directory = dir)
-  return(invisible())
 }
 
 #' @title Set folders
@@ -47,10 +27,16 @@ set_tables_folder <- function(..., dir = getOption("folders.tables_directory")) 
 #' @param ... multiple character scalars
 #' @export
 set_folders <- function(...) {
-  set_rdata_folder(...)
-  set_analyses_folder(...)
-  set_plots_folder(...)
-  set_tables_folder(...)
   
-  return(invisible())
+  old_folders <- get_folders()
+  
+  folder <- paste(..., sep = "/", collapse = "/")
+  if (!length(folder)) 
+    folder <- NULL
+  
+  set_rdata_folder(folder)
+  set_analyses_folder(folder)
+  set_plots_folder(folder)
+  set_tables_folder(folder)
+  invisible(folder)
 } 

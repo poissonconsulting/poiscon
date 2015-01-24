@@ -1,6 +1,14 @@
-# poiscon v0.8.16
+# poiscon v0.8.18
 
 - removed inhouse functions
+
+# poiscon v0.8.17
+
+* `set_folders()` returns file address for printing
+
+# poiscon v0.8.16
+
+* added `load_value()` to get values from saved tables
 
 # poiscon v0.8.15
 
