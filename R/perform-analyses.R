@@ -6,6 +6,7 @@
 #' @param ... character vectors of folders to cycle through
 #' @param niters count of number of iterations
 #' @param name string of name of data file
+#' @export
 perform_analyses <- function(models, ..., niters = 10^3, name = "data") {
   
   assert_that(is.jags_model(models))
@@ -43,6 +44,7 @@ perform_analyses <- function(models, ..., niters = 10^3, name = "data") {
 #' Plots
 #' 
 #' @param ... character vectors of folders to cycle through
+#' @export
 plot_residuals_analyses <- function(...) {
   args <- list(...)
   nargs <- length(args)
