@@ -1,3 +1,9 @@
+# poiscon v0.8.19
+
+- `perform_analyses` function now works with list of vectors
+- `perform_analyses` has mode argument to temporarily set `opts_jagr`
+- `perform_analyses` has beep argument to switch off beeping
+
 # poiscon v0.8.18
 
 - added `perform_analyses` function

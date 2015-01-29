@@ -5,14 +5,23 @@
 #' @param models jags_model objects
 #' @param ... character vectors of folders to cycle through
 #' @param niters count of number of iterations
+#' @param mode string of opts_jagr model
 #' @param name string of name of data file
+#' @param beep flag indicating whether to beep on completion
 #' @export
-perform_analyses <- function(models, ..., niters = 10^3, name = "data") {
+perform_analyses <- function(models, ..., niters = 10^3, mode = "current", 
+                             name = "data", beep = TRUE) {
   
   assert_that(is.jags_model(models))
   assert_that(is.count(niters))
+  assert_that(is.string(mode))
   assert_that(is.string(name))
-
+  assert_that(is.flag(beep) && noNA(beep))
+  
+  opts <- opts_jagr()
+  on.exit(opts_jagr(opts))
+  opts_jagr(mode = mode)
+  
   args <- list(...)
   nargs <- length(args)
   
@@ -31,11 +40,12 @@ perform_analyses <- function(models, ..., niters = 10^3, name = "data") {
   } else {
     folders <- t(expand.grid(...))
     for (i in 1:ncol(folders)) {
-      print(set_folders(as.character(folders[, i])))
+      print(set_folders(as.character(as.list(unlist(folders[, i])))))
       analysis(models = models, name = name, niters = niters)
     }
   }
-  beepr::beep(10)
+  if(beep)
+    beepr::beep(10)
   invisible(TRUE)
 }
 
