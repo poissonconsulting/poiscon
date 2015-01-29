@@ -5,7 +5,7 @@
 \title{Perform Analyses}
 \usage{
 perform_analyses(models, ..., niters = 10^3, mode = "current",
-  name = "data", beep = TRUE)
+  name = "data", beep = getOption("poiscon.beep", default = FALSE))
 }
 \arguments{
 \item{models}{jags_model objects}
