@@ -10,7 +10,8 @@
 #' @param beep flag indicating whether to beep on completion
 #' @export
 perform_analyses <- function(models, ..., niters = 10^3, mode = "current", 
-                             name = "data", beep = TRUE) {
+                             name = "data", 
+                             beep = getOption("poiscon.beep", default = FALSE)) {
   
   assert_that(is.jags_model(models))
   assert_that(is.count(niters))
