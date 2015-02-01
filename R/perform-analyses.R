@@ -24,6 +24,7 @@ perform_analyses <- function(models, ..., niters = 10^3, name = "data") {
     save_analysis(analysis)
     print(summary(analysis))
     save_tables(analysis)
+    save_plots(analysis)
   }
   
   if (nargs == 0) {
