@@ -4,7 +4,8 @@
 \alias{perform_analyses}
 \title{Perform Analyses}
 \usage{
-perform_analyses(models, ..., niters = 10^3, name = "data")
+perform_analyses(models, ..., niters = 10^3, mode = "current",
+  name = "data", beep = getOption("poiscon.beep", default = FALSE))
 }
 \arguments{
 \item{models}{jags_model objects}
@@ -13,7 +14,11 @@ perform_analyses(models, ..., niters = 10^3, name = "data")
 
 \item{niters}{count of number of iterations}
 
+\item{mode}{string of opts_jagr model}
+
 \item{name}{string of name of data file}
+
+\item{beep}{flag indicating whether to beep on completion}
 }
 \description{
 Performs batch jags analyses
