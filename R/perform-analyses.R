@@ -1,13 +1,17 @@
 #' Perform Analyses
 #' 
-#' Performs batch jags analyses
+#' Performs batch jags analyses. It goes through the folders defined by \code{...}
+#' and pulls out the data of name \code{name} (by default \code{"data"} and then fits
+#' the models defined in \code{models}. Note \code{beep = TRUE} has caused
+#' crashed with RStudio on windows.
 #' 
-#' @param models jags_model objects
-#' @param ... character vectors of folders to cycle through
-#' @param niters count of number of iterations
-#' @param mode string of opts_jagr model
-#' @param name string of name of data file
-#' @param beep flag indicating whether to beep on completion
+#' @param models A jags_model object.
+#' @param ... A series of character vectors or a list of character vectors of 
+#' folders to cycle through.
+#' @param niters A count of the number of iterations to perform.
+#' @param mode A string of the opts_jagr mode.
+#' @param name A string of the name of the data file.
+#' @param beep A flag indicating whether to beep on completion.
 #' @export
 perform_analyses <- function(models, ..., niters = 10^3, mode = "current", 
                              name = "data", 
