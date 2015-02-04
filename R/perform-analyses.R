@@ -75,7 +75,7 @@ plot_residuals_analyses <- function(...) {
   } else {
     folders <- t(expand.grid(...))
     for (i in 1:ncol(folders)) {
-      set_folders(as.character(folders[, i]))
+      print(set_folders(as.character(as.list(unlist(folders[, i])))))
       plot_residuals_analysis()
     }
   }
