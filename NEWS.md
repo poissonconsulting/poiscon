@@ -1,3 +1,7 @@
+# poiscon v0.8.20
+
+- `remove_dots_colnames_data_frames` also removes spaces
+
 # poiscon v0.8.19
 
 - `perform_analyses` function now works with list of vectors

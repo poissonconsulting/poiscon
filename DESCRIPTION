@@ -1,8 +1,8 @@
 Package: poiscon
 Type: Package
 Title: Poisson Consulting Utility Functions
-Version: 0.8.19
-Date: 2015-01-29
+Version: 0.8.20
+Date: 2015-04-20
 Author: Joe Thorley [aut, cre]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
 Description: Utility functions to simplify date time manipulations and data,
