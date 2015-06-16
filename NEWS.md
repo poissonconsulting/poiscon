@@ -1,3 +1,7 @@
+# poiscon v0.8.21
+
+- `save_plot` saves as png and pdf
+
 # poiscon v0.8.20
 
 - `remove_dots_colnames_data_frames` also removes spaces
