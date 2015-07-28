@@ -1,6 +1,10 @@
-# poiscon v0.8.21
+# poiscon v0.8.22
 
 - added examples for `standardise_datetime` which now actually uses UTC instead of GMT
+
+# poiscon v0.8.21
+
+- `save_plot` saves as png and pdf
 
 # poiscon v0.8.20
 

@@ -76,4 +76,5 @@ save_plot <- function(name = "plot", type = "figures", save_rows = 100, report =
   height <- height/100 * page_width
   
   ggsave(replace_ext(file, "png"), width = width, height = height, dpi = dpi)
+  ggsave(replace_ext(file, "pdf"), width = width, height = height, dpi = dpi)
 } 
