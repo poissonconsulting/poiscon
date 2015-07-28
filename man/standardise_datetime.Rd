@@ -2,7 +2,7 @@
 % Please edit documentation in R/standardise-datetime.r
 \name{standardise_datetime}
 \alias{standardise_datetime}
-\title{Standardise datetime}
+\title{Standardise Datetime}
 \usage{
 standardise_datetime(x, standardised_offset = -8)
 }
@@ -28,7 +28,16 @@ same time zone. The current function achieves this by forcing all the
 date-times to tz UTC and then adjusting for the difference in hours between
 the original \code{utc_offset} and the standardised offset.
 }
+\examples{
+vemco <- as.POSIXct(c("2000-04-01 17:00:00"), tz = "UTC")
+watch <- as.POSIXct(c("2000-04-01 9:00:00", "2000-04-02 10:00:00"), tz = "PST8PDT")
+logger <- as.POSIXct(c("2000-04-01 9:00:00", "2000-04-02 9:00:00"), tz = "Etc/GMT+8")
+
+standardise_datetime(vemco)
+standardise_datetime(watch)
+standardise_datetime(logger)
+}
 \seealso{
-\code{\link{utc_offset}}
+\code{\link{utc_offset}} \code{\link{timezones}}
 }
 

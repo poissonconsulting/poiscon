@@ -1,3 +1,7 @@
+# poiscon v0.8.21
+
+- added examples for `standardise_datetime` which now actually uses UTC instead of GMT
+
 # poiscon v0.8.20
 
 - `remove_dots_colnames_data_frames` also removes spaces
