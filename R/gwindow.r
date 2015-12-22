@@ -1,3 +1,9 @@
+open_window <- function(width, height) {
+  fun <- switch(Sys.info()["sysname"], Windows = windows, Darwin = quartz, x11)
+
+  fun(width = width, height = height)
+}
+
 #' @title Open graphics window
 #'
 #' @description
@@ -40,5 +46,5 @@ gwindow <- function(width = 100, height = width) {
   width <- page_width * width/100
   height <- page_width * height/100
 
-  dev.new(width = width, height = height)
+  open_window(width = width, height = height)
 }

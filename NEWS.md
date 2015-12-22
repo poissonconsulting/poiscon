@@ -1,7 +1,6 @@
 # poiscon v0.9.0
 
 - updated `theme_Poisson()` based on ggplot2 v2.0.0
-- `gwindow()` now uses `dev.new()` instead of platform specific call
 - `theme_set(theme_Poisson())` no longer automatically called at load
 
 # poiscon v0.8.22
