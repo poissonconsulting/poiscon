@@ -39,7 +39,7 @@ standardise_datetime <- function(x, standardised_offset = -8) {
   return(x)
 }
 
-#' @title Standardised date time
+#' Standardised date time
 #'
 #' Deprecated. See  \code{\link{standardise_datetime}}
 #'

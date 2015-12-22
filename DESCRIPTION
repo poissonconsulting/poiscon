@@ -1,24 +1,24 @@
 Package: poiscon
 Type: Package
 Title: Poisson Consulting Utility Functions
-Version: 0.8.22
-Date: 2015-07-28
-Author: Joe Thorley [aut, cre]
-Maintainer: Joe Thorley <joe@poissonconsulting.ca>
+Version: 0.9.0
+Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca",
+    role = c("aut", "cre"))
 Description: Utility functions to simplify date time manipulations and data,
     plot, table and analysis saving and loading. It is used by the employees
     of Poisson Consulting Ltd.
 Depends:
-    R (>= 3.1.0)
+    R (>= 3.2.3)
 Imports:
-    assertthat (>= 0.1),
+    assertthat,
     tulip (>= 0.0.9),
-    stringr (>= 0.6.2),
-    lubridate (>= 1.3.3),
-    grid (>= 3.1.0),
-    ggplot2 (>= 1.0.0),
+    stringr,
+    lubridate,
+    grid,
+    ggplot2 (>= 2.0.0),
     jaggernaut (>= 2.2.6),
-    beepr (>= 1.1)
+    beepr
 Suggests:
     testthat
 License: MIT + file LICENSE
+RoxygenNote: 5.0.1
