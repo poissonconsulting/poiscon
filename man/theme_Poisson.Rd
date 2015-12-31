@@ -4,7 +4,7 @@
 \alias{theme_Poisson}
 \title{Theme Poisson}
 \usage{
-theme_Poisson(base_size = 12, base_family = "")
+theme_Poisson(base_size = 10, base_family = "")
 }
 \arguments{
 \item{base_size}{base font size}

@@ -15,14 +15,12 @@
 #' facet_wrap(~manufacturer) +
 #' geom_count() +
 #' theme_Poisson()
-theme_Poisson <- function(base_size = 12, base_family = "") {
+theme_Poisson <- function(base_size = 10, base_family = "") {
   ggplot2::theme_grey(base_size = base_size, base_family = base_family) %+replace%
     theme(
-      axis.text         = ggplot2::element_text(size = ggplot2::rel(0.8)),
       axis.ticks        = ggplot2::element_line(colour = "black"),
       legend.key        = ggplot2::element_rect(colour = "grey80"),
-      legend.title = ggplot2::element_text(size = ggplot2::rel(0.8),
-                                           face = "bold", hjust = 0),
+      legend.title      = ggplot2::element_text(size = ggplot2::rel(0.8)),
       panel.background  = ggplot2::element_rect(fill = "white", colour = NA),
       panel.border      = ggplot2::element_rect(fill = NA, colour = "black"),
       panel.grid.major  = ggplot2::element_line(colour = "grey80", size = 0.5),
