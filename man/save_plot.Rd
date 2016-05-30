@@ -5,7 +5,8 @@
 \title{Save plot}
 \usage{
 save_plot(name = "plot", type = "figures", save_rows = 100,
-  report = TRUE, caption = NULL, width = NULL, height = NULL)
+  report = TRUE, caption = NULL, width = NULL, height = NULL,
+  plot = ggplot2::last_plot())
 }
 \arguments{
 \item{name}{a character scalar of the name of the object.}
@@ -20,13 +21,15 @@ to an analysis report.}
 
 \item{caption}{character scalar of caption.}
 
-\item{width}{a numeric scalar indicating the percent of the page width (or 
+\item{width}{a numeric scalar indicating the percent of the page width (or
 if 10 or less the width of the page in inches). By default the width is
 taken from the width of the previous gwindow.}
 
-\item{height}{a numeric scalar indicating the percent of the page height (or 
+\item{height}{a numeric scalar indicating the percent of the page height (or
 if 10 or less the width of the page in inches). By default the height is
 taken from the height of the previous gwindow.}
+
+\item{plot}{Plot to save, defaults to last plot displayed.}
 }
 \value{
 Saves current plot as png file in current plots folder.

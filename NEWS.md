@@ -1,3 +1,8 @@
+# poiscon v0.10.0
+
+- added `print_plot()` function to catch errors when printing plots
+- `save_plot` now has argument `plot = ggplot2::last_plot()`
+
 # poiscon v0.9.0
 
 - updated `theme_Poisson()` based on ggplot2 v2.0.0

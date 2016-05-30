@@ -1,7 +1,8 @@
 Package: poiscon
 Type: Package
 Title: Poisson Consulting Utility Functions
-Version: 0.9.0
+Version: 0.10.0
+Date: 2016-05-30
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca",
     role = c("aut", "cre"))
 Description: Utility functions to simplify date time manipulations and data,
@@ -11,12 +12,12 @@ Depends:
     R (>= 3.2.3)
 Imports:
     assertthat,
-    tulip (>= 0.0.9),
+    tulip (>= 0.0.13),
     stringr,
     lubridate,
     grid,
     ggplot2 (>= 2.0.0),
-    jaggernaut (>= 2.2.6),
+    jaggernaut (>= 2.3.3),
     beepr
 Suggests:
     testthat

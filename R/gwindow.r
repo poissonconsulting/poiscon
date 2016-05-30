@@ -1,5 +1,7 @@
 open_window <- function(width, height) {
-  fun <- switch(Sys.info()["sysname"], Windows = windows, Darwin = quartz, x11)
+  fun <- switch(Sys.info()["sysname"], Windows = grDevices::windows,
+                Darwin = grDevices::quartz,
+                grDevices::x11)
 
   fun(width = width, height = height)
 }

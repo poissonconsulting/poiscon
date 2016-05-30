@@ -19,11 +19,11 @@ plot_residuals(object, model = 1, parm_residual = "residual",
 
 \item{name}{a character scalar naming the file.}
 
-\item{derived_code}{a character element defining a block in the JAGS dialect of 
-the BUGS language that defines one or more derived parameters for each row of data. 
+\item{derived_code}{a character element defining a block in the JAGS dialect of
+the BUGS language that defines one or more derived parameters for each row of data.
 If NULL derived_code is as defined by the JAGS model for which the JAGS analysis was performed.}
 
-\item{random_effects}{a named list which specifies which parameters to treat 
+\item{random_effects}{a named list which specifies which parameters to treat
 as random variables. If NULL random is as defined by the JAGS model for which the JAGS analysis was performed.}
 
 \item{level}{a numeric scalar specifying the significance level or a character
