@@ -4,8 +4,6 @@
 #'
 #' @param x The plot object to plot.
 #' @export
-#'
-#' @examples
 print_plot <- function (x) {
   if (inherits(try(print(x), silent = TRUE), "try-error"))
     try(print(x))

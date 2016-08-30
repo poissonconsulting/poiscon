@@ -1,3 +1,7 @@
+# poiscon v0.10.1
+
+- GitHub dependencies on Remotes
+
 # poiscon v0.10.0
 
 - added `print_plot()` function to catch errors when printing plots
