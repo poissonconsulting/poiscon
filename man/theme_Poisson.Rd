@@ -6,11 +6,6 @@
 \usage{
 theme_Poisson(base_size = 10, base_family = "")
 }
-\arguments{
-\item{base_size}{base font size}
-
-\item{base_family}{base font family}
-}
 \value{
 A gg theme object.
 }
