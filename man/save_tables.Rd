@@ -17,4 +17,3 @@ Save object as a tables.
 \description{
 Saves object to a tables file
 }
-

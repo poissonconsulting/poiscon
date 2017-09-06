@@ -23,4 +23,3 @@ Expands date column in SQL query to extract Year, Month, Day values.
 \seealso{
 \link{sql_datetime} and \link{sql_time}
 }
-

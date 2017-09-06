@@ -12,4 +12,3 @@ set_folders(...)
 \description{
 Sets folders for rdata, plots, tables, and analyses
 }
-

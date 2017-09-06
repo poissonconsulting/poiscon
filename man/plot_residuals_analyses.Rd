@@ -12,4 +12,3 @@ plot_residuals_analyses(...)
 \description{
 Plots
 }
-

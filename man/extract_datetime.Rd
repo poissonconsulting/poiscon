@@ -61,4 +61,3 @@ extract_datetime(data, '', '')
 \code{\link{sql_datetime}}, \code{\link{ISOdatetime}}
 and \code{\link{extract_date}}
 }
-

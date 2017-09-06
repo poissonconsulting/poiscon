@@ -16,4 +16,3 @@ logical scalar indicating whether informative
 Tests whether a prediction data.frame is informative i.e.,
 has variation in estimate and/or lower/upper.
 }
-

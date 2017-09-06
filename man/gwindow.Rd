@@ -34,4 +34,3 @@ gwindow(3, 100)
 \seealso{
 \code{\link{save_plot}}
 }
-

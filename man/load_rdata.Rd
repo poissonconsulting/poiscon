@@ -18,4 +18,3 @@ all objects in current rdata folder into global workspace
 \description{
 Reads in R data file from current rdata folder.
 }
-

@@ -41,4 +41,3 @@ standardise_datetime(logger)
 \seealso{
 \code{\link{utc_offset}} \code{\link{timezones}}
 }
-

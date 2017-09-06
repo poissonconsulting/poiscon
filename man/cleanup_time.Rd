@@ -26,4 +26,3 @@ Cleans up time from data frame
 \seealso{
 \code{\link{cleanup_datetime}}
 }
-

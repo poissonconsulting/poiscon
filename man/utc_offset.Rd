@@ -19,4 +19,3 @@ of a date time object and the Coordinated Universal Time time zone.
 \seealso{
 \code{\link{standardised_date_time}}
 }
-

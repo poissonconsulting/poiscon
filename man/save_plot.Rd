@@ -41,4 +41,3 @@ given by option poiscon.dpi which by default is 320.
 \seealso{
 \code{\link{gwindow}}
 }
-

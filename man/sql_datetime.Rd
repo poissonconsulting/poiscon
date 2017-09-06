@@ -32,4 +32,3 @@ sql_datetime('RecaughtDateTime')
 \seealso{
 \link{sql_date} and \link{sql_time}
 }
-

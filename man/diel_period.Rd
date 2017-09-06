@@ -21,4 +21,3 @@ Calculates whether a date/time is Day or Night based on the
 latitude and longitude. The default is for the Poisson Consulting Ltd
 offices.
 }
-

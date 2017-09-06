@@ -15,4 +15,3 @@ in hours between UTC and the desired time zone.}
 \description{
 Deprecated. See  \code{\link{standardise_datetime}}
 }
-

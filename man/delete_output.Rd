@@ -18,4 +18,3 @@ An invisible logical scalar indicating if successful.
 \description{
 Deletes output folder for current project.
 }
-

@@ -11,4 +11,3 @@ Goes through all the data.frame objects in
 the current environment and removes any dots
 from the colnames
 }
-

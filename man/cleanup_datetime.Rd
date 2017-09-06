@@ -43,4 +43,3 @@ cleanup_datetime(data, ,'Release[d]*|Deceased$')
 \seealso{
 \code{\link{extract_datetime}}
 }
-

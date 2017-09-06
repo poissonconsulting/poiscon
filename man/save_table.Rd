@@ -20,4 +20,3 @@ Saves x as csv file in current table folder.
 Saves data.frame as csv file in current table folder. Row names
 are only save if informative (i.e. not NULL and not just 1:nrow(x)).
 }
-

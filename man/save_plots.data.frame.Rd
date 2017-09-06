@@ -19,4 +19,3 @@ Saves data.frame as a pdf file.
 \description{
 Plots data.frame object to a pdf file
 }
-

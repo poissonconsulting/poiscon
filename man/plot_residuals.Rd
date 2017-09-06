@@ -40,4 +40,3 @@ Save plots to a pdf file.
 \description{
 Save residual plots from a jaggernaut jags_analysis object to a pdf file.
 }
-

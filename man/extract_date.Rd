@@ -26,4 +26,3 @@ Extracts Date
 \seealso{
 \link{extract_datetime}
 }
-

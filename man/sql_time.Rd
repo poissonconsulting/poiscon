@@ -23,4 +23,3 @@ Expands time column in SQL query to extract Hour, Minute, Second values.
 \seealso{
 \link{sql_datetime} and \link{sql_date}
 }
-

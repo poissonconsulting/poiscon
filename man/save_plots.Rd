@@ -17,4 +17,3 @@ Save plot as a pdf file.
 \description{
 Plots object to a pdf file
 }
-

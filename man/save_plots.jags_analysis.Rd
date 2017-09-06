@@ -19,4 +19,3 @@ Saves jags_analysis as a pdf file.
 \description{
 Plots jags_analysis object to a pdf file
 }
-

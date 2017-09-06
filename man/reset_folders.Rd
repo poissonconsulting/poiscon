@@ -13,4 +13,3 @@ reset_folders(dir = "output")
 Resets poiscon folders to the default values. The folders are 
 used for saving plots, tables, rdata and analyses.
 }
-

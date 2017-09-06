@@ -12,4 +12,3 @@ print_plot(x)
 \description{
 Function to use an print_plot(gp) in place of print(gp) as catches error and retries.
 }
-

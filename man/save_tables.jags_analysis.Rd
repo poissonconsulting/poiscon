@@ -19,4 +19,3 @@ Save object as a tables.
 \description{
 Saves jags_analysis to tables
 }
-

@@ -15,4 +15,3 @@ should be nested in the work directory (share = TRUE) or saved a level
 Resets poiscon directories to the default values. The directories are 
 used for saving plots, tables, rdata and analyses.
 }
-

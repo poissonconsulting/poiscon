@@ -30,4 +30,3 @@ cleanup_date(data)
 \seealso{
 \code{\link{cleanup_datetime}}
 }
-

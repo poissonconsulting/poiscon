@@ -17,4 +17,3 @@ Saves object as .rdata files in current analysis folder.
 \description{
 Saves object as .rdata files in current analysis folder.
 }
-

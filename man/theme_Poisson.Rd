@@ -23,4 +23,3 @@ facet_wrap(~manufacturer) +
 geom_count() +
 theme_Poisson()
 }
-

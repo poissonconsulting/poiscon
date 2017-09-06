@@ -17,4 +17,3 @@ a data.frame of the table
 \description{
 Reads in csv file from current table folder.
 }
-

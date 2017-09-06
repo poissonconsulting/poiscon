@@ -15,4 +15,3 @@ An invisible logical scalar indicating if successful.
 \description{
 Deletes plots folder for current project.
 }
-

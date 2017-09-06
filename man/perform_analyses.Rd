@@ -27,4 +27,3 @@ and pulls out the data of name \code{name} (by default \code{"data"} and then fi
 the models defined in \code{models}. Note \code{beep = TRUE} has caused
 crashed with RStudio on windows.
 }
-

@@ -15,4 +15,3 @@ an analysis object
 \description{
 Reads in .rdata file from current analysis folder.
 }
-

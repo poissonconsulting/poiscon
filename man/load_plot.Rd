@@ -19,4 +19,3 @@ the gggplot object or the plot data
 \description{
 Reads in ggplot object
 }
-

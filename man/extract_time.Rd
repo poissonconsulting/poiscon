@@ -31,4 +31,3 @@ Extracts time from data frame
 \seealso{
 \link{sql_datetime} and \link{ISOdatetime}
 }
-

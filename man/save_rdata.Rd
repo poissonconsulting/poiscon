@@ -20,4 +20,3 @@ Invisible flag indicating if successful (also issues warning if FALSE).
 \description{
 Saves object as .rdata files in current rdata folder.
 }
-
